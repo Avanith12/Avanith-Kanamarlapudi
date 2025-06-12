@@ -1,0 +1,409 @@
+/* Root Variables for Theming */
+:root {
+  --bg-color: #111;
+  --text-color: #eee;
+  --accent-color: #00bfa6;
+  --card-bg: #1a1a1a;
+  --box-shadow: rgba(0, 255, 255, 0.1);
+}
+
+/* Light Theme Palette */
+.light-theme {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --accent-color: #3E96F4;
+  --card-bg: #EDEEEB;
+  --box-shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* Base Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+body {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+
+.hero {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+.typewrite::after {
+  content: '|';
+  animation: blink 1s infinite;
+  color: #3e96f4;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+
+.profile-img {
+  width: 200px;
+  height: 200px;
+  border: 4px solid var(--accent-color);
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  color: var(--accent-color);
+  font-size: 2.5rem;
+  margin: 0.5rem 0;
+}
+
+nav {
+  margin-top: 1.5rem;
+}
+
+nav a {
+  margin: 0 1rem;
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: var(--accent-color);
+  left: 0;
+  bottom: -4px;
+  transition: 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+.resume-btn {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s;
+  display: inline-block;
+}
+
+.resume-btn:hover {
+  background-color: #008b7d;
+}
+
+.section {
+  padding: 3rem 2rem;
+}
+
+.section h2 {
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--accent-color);
+  display: inline-block;
+}
+
+/* Grid Layouts */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Project Cards */
+.card {
+  background: var(--card-bg);
+  padding: 1rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 10px var(--box-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 0 15px var(--box-shadow);
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.card h3 {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: var(--text-color);
+}
+
+.card a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Education Section */
+.education-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.edu-card {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px var(--box-shadow);
+  transition: transform 0.3s ease;
+}
+
+.edu-card:hover {
+  transform: scale(1.02);
+}
+
+.edu-card h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: var(--accent-color);
+}
+
+.edu-card p {
+  margin: 0.5rem 0;
+}
+
+.edu-date, .edu-gpa {
+  display: block;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* Publications & Logos */
+.publications {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+}
+
+.pub-img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.pub-card p {
+  margin-top: 0.5rem;
+}
+
+/* Experience Logos */
+.logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.logos img {
+  max-height: 60px;
+  background: white;
+  padding: 0.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(255,255,255,0.1);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid #444;
+  color: #ccc;
+}
+
+footer a {
+  color: var(--accent-color);
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+footer a i {
+  transition: transform 0.3s ease;
+}
+
+footer a:hover i {
+  transform: scale(1.2);
+}
+
+
+/* My Journey Slider */
+.journey-slider {
+  width: 100%;
+  max-width: 700px;
+  margin: 2rem auto;
+  position: relative;
+}
+
+.journey-slider .slide {
+  display: none;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.journey-slider .slide.active {
+  display: block;
+  opacity: 1;
+}
+
+.journey-slider iframe {
+  width: 100%;
+  height: 600px;
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+}
+
+/* Fade-In Animation */
+.fade-in {
+  opacity: 0;
+  transform: scale(0.9) translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.appear {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+
+/* Dark/Light Toggle Button */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 999;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background: #0079c1;
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  .journey-slider iframe {
+    height: 400px;
+  }
+
+  .card img {
+    aspect-ratio: auto;
+  }
+}
+#fun a {
+  color: #00bfa6;
+  text-decoration: underline;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+#fun a:hover {
+  color: #ff4081;
+}
+/* Experience Popup */
+.experience-popup {
+  display: none;
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 500px;
+  background: #fff;
+  color: #000;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+.experience-popup ul {
+  padding-left: 1.2rem;
+}
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Hover effect for experience logos */
+.experience-logos img {
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.experience-logos {
+  display: flex;
+  flex-wrap: nowrap;  /* prevent wrapping */
+  overflow-x: auto;   /* allows horizontal scroll if content overflows */
+  gap: 1.5rem;
+  justify-content: flex-start;
+  padding: 1rem 0;
+}
+.logo-card {
+  flex: 0 0 auto;              /* prevent stretching */
+  text-align: center;
+  background: var(--card-bg);
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+.logo-card img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+}
+.exp-desc {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 12px;
+  background: var(--desc-bg);
+  color: var(--text);
+  text-align: left;
+  max-width: 300px;
+  display: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+.logo-card.active .exp-desc {
+  display: block;
+}
+
