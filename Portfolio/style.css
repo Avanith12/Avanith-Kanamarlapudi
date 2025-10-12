@@ -64,16 +64,17 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -2;
+  z-index: 0;
   opacity: 0.6;
   transition: opacity 0.5s ease;
   cursor: crosshair;
+  pointer-events: all;
 }
 
 /* Enhanced sections with 3D integration */
 .section {
   position: relative;
-  z-index: 1;
+  z-index: 10;
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
 }
@@ -81,7 +82,7 @@ body {
 /* Hero section with enhanced 3D feel */
 .hero {
   position: relative;
-  z-index: 2;
+  z-index: 10;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
 }
@@ -416,7 +417,7 @@ body::before {
     radial-gradient(circle at 20% 50%, rgba(0, 217, 255, 0.03) 0%, transparent 50%),
     radial-gradient(circle at 80% 80%, rgba(123, 47, 247, 0.03) 0%, transparent 50%);
   pointer-events: none;
-  z-index: -1;
+  z-index: 1;
 }
 
 .light-theme body::before {
