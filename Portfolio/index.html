@@ -29,34 +29,39 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
+  <!-- Skip Navigation Link for Accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
   <!-- 3D Background Canvas -->
   <canvas id="bg-canvas"></canvas>
   
   <!-- Navigation -->
   <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="nav-wrapper">
-      <a href="#" class="logo" aria-label="Home">AK</a>
-      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
+      <a href="#" class="logo" aria-label="Home - Avanith Kanamarlapudi Portfolio">AK</a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
       </button>
-      <div class="nav-links">
-    <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-    <a href="#journey">Journey</a>
-    <a href="#projects">Projects</a>
-    <a href="#experience">Experience</a>
-    <a href="#publications">Publications</a>
-    <a href="#articles">Articles</a>
-    <a href="#certifications">Certifications</a>
-    <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
-        <a href="files/Avanith_Kanamarlapudi_October_2025.pdf" class="resume-btn" target="_blank" rel="noopener noreferrer">Resume</a>
+      <div class="nav-links" id="nav-links" role="menubar">
+        <a href="#about" role="menuitem">About</a>
+        <a href="#skills" role="menuitem">Skills</a>
+        <a href="#journey" role="menuitem">Journey</a>
+        <a href="#projects" role="menuitem">Projects</a>
+        <a href="#experience" role="menuitem">Experience</a>
+        <a href="#publications" role="menuitem">Publications</a>
+        <a href="#articles" role="menuitem">Articles</a>
+        <a href="#certifications" role="menuitem">Certifications</a>
+        <a href="#education" role="menuitem">Education</a>
+        <a href="#contact" role="menuitem">Contact</a>
+        <a href="files/Avanith_Kanamarlapudi_October_2025.pdf" class="resume-btn" target="_blank" rel="noopener noreferrer" role="menuitem">Resume</a>
       </div>
     </div>
   </nav>
 
+  <!-- Main Content -->
+  <main id="main-content">
   <!-- Hero Section -->
   <header class="hero">
     <img src="images/Avanith Image/avanith.jpg" alt="Avanith Kanamarlapudi - AI Researcher" class="profile-img" loading="eager" />
@@ -397,7 +402,7 @@
         <h3>Knowledge Distillation</h3>
         <p class="card-desc">AI model compression for cybersecurity applications</p>
         <a href="https://github.com/Avanith12/Avanith_AI_For_All" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
-        <a href="https://avanith12.github.io/Avanith_AI_For_All/AI%20CyberSecurity%20UI/" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Demo</a>
+        <a href="https://avanith12.github.io/Avanith_AI_For_All/" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Demo</a>
       </div>
       <div class="card">
         <img src="images/Projects/image colorization.png" alt="Image Colorization using GANs" loading="lazy">
@@ -421,6 +426,8 @@
         <img src="images/Projects/news chatbot.png" alt="AI News Chatbot" loading="lazy">
         <h3>AI News Chatbot</h3>
         <p class="card-desc">Intelligent chatbot for real-time news queries and summaries</p>
+        <a href="https://github.com/Avanith12/AI-News-Chatbot" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://avanith12.github.io/AI-News-Chatbot/" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Demo</a>
       </div>
       <div class="card">
         <img src="images/Projects/SocialMediaEngagementDatasetAnalysis.png" alt="Social Media Data Analysis & Website Project" loading="lazy">
@@ -1056,6 +1063,7 @@
       </form>
     </div>
   </section>
+  </main>
 
   <!-- Scroll to Top Button -->
   <button class="scroll-to-top" aria-label="Scroll to top" title="Back to top">

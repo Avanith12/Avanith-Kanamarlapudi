@@ -50,6 +50,14 @@ if (hamburger && navLinks) {
     // Update ARIA attribute
     const isExpanded = hamburger.classList.contains('active');
     hamburger.setAttribute('aria-expanded', isExpanded);
+    
+    // Focus management for accessibility
+    if (isExpanded) {
+      const firstLink = navLinks.querySelector('a');
+      if (firstLink) {
+        firstLink.focus();
+      }
+    }
   });
 
   // Close menu when clicking outside
@@ -153,31 +161,46 @@ if (slides.length > 0) {
 }
 
 // ==================== THEME TOGGLE ====================
-const toggleBtn = document.createElement("button");
-toggleBtn.className = "theme-toggle";
-toggleBtn.setAttribute('aria-label', 'Toggle theme');
-document.body.appendChild(toggleBtn);
+let toggleBtn = null;
 
-// Check for saved theme preference
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'light') {
-  document.body.classList.add('light-theme');
-  toggleBtn.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
-} else {
-  toggleBtn.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
-}
-
-toggleBtn.addEventListener("click", () => {
-  document.body.classList.toggle("light-theme");
+function createThemeToggle() {
+  // Check if toggle already exists
+  if (document.querySelector('.theme-toggle')) {
+    return;
+  }
   
-  if (document.body.classList.contains("light-theme")) {
+  toggleBtn = document.createElement("button");
+  toggleBtn.className = "theme-toggle";
+  toggleBtn.setAttribute('aria-label', 'Toggle theme');
+  toggleBtn.setAttribute('type', 'button');
+  
+  // Append to body to keep it completely separate from navigation
+  document.body.appendChild(toggleBtn);
+
+  // Check for saved theme preference
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light') {
+    document.body.classList.add('light-theme');
     toggleBtn.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
-    localStorage.setItem('theme', 'light');
   } else {
     toggleBtn.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
-    localStorage.setItem('theme', 'dark');
   }
-});
+
+  toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("light-theme");
+    
+    if (document.body.classList.contains("light-theme")) {
+      toggleBtn.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
+      localStorage.setItem('theme', 'light');
+    } else {
+      toggleBtn.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+      localStorage.setItem('theme', 'dark');
+    }
+  });
+}
+
+// Initialize theme toggle after DOM is loaded
+document.addEventListener('DOMContentLoaded', createThemeToggle);
 
 // ==================== EXPERIENCE SECTION ====================
 // Enhanced experience cards with professional layout
@@ -329,6 +352,24 @@ const debouncedScroll = debounce(() => {
 }, 10);
 
 window.addEventListener('scroll', debouncedScroll);
+
+// ==================== CLEANUP ON PAGE UNLOAD ====================
+window.addEventListener('beforeunload', () => {
+  // Clean up event listeners
+  if (toggleBtn) {
+    toggleBtn.removeEventListener('click', toggleBtn.onclick);
+  }
+  
+  // Clear intervals
+  if (slideInterval) {
+    clearInterval(slideInterval);
+  }
+  
+  // Clean up Three.js background
+  if (window.interactiveThreeJSBackground) {
+    window.interactiveThreeJSBackground.destroy();
+  }
+});
 
 // ==================== CONSOLE MESSAGE ====================
 console.log('%c👋 Hello there!', 'font-size: 20px; font-weight: bold; color: #00bfa6;');

@@ -26,7 +26,7 @@ class InteractiveThreeJSBackground {
     
     // Dynamic instancing
     this.instancedMesh = null;
-    this.instanceCount = 1000;
+    this.instanceCount = window.innerWidth < 768 ? 500 : 800; // Reduced for mobile
     this.instanceMatrix = null;
     
     if (typeof THREE === 'undefined') {
@@ -88,7 +88,7 @@ class InteractiveThreeJSBackground {
 
   createParticleSystem() {
     const isMobile = window.innerWidth < 768;
-    const particleCount = isMobile ? 150 : 400;
+    const particleCount = isMobile ? 100 : 300; // Reduced for better performance
     const positions = new Float32Array(particleCount * 3);
     const colors = new Float32Array(particleCount * 3);
     
@@ -675,13 +675,22 @@ class InteractiveThreeJSBackground {
   }
 }
 
-// Initialize background
+// Initialize background with error handling
 document.addEventListener('DOMContentLoaded', () => {
   const checkThreeJS = () => {
     if (typeof THREE !== 'undefined') {
-      setTimeout(() => {
-        window.interactiveThreeJSBackground = new InteractiveThreeJSBackground();
-      }, 500);
+      try {
+        setTimeout(() => {
+          window.interactiveThreeJSBackground = new InteractiveThreeJSBackground();
+        }, 500);
+      } catch (error) {
+        console.warn('Three.js background initialization failed:', error);
+        // Fallback: hide canvas if Three.js fails
+        const canvas = document.getElementById('bg-canvas');
+        if (canvas) {
+          canvas.style.display = 'none';
+        }
+      }
     } else {
       setTimeout(checkThreeJS, 100);
     }
