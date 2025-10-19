@@ -346,13 +346,7 @@ function debounce(func, wait = 10) {
   };
 }
 
-// Apply debounce to scroll listeners for better performance
-const debouncedScroll = debounce(() => {
-  // This helps with performance by reducing scroll event frequency
-  // The actual scroll logic is handled by individual event listeners above
-}, 16); // ~60fps
-
-// Note: Individual scroll listeners are already optimized above
+// Performance optimization: Individual scroll listeners are already optimized above
 
 // ==================== CLEANUP ON PAGE UNLOAD ====================
 window.addEventListener('beforeunload', () => {
