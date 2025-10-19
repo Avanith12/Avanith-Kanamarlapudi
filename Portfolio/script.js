@@ -71,7 +71,7 @@ if (hamburger && navLinks) {
 }
 
 // ==================== FADE-IN ANIMATION ON SCROLL ====================
-const faders = document.querySelectorAll(".card, .pub-card, .edu-card, .skill-category, .logo-card");
+const faders = document.querySelectorAll(".card, .pub-card, .edu-card, .skill-category");
 const appearOptions = {
   threshold: 0.15,
   rootMargin: "0px 0px -100px 0px",
@@ -346,12 +346,13 @@ function debounce(func, wait = 10) {
   };
 }
 
-// Apply debounce to scroll listeners
+// Apply debounce to scroll listeners for better performance
 const debouncedScroll = debounce(() => {
-  // Scroll event logic here if needed
-}, 10);
+  // This helps with performance by reducing scroll event frequency
+  // The actual scroll logic is handled by individual event listeners above
+}, 16); // ~60fps
 
-window.addEventListener('scroll', debouncedScroll);
+// Note: Individual scroll listeners are already optimized above
 
 // ==================== CLEANUP ON PAGE UNLOAD ====================
 window.addEventListener('beforeunload', () => {
