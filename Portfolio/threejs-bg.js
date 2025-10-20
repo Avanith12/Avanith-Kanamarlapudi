@@ -403,16 +403,32 @@ class InteractiveThreeJSBackground {
     const positions = new Float32Array(burstCount * 3);
     const colors = new Float32Array(burstCount * 3);
     
+    // Convert screen coordinates to normalized device coordinates
+    const mouse = new THREE.Vector2();
+    mouse.x = (x / window.innerWidth) * 2 - 1;
+    mouse.y = -(y / window.innerHeight) * 2 + 1;
+    
+    // Convert to world coordinates using camera
+    const raycaster = new THREE.Raycaster();
+    raycaster.setFromCamera(mouse, this.camera);
+    
+    // Get the intersection point at z = 0 (where particles should appear)
+    const plane = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
+    const intersectionPoint = new THREE.Vector3();
+    raycaster.ray.intersectPlane(plane, intersectionPoint);
+    
     for (let i = 0; i < burstCount; i++) {
       const i3 = i * 3;
       
-      // Convert screen coordinates to world coordinates
-      const worldX = (x / window.innerWidth) * 2 - 1;
-      const worldY = -(y / window.innerHeight) * 2 + 1;
+      // Create burst around the intersection point
+      const angle = (i / burstCount) * Math.PI * 2;
+      const radius = Math.random() * 0.5;
+      const offsetX = Math.cos(angle) * radius;
+      const offsetY = Math.sin(angle) * radius;
       
-      positions[i3] = worldX * 10;
-      positions[i3 + 1] = worldY * 10;
-      positions[i3 + 2] = 0;
+      positions[i3] = intersectionPoint.x + offsetX;
+      positions[i3 + 1] = intersectionPoint.y + offsetY;
+      positions[i3 + 2] = intersectionPoint.z + (Math.random() - 0.5) * 0.2;
       
       const color = new THREE.Color();
       color.setHSL(Math.random(), 0.8, 0.6);
