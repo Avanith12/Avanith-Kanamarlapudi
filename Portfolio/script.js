@@ -12,6 +12,11 @@
 
 // ==================== SMOOTH SCROLL FOR NAVIGATION ====================
 document.querySelectorAll("nav a, .nav-links a").forEach(link => {
+  // Skip hamburger button
+  if (link.classList.contains('hamburger') || link.closest('.hamburger')) {
+    return;
+  }
+  
   link.addEventListener("click", function (e) {
     const href = this.getAttribute("href");
     if (href && href.startsWith("#")) {
@@ -20,17 +25,21 @@ document.querySelectorAll("nav a, .nav-links a").forEach(link => {
       const targetSection = document.getElementById(targetId);
       
       if (targetSection) {
-        // Close mobile menu if open
-        const navLinks = document.querySelector('.nav-links');
-        const hamburger = document.querySelector('.hamburger');
-        const body = document.body;
-        const wasMenuOpen = navLinks && navLinks.classList.contains('active');
-        if (wasMenuOpen) {
-          navLinks.classList.remove('active');
-          hamburger.classList.remove('active');
-          hamburger.setAttribute('aria-expanded', 'false');
-          body.style.overflow = '';
-        }
+        // Close mobile menu if open (delay to let menu handler work first)
+        setTimeout(() => {
+          const navLinks = document.querySelector('.nav-links');
+          const hamburger = document.querySelector('.hamburger');
+          const body = document.body;
+          if (navLinks && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            if (hamburger) {
+              hamburger.classList.remove('active');
+              hamburger.setAttribute('aria-expanded', 'false');
+            }
+            body.style.overflow = '';
+            body.classList.remove('menu-open');
+          }
+        }, 100);
         
         // Small delay to ensure menu is closed before scrolling on mobile
         setTimeout(() => {
@@ -38,7 +47,7 @@ document.querySelectorAll("nav a, .nav-links a").forEach(link => {
             top: targetSection.offsetTop - 70,
             behavior: "smooth",
           });
-        }, wasMenuOpen ? 400 : 0);
+        }, 400);
       }
     }
   });
@@ -46,131 +55,136 @@ document.querySelectorAll("nav a, .nav-links a").forEach(link => {
 
 // ==================== MOBILE HAMBURGER MENU ====================
 (function() {
-  const hamburger = document.querySelector('.hamburger');
-  const navLinks = document.querySelector('.nav-links');
-  const body = document.body;
-  let scrollPosition = 0;
+  'use strict';
   
-  if (!hamburger || !navLinks) return;
-
-  // Function to close menu
-  function closeMenu() {
-    hamburger.classList.remove('active');
-    navLinks.classList.remove('active');
-    hamburger.setAttribute('aria-expanded', 'false');
-    body.classList.remove('menu-open');
-    body.style.overflow = '';
-    body.style.position = '';
-    body.style.top = '';
-    body.style.width = '';
-    // Restore scroll position
-    if (scrollPosition) {
-      window.scrollTo(0, scrollPosition);
-      scrollPosition = 0;
-    }
-  }
-
-  // Function to open menu
-  function openMenu() {
-    // Save current scroll position
-    scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+  // Wait for DOM to be ready
+  function initMenu() {
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const body = document.body;
     
-    hamburger.classList.add('active');
-    navLinks.classList.add('active');
-    hamburger.setAttribute('aria-expanded', 'true');
-    body.classList.add('menu-open');
-    body.style.overflow = 'hidden';
-  }
-
-  // Toggle menu on hamburger click/touch
-  function toggleMenu(e) {
-    if (e) {
-      e.stopPropagation();
-      e.preventDefault();
-    }
-    
-    // Immediately toggle to prevent conflicts
-    if (navLinks.classList.contains('active')) {
-      closeMenu();
-    } else {
-      openMenu();
-    }
-  }
-  
-  hamburger.addEventListener('click', toggleMenu);
-  hamburger.addEventListener('touchend', function(e) {
-    // Prevent double-firing on mobile
-    e.preventDefault();
-    toggleMenu(e);
-  });
-
-  // Close menu when clicking on nav links
-  navLinks.addEventListener('click', function(e) {
-    // Only close if clicking directly on a link, not on the container
-    const clickedLink = e.target.closest('a');
-    if (clickedLink) {
-      closeMenu();
-    }
-  });
-
-  // Close menu when clicking outside (delay to avoid conflicts with hamburger click)
-  let clickOutsideTimeout;
-  let isHamburgerClick = false;
-  
-  // Track hamburger clicks
-  hamburger.addEventListener('mousedown', function() {
-    isHamburgerClick = true;
-    setTimeout(function() {
-      isHamburgerClick = false;
-    }, 200);
-  });
-  
-  hamburger.addEventListener('touchstart', function() {
-    isHamburgerClick = true;
-    setTimeout(function() {
-      isHamburgerClick = false;
-    }, 200);
-  });
-  
-  document.addEventListener('click', function(e) {
-    // Ignore clicks on hamburger button
-    if (isHamburgerClick || hamburger.contains(e.target)) {
+    if (!hamburger || !navLinks) {
+      // Retry if elements not found
+      setTimeout(initMenu, 100);
       return;
     }
-    
-    // Clear any existing timeout
-    clearTimeout(clickOutsideTimeout);
-    
-    // Only check if menu is open
-    if (!navLinks.classList.contains('active')) return;
-    
-    // Check if click is outside nav-links
-    const isClickInsideNav = navLinks.contains(e.target);
-    
-    // Use a small delay to ensure hamburger click handler fires first
-    if (!isClickInsideNav) {
-      clickOutsideTimeout = setTimeout(function() {
-        if (navLinks.classList.contains('active') && !isHamburgerClick) {
-          closeMenu();
-        }
-      }, 150);
-    }
-  });
 
-  // Close menu on escape key
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && navLinks.classList.contains('active')) {
-      closeMenu();
-      hamburger.focus();
-    }
-  });
+    let isMenuOpen = false;
+    let scrollPosition = 0;
 
-  // Close menu on window resize (if resizing to desktop)
-  window.addEventListener('resize', function() {
-    if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
-      closeMenu();
+    // Function to close menu
+    function closeMenu() {
+      isMenuOpen = false;
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+      body.classList.remove('menu-open');
+      body.style.overflow = '';
+      body.style.position = '';
+      body.style.top = '';
+      body.style.width = '';
+      
+      // Restore scroll position
+      if (scrollPosition) {
+        window.scrollTo(0, scrollPosition);
+        scrollPosition = 0;
+      }
     }
-  });
+
+    // Function to open menu
+    function openMenu() {
+      isMenuOpen = true;
+      scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+      
+      hamburger.classList.add('active');
+      navLinks.classList.add('active');
+      hamburger.setAttribute('aria-expanded', 'true');
+      body.classList.add('menu-open');
+      body.style.overflow = 'hidden';
+    }
+
+    // Toggle menu function
+    function toggleMenu() {
+      if (isMenuOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    }
+
+    // Hamburger button click handler
+    hamburger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      toggleMenu();
+    });
+
+    // Close menu when clicking on nav links (but not immediately, let the link work first)
+    navLinks.addEventListener('click', function(e) {
+      const link = e.target.closest('a');
+      if (link && link.getAttribute('href') && link.getAttribute('href').startsWith('#')) {
+        // Small delay to let smooth scroll work
+        setTimeout(function() {
+          if (isMenuOpen) {
+            closeMenu();
+          }
+        }, 300);
+      } else if (link) {
+        // External links or resume button
+        setTimeout(function() {
+          if (isMenuOpen) {
+            closeMenu();
+          }
+        }, 100);
+      }
+    });
+
+    // Close menu when clicking outside - use delayed click to avoid conflicts
+    let outsideClickTimeout;
+    document.addEventListener('click', function(e) {
+      // Only handle if menu is open
+      if (!isMenuOpen) return;
+      
+      const target = e.target;
+      const isClickOnHamburger = hamburger.contains(target);
+      const isClickOnNav = navLinks.contains(target);
+      
+      // Clear any pending timeout
+      clearTimeout(outsideClickTimeout);
+      
+      // If click is outside, close menu after a small delay
+      if (!isClickOnHamburger && !isClickOnNav) {
+        outsideClickTimeout = setTimeout(function() {
+          // Double-check menu is still open before closing
+          if (isMenuOpen && navLinks.classList.contains('active')) {
+            closeMenu();
+          }
+        }, 50);
+      }
+    });
+
+    // Close menu on escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && isMenuOpen) {
+        closeMenu();
+        hamburger.focus();
+      }
+    });
+
+    // Close menu on window resize (if resizing to desktop)
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768 && isMenuOpen) {
+        closeMenu();
+      }
+    });
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMenu);
+  } else {
+    initMenu();
+  }
 })();
 
 // ==================== FADE-IN ANIMATION ON SCROLL ====================

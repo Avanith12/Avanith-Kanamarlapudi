@@ -2769,7 +2769,6 @@ footer::before {
   
   /* Hide nav-links completely on mobile - only show when active */
   .nav-links {
-    display: none !important;
     position: fixed;
     top: var(--navbar-height);
     left: 0;
@@ -2791,6 +2790,9 @@ footer::before {
     border-top: 1px solid var(--card-border);
     margin-left: 0 !important;
     flex: none !important;
+    
+    /* Hidden state */
+    display: none;
     opacity: 0;
     visibility: hidden;
     transform: translateX(-100%);
