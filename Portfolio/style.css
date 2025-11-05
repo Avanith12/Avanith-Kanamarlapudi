@@ -2763,6 +2763,7 @@ footer::before {
   }
   
   .nav-links {
+    display: none;
     position: fixed;
     top: var(--navbar-height);
     left: -100%;
@@ -2782,8 +2783,9 @@ footer::before {
     box-shadow: 4px 0 20px rgba(0, 0, 0, 0.5);
     border-top: 1px solid var(--card-border);
   }
-
+  
   .nav-links.active {
+    display: flex;
     left: 0;
   }
 
@@ -2814,7 +2816,7 @@ footer::before {
   }
 
   .hamburger {
-    display: flex;
+    display: flex !important;
     z-index: 1002;
     min-width: 44px;
     min-height: 44px;
@@ -2823,6 +2825,9 @@ footer::before {
     background: rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     margin-right: 0.5rem;
+    visibility: visible;
+    opacity: 1;
+    position: relative;
   }
   
   .hamburger:active {
@@ -2839,6 +2844,19 @@ footer::before {
 
   .hamburger.active span:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -7px);
+  }
+  
+  .hamburger span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background: var(--accent-gradient);
+    border-radius: 3px;
+    transition: var(--transition);
+    box-shadow: 0 2px 5px var(--box-shadow);
+    pointer-events: none;
+    visibility: visible;
+    opacity: 1;
   }
   
   /* Overlay to close menu when clicking outside */
