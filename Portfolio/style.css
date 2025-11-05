@@ -2756,104 +2756,14 @@ footer::before {
     opacity: 0.4; /* Reduce opacity on mobile for better performance */
   }
   
-  /* Mobile Navigation - Always visible horizontal scrollable bar */
-  .nav-wrapper {
-    flex-direction: column;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    justify-content: flex-start;
-    width: 100%;
-    overflow: visible;
+  /* Hide navbar completely on mobile - users can scroll naturally */
+  .navbar {
+    display: none !important;
   }
   
-  .navbar {
-    padding: 0.5rem 0;
-    overflow: visible;
-  }
-
-  .logo {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-  }
-
-  /* Clean horizontal scrollable navigation on mobile */
-  .nav-links {
-    display: flex !important;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-    scrollbar-color: var(--accent-color) transparent;
-    gap: 0.4rem;
-    padding: 0.5rem 0;
-    width: 100%;
-    max-width: 100%;
-    margin-left: 0 !important;
-    flex: none !important;
-    position: relative;
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: none !important;
-    pointer-events: auto !important;
-    /* Force horizontal scroll */
-    min-width: max-content;
-  }
-
-  /* Hide scrollbar but keep functionality */
-  .nav-links::-webkit-scrollbar {
-    height: 4px;
-  }
-
-  .nav-links::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  .nav-links::-webkit-scrollbar-thumb {
-    background: var(--accent-color);
-    border-radius: 2px;
-  }
-
-  .nav-links a {
-    padding: 0.5rem 0.8rem;
-    font-size: 0.85rem;
-    white-space: nowrap;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-    flex-shrink: 0;
-    flex-grow: 0;
-    text-align: center;
-    min-width: max-content;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .nav-links a:hover {
-    background: rgba(0, 146, 162, 0.2);
-    border-color: var(--accent-color);
-    transform: translateY(-2px);
-  }
-
-  .nav-links .resume-btn {
-    background: var(--accent-gradient) !important;
-    color: white !important;
-    padding: 0.6rem 1.2rem !important;
-    font-weight: 600;
-    box-shadow: 0 4px 15px var(--box-shadow);
-  }
-
-  .nav-links .resume-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px var(--box-shadow);
-  }
-
-  /* Hide hamburger button completely */
-  .hamburger {
-    display: none !important;
+  /* Adjust main content padding since navbar is hidden */
+  main#main-content {
+    padding-top: 0;
   }
   
   /* Journey Section Mobile */
