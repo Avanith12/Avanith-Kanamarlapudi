@@ -472,6 +472,20 @@ html {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
 }
 
+.light-theme .nav-links {
+  background: rgba(255, 255, 255, 0.98);
+}
+
+.light-theme .nav-links a {
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.light-theme .nav-links a:hover {
+  background: rgba(30, 58, 138, 0.15);
+  border-color: var(--accent-color);
+}
+
 .nav-wrapper {
   max-width: 1200px;
   margin: 0 auto;
@@ -593,6 +607,8 @@ html {
   border: none;
   cursor: pointer;
   padding: 0.5rem;
+  z-index: 1001;
+  position: relative;
 }
 
 .hamburger span {
@@ -602,6 +618,7 @@ html {
   border-radius: 3px;
   transition: var(--transition);
   box-shadow: 0 2px 5px var(--box-shadow);
+  pointer-events: none;
 }
 
 /* ==================== HERO SECTION ==================== */
@@ -2751,24 +2768,65 @@ footer::before {
     left: -100%;
     width: 100%;
     height: calc(100vh - var(--navbar-height));
-    background: var(--bg-color);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: rgba(10, 10, 10, 0.98);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
     flex-direction: column;
     justify-content: flex-start;
+    align-items: flex-start;
     padding: 2rem;
-    gap: 2rem;
-    transition: left 0.3s ease;
+    gap: 1.5rem;
+    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     overflow-y: auto;
-    z-index: 999;
+    z-index: 1000;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.5);
+    border-top: 1px solid var(--card-border);
   }
 
   .nav-links.active {
     left: 0;
   }
 
+  .nav-links a {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-links a:hover {
+    background: rgba(0, 146, 162, 0.15);
+    border-color: var(--accent-color);
+    transform: translateX(5px);
+  }
+
+  .nav-links .resume-btn {
+    width: auto;
+    margin: 1rem 0 0 0;
+    align-self: stretch;
+    text-align: center;
+    justify-content: center;
+  }
+
   .hamburger {
     display: flex;
+    z-index: 1002;
+    min-width: 44px;
+    min-height: 44px;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-right: 0.5rem;
+  }
+  
+  .hamburger:active {
+    background: rgba(0, 146, 162, 0.2);
   }
 
   .hamburger.active span:nth-child(1) {
@@ -2781,6 +2839,18 @@ footer::before {
 
   .hamburger.active span:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -7px);
+  }
+  
+  /* Overlay to close menu when clicking outside */
+  .nav-links.active::before {
+    content: '';
+    position: fixed;
+    top: var(--navbar-height);
+    left: 0;
+    width: 100%;
+    height: calc(100vh - var(--navbar-height));
+    background: rgba(0, 0, 0, 0.3);
+    z-index: -1;
   }
   
   /* Journey Section Mobile */
@@ -2906,6 +2976,25 @@ footer::before {
 @media (max-width: 480px) {
   .nav-wrapper {
     padding: 0 1rem;
+  }
+  
+  .hamburger {
+    padding: 0.4rem;
+  }
+  
+  .hamburger span {
+    width: 24px;
+    height: 2.5px;
+  }
+  
+  .nav-links {
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+  
+  .nav-links a {
+    padding: 0.9rem 1.2rem;
+    font-size: 1rem;
   }
   
 
