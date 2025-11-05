@@ -11,12 +11,7 @@
 */
 
 // ==================== SMOOTH SCROLL FOR NAVIGATION ====================
-document.querySelectorAll("nav a, .nav-links a").forEach(link => {
-  // Skip hamburger button
-  if (link.classList.contains('hamburger') || link.closest('.hamburger')) {
-    return;
-  }
-  
+document.querySelectorAll(".nav-links a[href^='#']").forEach(link => {
   link.addEventListener("click", function (e) {
     const href = this.getAttribute("href");
     if (href && href.startsWith("#")) {
@@ -25,164 +20,17 @@ document.querySelectorAll("nav a, .nav-links a").forEach(link => {
       const targetSection = document.getElementById(targetId);
       
       if (targetSection) {
-        // Close mobile menu if open (delay to let menu handler work first)
-        setTimeout(() => {
-          const navLinks = document.querySelector('.nav-links');
-          const hamburger = document.querySelector('.hamburger');
-          const body = document.body;
-          if (navLinks && navLinks.classList.contains('active')) {
-            navLinks.classList.remove('active');
-            if (hamburger) {
-              hamburger.classList.remove('active');
-              hamburger.setAttribute('aria-expanded', 'false');
-            }
-            body.style.overflow = '';
-            body.classList.remove('menu-open');
-          }
-        }, 100);
-        
-        // Small delay to ensure menu is closed before scrolling on mobile
-        setTimeout(() => {
-          window.scrollTo({
-            top: targetSection.offsetTop - 70,
-            behavior: "smooth",
-          });
-        }, 400);
+        window.scrollTo({
+          top: targetSection.offsetTop - 70,
+          behavior: "smooth",
+        });
       }
     }
   });
 });
 
-// ==================== MOBILE HAMBURGER MENU ====================
-(function() {
-  'use strict';
-  
-  let menuInitialized = false;
-  let isMenuOpen = false;
-  let scrollPosition = 0;
-  
-  function initMenu() {
-    if (menuInitialized) return;
-    
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    
-    if (!hamburger || !navLinks) {
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initMenu);
-      } else {
-        setTimeout(initMenu, 100);
-      }
-      return;
-    }
-    
-    menuInitialized = true;
-    const body = document.body;
-
-    function closeMenu() {
-      if (!isMenuOpen) return;
-      
-      isMenuOpen = false;
-      hamburger.classList.remove('active');
-      navLinks.classList.remove('active');
-      hamburger.setAttribute('aria-expanded', 'false');
-      body.classList.remove('menu-open');
-      body.style.overflow = '';
-      body.style.position = '';
-      body.style.top = '';
-      body.style.width = '';
-      
-      if (scrollPosition) {
-        window.scrollTo(0, scrollPosition);
-        scrollPosition = 0;
-      }
-    }
-
-    function openMenu() {
-      if (isMenuOpen) return;
-      
-      isMenuOpen = true;
-      scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-      
-      hamburger.classList.add('active');
-      navLinks.classList.add('active');
-      hamburger.setAttribute('aria-expanded', 'true');
-      body.classList.add('menu-open');
-      body.style.overflow = 'hidden';
-    }
-
-    let ignoreNextClick = false;
-    
-    // Hamburger button - ONLY handle clicks here
-    hamburger.addEventListener('click', function(e) {
-      e.stopPropagation();
-      e.preventDefault();
-      
-      // Set flag to ignore outside click handler
-      ignoreNextClick = true;
-      setTimeout(function() {
-        ignoreNextClick = false;
-      }, 300);
-      
-      if (isMenuOpen) {
-        closeMenu();
-      } else {
-        openMenu();
-      }
-    }, false);
-
-    // Close when clicking nav links
-    navLinks.addEventListener('click', function(e) {
-      const link = e.target.closest('a');
-      if (link) {
-        setTimeout(closeMenu, 200);
-      }
-    }, false);
-
-    // Close on escape
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && isMenuOpen) {
-        closeMenu();
-      }
-    });
-
-    // Close on resize to desktop
-    window.addEventListener('resize', function() {
-      if (window.innerWidth > 768 && isMenuOpen) {
-        closeMenu();
-      }
-    });
-
-    // Close when clicking outside - with delay to avoid immediate closing
-    document.addEventListener('click', function(e) {
-      // Ignore if we just clicked hamburger
-      if (ignoreNextClick) return;
-      
-      // Only check if menu is actually open
-      if (!isMenuOpen || !navLinks.classList.contains('active')) return;
-      
-      // Don't close if clicking hamburger
-      if (hamburger.contains(e.target)) return;
-      
-      // Don't close if clicking nav links (they handle their own closing)
-      if (navLinks.contains(e.target)) return;
-      
-      // Close menu after a delay
-      setTimeout(function() {
-        if (isMenuOpen && navLinks.classList.contains('active') && !ignoreNextClick) {
-          closeMenu();
-        }
-      }, 100);
-    }, false);
-  }
-
-  // Start initialization
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initMenu);
-  } else {
-    initMenu();
-  }
-})();
+// ==================== MOBILE NAVIGATION ====================
+// Simple always-visible navigation on mobile - no hamburger menu needed
 
 // ==================== FADE-IN ANIMATION ON SCROLL ====================
 const faders = document.querySelectorAll(".card, .pub-card, .edu-card, .skill-category");
