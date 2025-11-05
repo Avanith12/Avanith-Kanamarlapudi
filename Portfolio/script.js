@@ -57,23 +57,31 @@ document.querySelectorAll("nav a, .nav-links a").forEach(link => {
 (function() {
   'use strict';
   
-  // Wait for DOM to be ready
+  let menuInitialized = false;
+  let isMenuOpen = false;
+  let scrollPosition = 0;
+  
   function initMenu() {
+    if (menuInitialized) return;
+    
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
-    const body = document.body;
     
     if (!hamburger || !navLinks) {
-      // Retry if elements not found
-      setTimeout(initMenu, 100);
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initMenu);
+      } else {
+        setTimeout(initMenu, 100);
+      }
       return;
     }
+    
+    menuInitialized = true;
+    const body = document.body;
 
-    let isMenuOpen = false;
-    let scrollPosition = 0;
-
-    // Function to close menu
     function closeMenu() {
+      if (!isMenuOpen) return;
+      
       isMenuOpen = false;
       hamburger.classList.remove('active');
       navLinks.classList.remove('active');
@@ -84,15 +92,15 @@ document.querySelectorAll("nav a, .nav-links a").forEach(link => {
       body.style.top = '';
       body.style.width = '';
       
-      // Restore scroll position
       if (scrollPosition) {
         window.scrollTo(0, scrollPosition);
         scrollPosition = 0;
       }
     }
 
-    // Function to open menu
     function openMenu() {
+      if (isMenuOpen) return;
+      
       isMenuOpen = true;
       scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
       
@@ -103,83 +111,72 @@ document.querySelectorAll("nav a, .nav-links a").forEach(link => {
       body.style.overflow = 'hidden';
     }
 
-    // Toggle menu function
-    function toggleMenu() {
+    let ignoreNextClick = false;
+    
+    // Hamburger button - ONLY handle clicks here
+    hamburger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      
+      // Set flag to ignore outside click handler
+      ignoreNextClick = true;
+      setTimeout(function() {
+        ignoreNextClick = false;
+      }, 300);
+      
       if (isMenuOpen) {
         closeMenu();
       } else {
         openMenu();
       }
-    }
+    }, false);
 
-    // Hamburger button click handler
-    hamburger.addEventListener('click', function(e) {
-      e.stopPropagation();
-      e.preventDefault();
-      toggleMenu();
-    });
-
-    // Close menu when clicking on nav links (but not immediately, let the link work first)
+    // Close when clicking nav links
     navLinks.addEventListener('click', function(e) {
       const link = e.target.closest('a');
-      if (link && link.getAttribute('href') && link.getAttribute('href').startsWith('#')) {
-        // Small delay to let smooth scroll work
-        setTimeout(function() {
-          if (isMenuOpen) {
-            closeMenu();
-          }
-        }, 300);
-      } else if (link) {
-        // External links or resume button
-        setTimeout(function() {
-          if (isMenuOpen) {
-            closeMenu();
-          }
-        }, 100);
+      if (link) {
+        setTimeout(closeMenu, 200);
       }
-    });
+    }, false);
 
-    // Close menu when clicking outside - use delayed click to avoid conflicts
-    let outsideClickTimeout;
-    document.addEventListener('click', function(e) {
-      // Only handle if menu is open
-      if (!isMenuOpen) return;
-      
-      const target = e.target;
-      const isClickOnHamburger = hamburger.contains(target);
-      const isClickOnNav = navLinks.contains(target);
-      
-      // Clear any pending timeout
-      clearTimeout(outsideClickTimeout);
-      
-      // If click is outside, close menu after a small delay
-      if (!isClickOnHamburger && !isClickOnNav) {
-        outsideClickTimeout = setTimeout(function() {
-          // Double-check menu is still open before closing
-          if (isMenuOpen && navLinks.classList.contains('active')) {
-            closeMenu();
-          }
-        }, 50);
-      }
-    });
-
-    // Close menu on escape key
+    // Close on escape
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape' && isMenuOpen) {
         closeMenu();
-        hamburger.focus();
       }
     });
 
-    // Close menu on window resize (if resizing to desktop)
+    // Close on resize to desktop
     window.addEventListener('resize', function() {
       if (window.innerWidth > 768 && isMenuOpen) {
         closeMenu();
       }
     });
+
+    // Close when clicking outside - with delay to avoid immediate closing
+    document.addEventListener('click', function(e) {
+      // Ignore if we just clicked hamburger
+      if (ignoreNextClick) return;
+      
+      // Only check if menu is actually open
+      if (!isMenuOpen || !navLinks.classList.contains('active')) return;
+      
+      // Don't close if clicking hamburger
+      if (hamburger.contains(e.target)) return;
+      
+      // Don't close if clicking nav links (they handle their own closing)
+      if (navLinks.contains(e.target)) return;
+      
+      // Close menu after a delay
+      setTimeout(function() {
+        if (isMenuOpen && navLinks.classList.contains('active') && !ignoreNextClick) {
+          closeMenu();
+        }
+      }, 100);
+    }, false);
   }
 
-  // Initialize when DOM is ready
+  // Start initialization
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initMenu);
   } else {
