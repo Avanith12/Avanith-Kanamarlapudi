@@ -310,11 +310,6 @@ class InteractiveThreeJSBackground {
     // Create instanced mesh
     this.instancedMesh = new THREE.InstancedMesh(geometry, material, this.instanceCount);
     
-    // Create matrix array for instances
-    this.instanceMatrix = new THREE.InstancedBufferAttribute(
-      new Float32Array(this.instanceCount * 16), 16
-    );
-    
     // Initialize instance positions and rotations
     const matrix = new THREE.Matrix4();
     const position = new THREE.Vector3();
@@ -344,20 +339,21 @@ class InteractiveThreeJSBackground {
       matrix.compose(position, new THREE.Quaternion().setFromEuler(rotation), scale);
       this.instancedMesh.setMatrixAt(i, matrix);
       
-      // Store instance data for animation
-      this.instancedMesh.userData = this.instancedMesh.userData || {};
-      this.instancedMesh.userData.instances = this.instancedMesh.userData.instances || [];
-      this.instancedMesh.userData.instances[i] = {
-        position: position.clone(),
-        rotation: rotation.clone(),
-        scale: scale.clone(),
-        originalPosition: position.clone(),
-        originalRotation: rotation.clone(),
-        speed: 0.5 + Math.random() * 1.5,
-        rotationSpeed: 0.01 + Math.random() * 0.02,
-        floatSpeed: 0.005 + Math.random() * 0.01,
-        floatOffset: Math.random() * Math.PI * 2
-      };
+        // Store instance data for animation
+        this.instancedMesh.userData = this.instancedMesh.userData || {};
+        this.instancedMesh.userData.instances = this.instancedMesh.userData.instances || [];
+        this.instancedMesh.userData.instances[i] = {
+          position: position.clone(),
+          rotation: rotation.clone(),
+          scale: scale.clone(),
+          originalPosition: position.clone(),
+          originalRotation: rotation.clone(),
+          originalScale: scaleValue,
+          speed: 0.5 + Math.random() * 1.5,
+          rotationSpeed: 0.01 + Math.random() * 0.02,
+          floatSpeed: 0.005 + Math.random() * 0.01,
+          floatOffset: Math.random() * Math.PI * 2
+        };
     }
     
     // Update matrix
@@ -657,7 +653,8 @@ class InteractiveThreeJSBackground {
           instance.scale.setScalar(scaleFactor);
         } else {
           // Return to original scale
-          instance.scale.setScalar(instance.originalScale || 1);
+          const originalScale = instance.originalScale || 1;
+          instance.scale.setScalar(originalScale);
         }
         
         // Update matrix

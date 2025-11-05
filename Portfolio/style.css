@@ -440,7 +440,7 @@ body::before {
   z-index: 1;
 }
 
-.light-theme body::before {
+body.light-theme::before {
   background: 
     radial-gradient(circle at 20% 50%, rgba(91, 126, 255, 0.02) 0%, transparent 50%),
     radial-gradient(circle at 80% 80%, rgba(255, 107, 157, 0.02) 0%, transparent 50%);
