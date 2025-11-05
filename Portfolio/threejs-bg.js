@@ -27,7 +27,6 @@ class InteractiveThreeJSBackground {
     // Dynamic instancing
     this.instancedMesh = null;
     this.instanceCount = window.innerWidth < 768 ? 500 : 800; // Reduced for mobile
-    this.instanceMatrix = null;
     
     if (typeof THREE === 'undefined') {
       console.error('Three.js is not loaded!');

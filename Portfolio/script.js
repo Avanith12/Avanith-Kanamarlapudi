@@ -146,6 +146,8 @@ if (slides.length > 0 && dotsContainer) {
 }
 
 function showSlide(index) {
+  if (slides.length === 0) return;
+  
   slides.forEach((slide, i) => {
     slide.classList.remove("active");
     if (i === index) slide.classList.add("active");
@@ -153,17 +155,21 @@ function showSlide(index) {
   
   // Update dots
   const dots = document.querySelectorAll('.dot');
-  dots.forEach((dot, i) => {
-    dot.classList.toggle('active', i === index);
-  });
+  if (dots.length > 0) {
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+  }
 }
 
 function nextSlide() {
+  if (slides.length === 0) return;
   currentSlide = (currentSlide + 1) % slides.length;
   showSlide(currentSlide);
 }
 
 function prevSlide() {
+  if (slides.length === 0) return;
   currentSlide = (currentSlide - 1 + slides.length) % slides.length;
   showSlide(currentSlide);
 }
@@ -175,8 +181,12 @@ function goToSlide(index) {
 }
 
 function resetSlideInterval() {
-  clearInterval(slideInterval);
-  slideInterval = setInterval(nextSlide, 7000);
+  if (typeof slideInterval !== 'undefined' && slideInterval) {
+    clearInterval(slideInterval);
+  }
+  if (slides.length > 0) {
+    slideInterval = setInterval(nextSlide, 7000);
+  }
 }
 
 // Initialize slider
@@ -329,15 +339,19 @@ if (contactForm) {
     
     // Show success message
     const submitBtn = contactForm.querySelector('.submit-btn');
-    const originalText = submitBtn.innerHTML;
-    submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-    submitBtn.style.background = '#4caf50';
-    
-    setTimeout(() => {
-      submitBtn.innerHTML = originalText;
-      submitBtn.style.background = '';
+    if (submitBtn) {
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+      submitBtn.style.background = '#4caf50';
+      
+      setTimeout(() => {
+        submitBtn.innerHTML = originalText;
+        submitBtn.style.background = '';
+        contactForm.reset();
+      }, 3000);
+    } else {
       contactForm.reset();
-    }, 3000);
+    }
   });
 }
 
@@ -381,13 +395,8 @@ function debounce(func, wait = 10) {
 
 // ==================== CLEANUP ON PAGE UNLOAD ====================
 window.addEventListener('beforeunload', () => {
-  // Clean up event listeners
-  if (toggleBtn) {
-    toggleBtn.removeEventListener('click', toggleBtn.onclick);
-  }
-  
   // Clear intervals
-  if (slideInterval) {
+  if (typeof slideInterval !== 'undefined' && slideInterval) {
     clearInterval(slideInterval);
   }
   
