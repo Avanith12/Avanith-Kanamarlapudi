@@ -2762,10 +2762,13 @@ footer::before {
     gap: 0.5rem;
     padding: 0.5rem 1rem;
     justify-content: flex-start;
+    width: 100%;
+    overflow: visible;
   }
   
   .navbar {
     padding: 0.5rem 0;
+    overflow: visible;
   }
 
   .logo {
@@ -2777,14 +2780,16 @@ footer::before {
   .nav-links {
     display: flex !important;
     flex-direction: row;
+    flex-wrap: nowrap;
     overflow-x: auto;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
     scrollbar-color: var(--accent-color) transparent;
-    gap: 0.5rem;
+    gap: 0.4rem;
     padding: 0.5rem 0;
     width: 100%;
+    max-width: 100%;
     margin-left: 0 !important;
     flex: none !important;
     position: relative;
@@ -2792,6 +2797,8 @@ footer::before {
     visibility: visible !important;
     transform: none !important;
     pointer-events: auto !important;
+    /* Force horizontal scroll */
+    min-width: max-content;
   }
 
   /* Hide scrollbar but keep functionality */
@@ -2809,16 +2816,20 @@ footer::before {
   }
 
   .nav-links a {
-    padding: 0.6rem 1rem;
-    font-size: 0.9rem;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.85rem;
     white-space: nowrap;
     border-radius: 20px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
     flex-shrink: 0;
+    flex-grow: 0;
     text-align: center;
-    min-width: fit-content;
+    min-width: max-content;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .nav-links a:hover {
