@@ -2756,14 +2756,95 @@ footer::before {
     opacity: 0.4; /* Reduce opacity on mobile for better performance */
   }
   
-  /* Hide navbar completely on mobile - users can scroll naturally */
+  /* Mobile Navigation with Hamburger Menu */
   .navbar {
-    display: none !important;
+    display: flex !important;
   }
   
-  /* Adjust main content padding since navbar is hidden */
-  main#main-content {
-    padding-top: 0;
+  .nav-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 1rem;
+  }
+  
+  .hamburger {
+    display: flex !important;
+    order: 2;
+    z-index: 1001;
+  }
+  
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    max-width: 85vw;
+    height: 100vh;
+    background: var(--bg-color);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 5rem 1.5rem 2rem;
+    gap: 0.5rem;
+    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.3);
+    transition: right 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto;
+    border-left: 1px solid var(--card-border);
+  }
+  
+  .nav-links.active {
+    right: 0;
+  }
+  
+  .nav-links a {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 12px;
+    text-align: left;
+    justify-content: flex-start;
+  }
+  
+  .nav-links .resume-btn {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+  
+  /* Hamburger animation when active */
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+  }
+  
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+  
+  /* Overlay when menu is open */
+  .nav-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .nav-overlay.active {
+    display: block;
+    opacity: 1;
   }
   
   /* Journey Section Mobile */
