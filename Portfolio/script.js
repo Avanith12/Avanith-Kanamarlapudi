@@ -45,65 +45,133 @@ document.querySelectorAll("nav a, .nav-links a").forEach(link => {
 });
 
 // ==================== MOBILE HAMBURGER MENU ====================
-const hamburger = document.querySelector('.hamburger');
-const navLinks = document.querySelector('.nav-links');
-const body = document.body;
+(function() {
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  const body = document.body;
+  let scrollPosition = 0;
+  
+  if (!hamburger || !navLinks) return;
 
-if (hamburger && navLinks) {
-  hamburger.addEventListener('click', (e) => {
-    e.stopPropagation(); // Prevent event bubbling
-    hamburger.classList.toggle('active');
-    navLinks.classList.toggle('active');
-    
-    // Update ARIA attribute
-    const isExpanded = hamburger.classList.contains('active');
-    hamburger.setAttribute('aria-expanded', isExpanded);
-    
-    // Prevent body scroll when menu is open
-    if (isExpanded) {
-      body.style.overflow = 'hidden';
-      const firstLink = navLinks.querySelector('a');
-      if (firstLink) {
-        setTimeout(() => firstLink.focus(), 300);
-      }
-    } else {
-      body.style.overflow = '';
+  // Function to close menu
+  function closeMenu() {
+    hamburger.classList.remove('active');
+    navLinks.classList.remove('active');
+    hamburger.setAttribute('aria-expanded', 'false');
+    body.classList.remove('menu-open');
+    body.style.overflow = '';
+    body.style.position = '';
+    body.style.top = '';
+    body.style.width = '';
+    // Restore scroll position
+    if (scrollPosition) {
+      window.scrollTo(0, scrollPosition);
+      scrollPosition = 0;
     }
+  }
+
+  // Function to open menu
+  function openMenu() {
+    // Save current scroll position
+    scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+    
+    hamburger.classList.add('active');
+    navLinks.classList.add('active');
+    hamburger.setAttribute('aria-expanded', 'true');
+    body.classList.add('menu-open');
+    body.style.overflow = 'hidden';
+  }
+
+  // Toggle menu on hamburger click/touch
+  function toggleMenu(e) {
+    if (e) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
+    
+    // Immediately toggle to prevent conflicts
+    if (navLinks.classList.contains('active')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  }
+  
+  hamburger.addEventListener('click', toggleMenu);
+  hamburger.addEventListener('touchend', function(e) {
+    // Prevent double-firing on mobile
+    e.preventDefault();
+    toggleMenu(e);
   });
 
   // Close menu when clicking on nav links
-  navLinks.addEventListener('click', (e) => {
-    if (e.target.tagName === 'A') {
-      hamburger.classList.remove('active');
-      navLinks.classList.remove('active');
-      hamburger.setAttribute('aria-expanded', 'false');
-      body.style.overflow = '';
+  navLinks.addEventListener('click', function(e) {
+    // Only close if clicking directly on a link, not on the container
+    const clickedLink = e.target.closest('a');
+    if (clickedLink) {
+      closeMenu();
     }
   });
 
-  // Close menu when clicking outside
-  document.addEventListener('click', (e) => {
-    if (navLinks.classList.contains('active')) {
-      if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-        hamburger.setAttribute('aria-expanded', 'false');
-        body.style.overflow = '';
-      }
+  // Close menu when clicking outside (delay to avoid conflicts with hamburger click)
+  let clickOutsideTimeout;
+  let isHamburgerClick = false;
+  
+  // Track hamburger clicks
+  hamburger.addEventListener('mousedown', function() {
+    isHamburgerClick = true;
+    setTimeout(function() {
+      isHamburgerClick = false;
+    }, 200);
+  });
+  
+  hamburger.addEventListener('touchstart', function() {
+    isHamburgerClick = true;
+    setTimeout(function() {
+      isHamburgerClick = false;
+    }, 200);
+  });
+  
+  document.addEventListener('click', function(e) {
+    // Ignore clicks on hamburger button
+    if (isHamburgerClick || hamburger.contains(e.target)) {
+      return;
+    }
+    
+    // Clear any existing timeout
+    clearTimeout(clickOutsideTimeout);
+    
+    // Only check if menu is open
+    if (!navLinks.classList.contains('active')) return;
+    
+    // Check if click is outside nav-links
+    const isClickInsideNav = navLinks.contains(e.target);
+    
+    // Use a small delay to ensure hamburger click handler fires first
+    if (!isClickInsideNav) {
+      clickOutsideTimeout = setTimeout(function() {
+        if (navLinks.classList.contains('active') && !isHamburgerClick) {
+          closeMenu();
+        }
+      }, 150);
     }
   });
 
   // Close menu on escape key
-  document.addEventListener('keydown', (e) => {
+  document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && navLinks.classList.contains('active')) {
-      hamburger.classList.remove('active');
-      navLinks.classList.remove('active');
-      hamburger.setAttribute('aria-expanded', 'false');
-      body.style.overflow = '';
+      closeMenu();
       hamburger.focus();
     }
   });
-}
+
+  // Close menu on window resize (if resizing to desktop)
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+      closeMenu();
+    }
+  });
+})();
 
 // ==================== FADE-IN ANIMATION ON SCROLL ====================
 const faders = document.querySelectorAll(".card, .pub-card, .edu-card, .skill-category");
