@@ -475,7 +475,7 @@ body.light-theme::before {
 }
 
 html {
-  scroll-behavior: smooth;
+/* scroll-behavior: smooth; */
 }
 
 /* ==================== STICKY NAVBAR ==================== */
