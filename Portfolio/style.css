@@ -3436,6 +3436,7 @@ footer::before {
     width: 280px !important;
     max-width: 85vw !important;
     height: 100vh !important;
+    min-height: 100vh !important;
     background: var(--bg-color) !important;
     backdrop-filter: blur(20px) !important;
     -webkit-backdrop-filter: blur(20px) !important;
@@ -3445,7 +3446,7 @@ footer::before {
     justify-content: flex-start !important;
     padding: 5rem 1.5rem 2rem !important;
     gap: 0.5rem !important;
-    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.3) !important;
+    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.5) !important;
     transition: right 0.3s ease !important;
     z-index: 1002 !important;
     overflow-y: auto !important;
@@ -3464,6 +3465,8 @@ footer::before {
     visibility: visible !important;
     opacity: 1 !important;
     z-index: 1002 !important;
+    transform: translateX(0) !important;
+    transition: right 0.3s ease !important;
   }
   
   .nav-links a {

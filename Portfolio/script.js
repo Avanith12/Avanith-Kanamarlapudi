@@ -79,11 +79,13 @@ function initMobileNavigation() {
   function openMenu() {
     if (navLinks) {
       navLinks.classList.add('active');
-      // Force visibility on mobile - ensure it's shown
-      navLinks.style.display = 'flex';
-      navLinks.style.visibility = 'visible';
-      navLinks.style.opacity = '1';
-      navLinks.style.right = '0';
+      // Force visibility on mobile using setProperty with important flag
+      navLinks.style.setProperty('display', 'flex', 'important');
+      navLinks.style.setProperty('visibility', 'visible', 'important');
+      navLinks.style.setProperty('opacity', '1', 'important');
+      navLinks.style.setProperty('right', '0', 'important');
+      navLinks.style.setProperty('transform', 'translateX(0)', 'important');
+      navLinks.style.setProperty('z-index', '1002', 'important');
     }
     if (hamburger) {
       hamburger.classList.add('active');
@@ -91,9 +93,10 @@ function initMobileNavigation() {
     }
     if (navOverlay) {
       navOverlay.classList.add('active');
-      navOverlay.style.display = 'block';
-      navOverlay.style.opacity = '1';
-      navOverlay.style.visibility = 'visible';
+      navOverlay.style.setProperty('display', 'block', 'important');
+      navOverlay.style.setProperty('opacity', '1', 'important');
+      navOverlay.style.setProperty('visibility', 'visible', 'important');
+      navOverlay.style.setProperty('z-index', '1001', 'important');
     }
     body.style.overflow = 'hidden';
   }
@@ -102,7 +105,9 @@ function initMobileNavigation() {
     if (navLinks) {
       navLinks.classList.remove('active');
       // Reset inline styles when closing
-      navLinks.style.right = '';
+      navLinks.style.removeProperty('right');
+      navLinks.style.removeProperty('display');
+      navLinks.style.removeProperty('transform');
     }
     if (hamburger) {
       hamburger.classList.remove('active');
@@ -110,8 +115,8 @@ function initMobileNavigation() {
     }
     if (navOverlay) {
       navOverlay.classList.remove('active');
-      navOverlay.style.display = 'none';
-      navOverlay.style.opacity = '0';
+      navOverlay.style.removeProperty('display');
+      navOverlay.style.removeProperty('opacity');
     }
     body.style.overflow = '';
   }
@@ -126,18 +131,29 @@ function initMobileNavigation() {
   
   // Hamburger button click - support both click and touch events
   if (hamburger) {
+    // Use both mousedown and click for better mobile support
+    hamburger.addEventListener('mousedown', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleMenu();
+    });
+    
     hamburger.addEventListener('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
       toggleMenu();
     });
     
-    // Touch event for better mobile support
+    // Touch events for mobile
+    hamburger.addEventListener('touchstart', function(e) {
+      e.stopPropagation();
+    });
+    
     hamburger.addEventListener('touchend', function(e) {
       e.preventDefault();
       e.stopPropagation();
       toggleMenu();
-    });
+    }, { passive: false });
   }
   
   // Close menu when clicking overlay
