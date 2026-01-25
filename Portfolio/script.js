@@ -65,7 +65,7 @@ function initMobileNavigation() {
   
   // Check if elements exist
   if (!hamburger || !navLinks) {
-    console.warn('Mobile navigation elements not found');
+    // Silently return if elements don't exist (may not be on mobile)
     return;
   }
   
@@ -231,7 +231,7 @@ const prevBtn = document.querySelector(".slider-btn.prev");
 const nextBtn = document.querySelector(".slider-btn.next");
 const dotsContainer = document.querySelector(".slider-dots");
 let currentSlide = 0;
-let slideInterval;
+let slideInterval = null;
 
 // Create dots
 if (slides.length > 0 && dotsContainer) {
@@ -280,8 +280,9 @@ function goToSlide(index) {
 }
 
 function resetSlideInterval() {
-  if (typeof slideInterval !== 'undefined' && slideInterval) {
+  if (slideInterval !== null) {
     clearInterval(slideInterval);
+    slideInterval = null;
   }
   if (slides.length > 0) {
     slideInterval = setInterval(nextSlide, 7000);
@@ -444,19 +445,38 @@ window.addEventListener('scroll', () => {
 });
 
 // ==================== CONTACT FORM HANDLING ====================
-const contactForm = document.getElementById('contactForm');
-
-if (contactForm) {
+function initContactForm() {
+  const contactForm = document.getElementById('contactForm');
+  
+  if (!contactForm) return;
+  
   contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
     
+    // Get form elements with error checking
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const subjectInput = document.getElementById('subject');
+    const messageInput = document.getElementById('message');
+    
+    if (!nameInput || !emailInput || !subjectInput || !messageInput) {
+      console.error('Contact form elements not found');
+      return;
+    }
+    
     // Get form data
     const formData = {
-      name: document.getElementById('name').value,
-      email: document.getElementById('email').value,
-      subject: document.getElementById('subject').value,
-      message: document.getElementById('message').value
+      name: nameInput.value.trim(),
+      email: emailInput.value.trim(),
+      subject: subjectInput.value.trim(),
+      message: messageInput.value.trim()
     };
+    
+    // Validate form data
+    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+      alert('Please fill in all fields');
+      return;
+    }
     
     // Create mailto link
     const mailtoLink = `mailto:kanamarlapudi.avanith@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
@@ -480,6 +500,13 @@ if (contactForm) {
       contactForm.reset();
     }
   });
+}
+
+// Initialize contact form when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initContactForm);
+} else {
+  initContactForm();
 }
 
 // ==================== NAVBAR BACKGROUND ON SCROLL ====================
@@ -523,13 +550,30 @@ function debounce(func, wait = 10) {
 // ==================== CLEANUP ON PAGE UNLOAD ====================
 window.addEventListener('beforeunload', () => {
   // Clear intervals
-  if (typeof slideInterval !== 'undefined' && slideInterval) {
+  if (slideInterval !== null) {
     clearInterval(slideInterval);
+    slideInterval = null;
   }
   
   // Clean up Three.js background
   if (window.interactiveThreeJSBackground) {
     window.interactiveThreeJSBackground.destroy();
+  }
+});
+
+// Also cleanup on page visibility change (when tab is hidden)
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    // Pause slider when tab is hidden
+    if (slideInterval !== null) {
+      clearInterval(slideInterval);
+      slideInterval = null;
+    }
+  } else {
+    // Resume slider when tab is visible
+    if (slides.length > 0 && slideInterval === null) {
+      slideInterval = setInterval(nextSlide, 7000);
+    }
   }
 });
 
