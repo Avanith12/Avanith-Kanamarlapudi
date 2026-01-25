@@ -1,42 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <!-- SEO Meta Tags -->
-  <meta name="description" content="Avanith Kanamarlapudi - AIML Researcher, Web Graphics Expert, and Medical Imaging Developer. View my projects, publications, and experience in AI research, computer graphics, and medical imaging."/>
-  <meta name="keywords" content="AI Researcher, Machine Learning, Deep Learning, Computer Vision, Data Science, Portfolio"/>
-  <meta name="author" content="Avanith Kanamarlapudi"/>
-  
+  <meta name="description"
+    content="Avanith Kanamarlapudi - AIML Researcher, Web Graphics Expert, and Medical Imaging Developer. View my projects, publications, and experience in AI research, computer graphics, and medical imaging." />
+  <meta name="keywords"
+    content="AI Researcher, Machine Learning, Deep Learning, Computer Vision, Data Science, Portfolio" />
+  <meta name="author" content="Avanith Kanamarlapudi" />
+
   <!-- Permissions Policy to reduce console warnings -->
-  <meta http-equiv="Permissions-Policy" content="autoplay=(), camera=(), encrypted-media=(), geolocation=(), microphone=(), midi=(), accelerometer=(), gyroscope=()">
-  
+  <meta http-equiv="Permissions-Policy"
+    content="autoplay=(), camera=(), encrypted-media=(), geolocation=(), microphone=(), midi=(), accelerometer=(), gyroscope=()">
+
   <!-- Social Media Preview -->
-  <meta property="og:type" content="website"/>
-  <meta property="og:title" content="Avanith Kanamarlapudi - AIML Researcher Portfolio"/>
-  <meta property="og:description" content="AIML Researcher, Web Graphics Expert, and Medical Imaging Developer specializing in AI research, computer graphics, and medical imaging"/>
-  
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Avanith Kanamarlapudi - AIML Researcher Portfolio" />
+  <meta property="og:description"
+    content="AIML Researcher, Web Graphics Expert, and Medical Imaging Developer specializing in AI research, computer graphics, and medical imaging" />
+
   <title>Avanith Kanamarlapudi - AIML Researcher Portfolio</title>
-  
+
   <!-- External Resources -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <!-- Cache-busting: Update version number when CSS changes to force browser reload -->
   <link rel="stylesheet" href="style.css?v=3.1" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
   <link rel="icon" type="image/png" href="images/fevicon.png">
   <!-- Note: File is named "fevicon.png" - if you rename it to "favicon.png", update this link -->
 
   <!-- Three.js for 3D animations -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
+
 <body>
   <!-- Skip Navigation Link for Accessibility -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
-  
+
   <!-- 3D Background Canvas -->
   <canvas id="bg-canvas"></canvas>
-  
+
   <!-- Navigation -->
   <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="nav-wrapper">
@@ -58,1028 +65,1138 @@
         <a href="#certifications" role="menuitem">Certifications</a>
         <a href="#education" role="menuitem">Education</a>
         <a href="#contact" role="menuitem">Contact</a>
-        <a href="files/Avanith_Kanamarlapudi_October_2025.pdf" class="resume-btn" target="_blank" rel="noopener noreferrer" role="menuitem">Resume</a>
+        <a href="files/Avanith_Kanamarlapudi_October_2025.pdf" class="resume-btn" target="_blank"
+          rel="noopener noreferrer" role="menuitem">Resume</a>
       </div>
     </div>
   </nav>
 
   <!-- Main Content -->
   <main id="main-content">
-  <!-- Hero Section -->
-  <header class="hero">
-    <img src="images/Avanith Image/avanith.jpg" alt="Avanith Kanamarlapudi - AI Researcher" class="profile-img" loading="eager" />
-    <h1><span class="typewrite" data-text='Hello! I&apos;m Avanith Kanamarlapudi.'></span></h1>
-    <p class="hero-subtitle">AIML Researcher | Web Graphics Expert | Medical Imaging Developer</p>
-  </header>
+    <!-- Hero Section -->
+    <header class="hero">
+      <img src="images/Avanith Image/avanith.jpg" alt="Avanith Kanamarlapudi - AI Researcher" class="profile-img"
+        loading="eager" />
+      <h1><span class="typewrite" data-text='Hello! I&apos;m Avanith Kanamarlapudi.'></span></h1>
+      <p class="hero-subtitle">AIML Researcher | Web Graphics Expert | Medical Imaging Developer</p>
+    </header>
 
-  <!-- About Section -->
-  <section class="section" id="about">
-    <h2>About Me</h2>
-    <p>I'm an AIML Research Fellow and Teaching Assistant at UMass Boston, specializing in medical imaging AI and web graphics technologies. My work focuses on developing deep learning solutions for breast cancer detection, with publications in IEEE conferences and ongoing research as a Machine Psychology Fellow.</p>
-    
-    <p>I co-founded The AI Fantastic Team, where I lead workshops and community initiatives. My expertise encompasses:</p>
-    
-    <div class="expertise-highlights">
-      <div class="expertise-category">
-        <h4><i class="fas fa-brain"></i> AI & Machine Learning</h4>
-        <p>Deep learning, computer vision, neural networks (CNNs, GANs, U-Net, DenseNet), transfer learning, and knowledge distillation for medical applications</p>
-      </div>
-      
-      <div class="expertise-category">
-        <h4><i class="fas fa-cube"></i> Web Graphics & 3D Technologies</h4>
-        <p>WebGL, WebGPU, Three.js, XTK, computer graphics, 3D visualization, and interactive web applications</p>
-      </div>
-      
-      <div class="expertise-category">
-        <h4><i class="fas fa-hospital"></i> Medical AI & Imaging</h4>
-        <p>Medical imaging analysis, DICOM processing, breast cancer detection, diagnostic AI, and healthcare technology solutions</p>
-      </div>
-      
-      <div class="expertise-category">
-        <h4><i class="fas fa-chalkboard-teacher"></i> Teaching & Communication</h4>
-        <p>Technical writing, workshop delivery, knowledge sharing, and making complex AI concepts accessible to diverse audiences</p>
-      </div>
-    </div>
-    
-    <p>I'm passionate about making complex AI concepts accessible through teaching, writing, and interactive projects that bridge the gap between cutting-edge research and practical applications.</p>
-    
-    <p>Currently pursuing my MS in Computer Science with a 3.9+ GPA, I've completed 6+ internships and built 10+ projects ranging from medical AI research to interactive web applications.</p>
-  </section>
-  
-  <!-- Skills Section -->
-  <section class="section" id="skills">
-    <h2>Technical Skills</h2>
-    <div class="skills-container">
-      <div class="skill-category">
-        <h3><i class="fas fa-code"></i> Programming Languages</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">JavaScript</span>
-          <span class="skill-tag">R</span>
-          <span class="skill-tag">SQL</span>
-          <span class="skill-tag">HTML/CSS</span>
-          <span class="skill-tag">PHP</span>
-        </div>
-      </div>
-      <div class="skill-category">
-        <h3><i class="fas fa-brain"></i> AI & Machine Learning</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">TensorFlow</span>
-          <span class="skill-tag">PyTorch</span>
-          <span class="skill-tag">Keras</span>
-          <span class="skill-tag">Scikit-learn</span>
-          <span class="skill-tag">OpenCV</span>
-          <span class="skill-tag">Computer Vision</span>
-          <span class="skill-tag">Neural Networks</span>
-        </div>
-      </div>
-      <div class="skill-category">
-        <h3><i class="fas fa-network-wired"></i> Deep Learning & Models</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">CNNs</span>
-          <span class="skill-tag">GANs</span>
-          <span class="skill-tag">U-Net</span>
-          <span class="skill-tag">DenseNet</span>
-          <span class="skill-tag">Transfer Learning</span>
-          <span class="skill-tag">Knowledge Distillation</span>
-          <span class="skill-tag">Image Segmentation</span>
-        </div>
-      </div>
-      <div class="skill-category">
-        <h3><i class="fas fa-chart-line"></i> Data Science & Visualization</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">Pandas</span>
-          <span class="skill-tag">NumPy</span>
-          <span class="skill-tag">Matplotlib</span>
-          <span class="skill-tag">Tableau</span>
-          <span class="skill-tag">Power BI</span>
-          <span class="skill-tag">Data Preprocessing</span>
-          <span class="skill-tag">Statistical Analysis</span>
-        </div>
-      </div>
-      <div class="skill-category">
-        <h3><i class="fas fa-cube"></i> Web Graphics & 3D</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">WebGL</span>
-          <span class="skill-tag">WebGPU</span>
-          <span class="skill-tag">Three.js</span>
-          <span class="skill-tag">XTK</span>
-          <span class="skill-tag">Computer Graphics</span>
-          <span class="skill-tag">3D Visualization</span>
-        </div>
-      </div>
-      <div class="skill-category">
-        <h3><i class="fas fa-hospital"></i> Medical AI & Healthcare</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">Medical Imaging</span>
-          <span class="skill-tag">DICOM Processing</span>
-          <span class="skill-tag">DeepSight</span>
-          <span class="skill-tag">Breast Cancer Detection</span>
-          <span class="skill-tag">Alzheimer's Prediction</span>
-          <span class="skill-tag">Diagnostic AI</span>
-        </div>
-      </div>
-      <div class="skill-category">
-        <h3><i class="fas fa-laptop-code"></i> Web Development</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">Frontend Development</span>
-          <span class="skill-tag">UI/UX Design</span>
-          <span class="skill-tag">Bootstrap</span>
-          <span class="skill-tag">Responsive Design</span>
-          <span class="skill-tag">API Integration</span>
-        </div>
-      </div>
-      <div class="skill-category">
-        <h3><i class="fas fa-tools"></i> Tools & Platforms</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">Git</span>
-          <span class="skill-tag">Docker</span>
-          <span class="skill-tag">Jupyter</span>
-          <span class="skill-tag">VS Code</span>
-          <span class="skill-tag">AWS</span>
-          <span class="skill-tag">Asset Panda</span>
-          <span class="skill-tag">ServiceNow</span>
-        </div>
-      </div>
-    </div>
-  </section>
+    <!-- About Section -->
+    <section class="section" id="about">
+      <h2>About Me</h2>
+      <p>I'm an AIML Research Fellow and Teaching Assistant at UMass Boston, specializing in medical imaging AI and web
+        graphics technologies. My work focuses on developing deep learning solutions for breast cancer detection, with
+        publications in IEEE conferences and ongoing research as a Machine Psychology Fellow.</p>
 
-  <!-- Journey Section -->
-<section class="section" id="journey">
-  <h2>My Journey</h2>
-    <div class="journey-container">
-      <button class="slider-btn prev" aria-label="Previous slide">
-        <i class="fas fa-chevron-left"></i>
-      </button>
-  <div class="journey-slider">
-    <div class="slide active">
-          <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7331283611490385922?collapsed=1" frameborder="0" allowfullscreen title="LinkedIn Post 1" loading="lazy"></iframe>
-    </div>
-    <div class="slide">
-          <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7329292079501635585?collapsed=1" frameborder="0" allowfullscreen title="LinkedIn Post 2" loading="lazy"></iframe>
-    </div>
-    <div class="slide">
-          <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7328845340663599104?collapsed=1" frameborder="0" allowfullscreen title="LinkedIn Post 3" loading="lazy"></iframe>
-    </div>
-    <div class="slide">
-          <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7303106480893739009?collapsed=1" frameborder="0" allowfullscreen title="LinkedIn Post 4" loading="lazy"></iframe>
-    </div>
-    <div class="slide">
-          <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7113397747096948736?collapsed=1" frameborder="0" allowfullscreen title="LinkedIn Post 5" loading="lazy"></iframe>
-    </div>
-    <div class="slide">
-          <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7109566409382260736?collapsed=1" frameborder="0" allowfullscreen title="LinkedIn Post 6" loading="lazy"></iframe>
-    </div>
-    <div class="slide">
-          <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7105939925518188544?collapsed=1" frameborder="0" allowfullscreen title="LinkedIn Post 7" loading="lazy"></iframe>
-        </div>
-    <div class="slide">
-          <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7363298095830319104?collapsed=1" height="670" width="504" frameborder="0" allowfullscreen title="LinkedIn Post 8" loading="lazy"></iframe>
-        </div>
-    <div class="slide">
-          <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7354560802072207360?collapsed=1" height="916" width="504" frameborder="0" allowfullscreen title="LinkedIn Post 9" loading="lazy"></iframe>
-        </div>
-    </div>
-      <button class="slider-btn next" aria-label="Next slide">
-        <i class="fas fa-chevron-right"></i>
-      </button>
-  </div>
-    <div class="slider-dots"></div>
-</section>
-
-  <!-- Fun Section -->
-<section class="section" id="fun">
-  <h2>Just for Fun</h2>
-    <p>When I'm not building AI models, I love writing casual blogs about games and random thoughts. It's my way of winding down and having fun with words.</p>
-  <p>📖 <a href="https://medium.com/@kanamarlapudi-avanith" target="_blank">Read my fun blogs on Medium</a></p>
-</section>
-
-  <!-- Writing & Articles Section -->
-<section class="section" id="articles">
-  <h2>Writing & Articles</h2>
-  <div class="article-container">
-    <div class="article-card">
-      <h3>How I Turned Social Media Data into a Website with ChatGPT and VS Code</h3>
-      <p class="article-meta">
-        <i class="fas fa-calendar"></i> Published Sep 4, 2025 &nbsp;&nbsp;
-        <i class="fas fa-users"></i> 23 likes, 6 comments &nbsp;&nbsp;
-        <i class="fab fa-linkedin"></i> LinkedIn Article
+      <p>I co-founded The AI Fantastic Team, where I lead workshops and community initiatives. My expertise encompasses:
       </p>
-      <p class="article-description">
-        A detailed walkthrough of my first workshop where I demonstrated how to build a fully functional, stylish website from social media data analysis using ChatGPT and VS Code. This article covers the complete workflow from raw data to interactive website deployment.
-      </p>
-                  <div class="article-preview">
-                    <div class="article-highlights">
-                      <h4>Key Highlights from the Article:</h4>
-                      <ul>
-                        <li><strong>Workshop Achievement:</strong> First workshop delivery with The AI Fantastic Team</li>
-                        <li><strong>Technical Stack:</strong> Python (Pandas + Seaborn) → HTML/CSS/JavaScript → GitHub Pages</li>
-                        <li><strong>Interactive Features:</strong> Typing effects, scroll animations, lightbox zoom, progress bars</li>
-                        <li><strong>Community Impact:</strong> 23 likes, 6 positive comments from attendees</li>
-                        <li><strong>Educational Value:</strong> Step-by-step guide for beginners to build websites</li>
-                        <li><strong>Team Collaboration:</strong> Worked with Rami Huu Nguyen, Lakshmi Pranathi Vutla, and Ila L.</li>
-                      </ul>
-                    </div>
-                    <div class="article-testimonials">
-                      <h4>What Attendees Said:</h4>
-                      <div class="testimonial-grid">
-                        <div class="testimonial-item">
-                          <blockquote>
-                            "You explained everything so clearly that after your workshop, anyone could go and build a website. Honestly, it's not AI that's threatening frontend jobs, it's your workshop. That's how informative it was."
-                          </blockquote>
-                          <cite>- Sireesha Kuchimanchi, Aspiring Full-Stack Developer</cite>
-                        </div>
-                        <div class="testimonial-item">
-                          <blockquote>
-                            "This workshop was incredibly insightful! The way you broke down the process from data analysis to website creation was amazing. Thank you for sharing your knowledge!"
-                          </blockquote>
-                          <cite>- Rami Huu Nguyen, AI Fantastic Team Co-founder</cite>
-                        </div>
-                        <div class="testimonial-item">
-                          <blockquote>
-                            "Great presentation! The step-by-step approach made complex concepts so accessible. Looking forward to more workshops like this!"
-                          </blockquote>
-                          <cite>- Workshop Attendee</cite>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div class="article-resources">
-                    <h4>Complete Workshop Resources:</h4>
-                    <div class="resource-grid">
-                      <a href="https://www.linkedin.com/pulse/how-i-turned-social-media-data-website-chatgpt-vs-kanamarlapudi-8pydc/" target="_blank" rel="noopener noreferrer" class="resource-link">
-                        <i class="fab fa-linkedin"></i>
-                        <div>
-                          <strong>LinkedIn Article</strong>
-                          <span>Complete workshop walkthrough</span>
-                        </div>
-                      </a>
-                      <a href="https://www.canva.com/design/DAGwwfPICJA/OOSpVC6XkZu4ehRuDhB2dA/edit" target="_blank" rel="noopener noreferrer" class="resource-link">
-                        <i class="fas fa-chart-bar"></i>
-                        <div>
-                          <strong>Workshop Slides</strong>
-                          <span>Canva presentation deck</span>
-                        </div>
-                      </a>
-                      <a href="https://docs.google.com/document/d/1cbr9Fu7RnrzoNC9h3VsN7okle6Do8fbPx9pBV5ZTnJE/edit?tab=t.0" target="_blank" rel="noopener noreferrer" class="resource-link">
-                        <i class="fas fa-file-alt"></i>
-                        <div>
-                          <strong>Step-by-Step Guide</strong>
-                          <span>Detailed instructions document</span>
-                        </div>
-                      </a>
-                      <a href="https://avanith12.github.io/Data-Analysis-Social_media_engagement/" target="_blank" rel="noopener noreferrer" class="resource-link">
-                        <i class="fas fa-globe"></i>
-                        <div>
-                          <strong>Live Website</strong>
-                          <span>Final interactive result</span>
-                        </div>
-                      </a>
-                      <a href="https://drive.google.com/file/d/1EUq_wxYhnF4aNquUaR3yZwL9rlTY-gvB/view" target="_blank" rel="noopener noreferrer" class="resource-link">
-                        <i class="fas fa-video"></i>
-                        <div>
-                          <strong>Workshop Recording</strong>
-                          <span>Full presentation video</span>
-                        </div>
-                      </a>
-                      <a href="https://github.com/Avanith12/Data-Analysis-Social_media_engagement" target="_blank" rel="noopener noreferrer" class="resource-link">
-                        <i class="fab fa-github"></i>
-                        <div>
-                          <strong>GitHub Repository</strong>
-                          <span>Source code & files</span>
-                        </div>
-                      </a>
-                      <a href="https://github.com/Avanith12/Data-Analysis-Social_media_engagement/blob/main/data_analysis.ipynb" target="_blank" rel="noopener noreferrer" class="resource-link">
-                        <i class="fab fa-python"></i>
-                        <div>
-                          <strong>Jupyter Notebook</strong>
-                          <span>Complete data analysis</span>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                  
-                  <div class="article-links">
-                    <a href="https://www.linkedin.com/pulse/how-i-turned-social-media-data-website-chatgpt-vs-kanamarlapudi-8pydc/" target="_blank" rel="noopener noreferrer" class="article-link primary">
-                      <i class="fab fa-linkedin"></i> Read Full Article
-                    </a>
-                    <a href="https://avanith12.github.io/Data-Analysis-Social_media_engagement/" target="_blank" rel="noopener noreferrer" class="article-link secondary">
-                      <i class="fas fa-external-link-alt"></i> View Live Website
-                    </a>
-                  </div>
-    </div>
-  </div>
-</section>
 
-  <!-- Projects Section -->
-  <section class="section" id="projects">
-    <h2>Academic Projects</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="images/Projects/space mission dashboard.jpeg" alt="Space Mission Dashboard Project" loading="lazy">
-        <h3>Space Mission Dashboard</h3>
-        <p class="card-desc">Interactive data visualization dashboard exploring space mission data</p>
-        <a href="https://www.linkedin.com/in/avanith-kanamarlapudi-8aa081204/details/projects/1635533235893/single-media-viewer/?profileId=ACoAADP608IBtBQi5QuG0LyhhhdjTpL4oSMNUfY" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> View Project</a>
-      </div>
-      <div class="card">
-        <img src="images/Projects/NETFLIX DASHBOARD.jpeg" alt="Netflix Dashboard Project" loading="lazy">
-        <h3>Netflix Dashboard</h3>
-        <p class="card-desc">Analytics dashboard for Netflix content analysis and insights</p>
-        <a href="https://www.linkedin.com/in/avanith-kanamarlapudi-8aa081204/details/projects/19562981/multiple-media-viewer/?profileId=ACoAADP608IBtBQi5QuG0LyhhhdjTpL4oSMNUfY&treasuryMediaId=1635531151085" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> View Project</a>
-      </div>
-      <div class="card">
-        <img src="images/Projects/C-19 INTERNATION DASHBOARD.jpeg" alt="COVID-19 International Dashboard" loading="lazy">
-        <h3>COVID-19 Dashboard</h3>
-        <p class="card-desc">Real-time international COVID-19 data tracking and visualization</p>
-        <a href="https://www.linkedin.com/in/avanith-kanamarlapudi-8aa081204/details/projects/2099681136/multiple-media-viewer/?profileId=ACoAADP608IBtBQi5QuG0LyhhhdjTpL4oSMNUfY&treasuryMediaId=1635531308562" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> View Project</a>
-      </div>
-      <div class="card">
-        <img src="images/Projects/Airline Data DASHBOARD.jpeg" alt="Airline Data Dashboard" loading="lazy">
-        <h3>Airline Data Dashboard</h3>
-        <p class="card-desc">Comprehensive airline industry data analysis platform</p>
-        <a href="https://www.linkedin.com/in/avanith-kanamarlapudi-8aa081204/details/projects/446912851/multiple-media-viewer/?profileId=ACoAADP608IBtBQi5QuG0LyhhhdjTpL4oSMNUfY&treasuryMediaId=1635531728652" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> View Project</a>
-      </div>
-      <div class="card">
-        <img src="images/Projects/kd.png" alt="Knowledge Distillation Project" loading="lazy">
-        <h3>Knowledge Distillation</h3>
-        <p class="card-desc">AI model compression for cybersecurity applications</p>
-        <a href="https://github.com/Avanith12/Avanith_AI_For_All" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
-        <a href="https://avanith12.github.io/Avanith_AI_For_All/AI%20CyberSecurity%20UI/" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Demo</a>
-      </div>
-      <div class="card">
-        <img src="images/Projects/image colorization.png" alt="Image Colorization using GANs" loading="lazy">
-        <h3>Image Colorization using GANs</h3>
-        <p class="card-desc">Generative model for automatic image colorization</p>
-        <a href="https://github.com/Avanith12/Image-Colorization-Avanith" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
-      </div>
-      <div class="card">
-        <img src="images/Projects/alzheimers prediction model.png" alt="Alzheimer's Prediction Model" loading="lazy">
-        <h3>Alzheimer's Prediction</h3>
-        <p class="card-desc">Deep learning model for early Alzheimer's disease detection</p>
-        <a href="https://github.com/Avanith12/AI-Final-Project" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
-      </div>
-      <div class="card">
-        <img src="images/Projects/movie explorer.jpg" alt="Movie Verse Platform" loading="lazy">
-        <h3>Movie Verse Platform</h3>
-        <p class="card-desc">Full-stack movie exploration and recommendation platform</p>
-        <a href="https://github.com/Avanith12/CS637-MovieHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
-      </div>
-      <div class="card">
-        <img src="images/Projects/news chatbot.png" alt="AI News Chatbot" loading="lazy">
-        <h3>AI News Chatbot</h3>
-        <p class="card-desc">Intelligent chatbot for real-time news queries and summaries</p>
-        <a href="https://github.com/Avanith12/AI-News-Chatbot" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
-        <a href="https://avanith12.github.io/AI-News-Chatbot/" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Demo</a>
-      </div>
-      <div class="card">
-        <img src="images/Projects/SocialMediaEngagementDatasetAnalysis.png" alt="Social Media Data Analysis & Website Project" loading="lazy">
-        <h3>Social Media Data Analysis & Website</h3>
-        <p class="card-desc">End-to-end data analysis of social media engagement trends with interactive website showcasing insights</p>
-        <a href="https://avanith12.github.io/Data-Analysis-Social_media_engagement/" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Live Website</a>
-        <a href="https://github.com/Avanith12/Data-Analysis-Social_media_engagement" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
-      </div>
-      <div class="card">
-        <img src="images/Projects/autofolio.png" alt="Autofolio Project" loading="lazy">
-        <h3>Autofolio</h3>
-        <p class="card-desc">AI-powered portfolio website generator using Google's Gemini AI. Creates complete, responsive portfolio websites with custom images and professional styling.</p>
-        <a href="https://github.com/Avanith12/Autofolio" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
-      </div>
-      <div class="card">
-        <img src="images/Projects/nexusstrike.png" alt="Nexus Strike Game" loading="lazy">
-        <h3>Nexus Strike</h3>
-        <p class="card-desc">Professional-grade 3D space shooter game built with Three.js, featuring advanced graphics, dynamic gameplay, multiple environments, and procedural audio.</p>
-        <a href="https://avanith12.github.io/nexus-strike-game/" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Play Game</a>
-        <a href="https://github.com/Avanith12/nexus-strike-game" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
-        <a href="https://slides.com/avanith/game" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-powerpoint"></i> Presentation</a>
-      </div>
-    </div>
-  </section>
+      <div class="expertise-highlights">
+        <div class="expertise-category">
+          <h4><i class="fas fa-brain"></i> AI & Machine Learning</h4>
+          <p>Deep learning, computer vision, neural networks (CNNs, GANs, U-Net, DenseNet), transfer learning, and
+            knowledge distillation for medical applications</p>
+        </div>
 
-  <!-- Publications Section -->
-  <section class="section" id="publications">
-    <h2>Publications</h2>
-    <div class="grid publications">
-      <div class="pub-card">
-        <img src="images/Publications/RM Densenet.png" alt="RM-DenseNet Research Publication" class="pub-img" loading="lazy">
-        <div class="pub-content">
-          <h3>RM-DenseNet: An Enhanced DenseNet Framework with Residual Model for Breast Cancer Classification Using Mammographic Images</h3>
-          <p class="pub-venue"><i class="fas fa-book"></i> InCACCT 2024</p>
-          <a href="https://ieeexplore.ieee.org/abstract/document/10551125" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fas fa-external-link-alt"></i> Read Paper</a>
+        <div class="expertise-category">
+          <h4><i class="fas fa-cube"></i> Web Graphics & 3D Technologies</h4>
+          <p>WebGL, WebGPU, Three.js, XTK, computer graphics, 3D visualization, and interactive web applications</p>
         </div>
-      </div>
-      <div class="pub-card">
-        <img src="images/Publications/Diagnosis and classification of bc.png" alt="Breast Cancer Diagnosis Research Publication" class="pub-img" loading="lazy">
-        <div class="pub-content">
-          <h3>Diagnosis and Classification of Breast Cancer Using Data Visualization and Deep Learning Techniques</h3>
-          <p class="pub-venue"><i class="fas fa-book"></i> ICRISST 2024</p>
-          <a href="https://ieeexplore.ieee.org/abstract/document/10593055" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fas fa-external-link-alt"></i> Read Paper</a>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Experience Section -->
-<section class="section" id="experience">
-    <h2>Professional Experience</h2>
-    
-    <div class="experience-timeline">
-      <div class="experience-card featured">
-        <div class="exp-header">
-          <div class="exp-logo">
-            <img src="images/logos/umass_boston_logo.jpeg" alt="UMass Boston" loading="lazy">
-          </div>
-          <div class="exp-info">
-            <h3>Teaching Assistant – CS460: Computer Graphics</h3>
-            <h4>University of Massachusetts Boston</h4>
-            <span class="exp-duration current">Sep 2025 – Present</span>
-          </div>
+        <div class="expertise-category">
+          <h4><i class="fas fa-hospital"></i> Medical AI & Imaging</h4>
+          <p>Medical imaging analysis, DICOM processing, breast cancer detection, diagnostic AI, and healthcare
+            technology solutions</p>
         </div>
-        <div class="exp-content">
-          <p class="exp-summary">Lead the course staff and coordinate grading, communication, and assignment management for CS460: Computer Graphics.</p>
-          <ul class="exp-achievements">
-            <li>Lead the course staff and coordinate grading, communication, and assignment management</li>
-            <li>Teach and support students in understanding computer graphics and web-based 3D visualization</li>
-            <li>Share expertise in WebGL, WebGPU, Three.js, and XTK for creating interactive graphics experiences</li>
-            <li>Delivered a lecture on WebGPU fundamentals, covering browser compatibility, shaders, and rendering pipelines</li>
-            <li>Designed instructional materials and visual examples to enhance learning of modern web graphics technologies</li>
-            <li>Course: <a href="https://cs460.org" target="_blank" rel="noopener noreferrer">CS460: Computer Graphics</a></li>
-            <li>Presentation: <a href="https://slides.com/avanith/webgpu" target="_blank" rel="noopener noreferrer">WebGPU Fundamentals</a></li>
-          </ul>
-          <div class="exp-photo">
-            <img src="images/meandprof.jpg" alt="Avanith with Professor" loading="lazy">
-            <p class="photo-caption">Working with my professor on CS460 Computer Graphics course</p>
-          </div>
-          <div class="presentation-preview">
-            <h4>WebGPU Presentation Preview</h4>
-            <iframe src="https://slides.com/avanith/webgpu/embed" width="100%" height="400" frameborder="0" allowfullscreen title="WebGPU Fundamentals Presentation"></iframe>
-          </div>
-          <div class="exp-skills">
-            <span class="skill-badge">WebGL</span>
-            <span class="skill-badge">WebGPU</span>
-            <span class="skill-badge">Three.js</span>
-            <span class="skill-badge">XTK</span>
-            <span class="skill-badge">Teaching</span>
-            <span class="skill-badge">Presentations</span>
-          </div>
+
+        <div class="expertise-category">
+          <h4><i class="fas fa-chalkboard-teacher"></i> Teaching & Communication</h4>
+          <p>Technical writing, workshop delivery, knowledge sharing, and making complex AI concepts accessible to
+            diverse audiences</p>
         </div>
       </div>
 
-      <div class="experience-card featured">
-        <div class="exp-header">
-          <div class="exp-logo">
-            <img src="images/logos/sodexo_logo.jpeg" alt="Sodexo" loading="lazy">
-          </div>
-          <div class="exp-info">
-            <h3>Operations Associate</h3>
-            <h4>Sodexo</h4>
-            <span class="exp-duration">Apr 2025 – Sep 2025</span>
+      <p>I'm passionate about making complex AI concepts accessible through teaching, writing, and interactive projects
+        that bridge the gap between cutting-edge research and practical applications.</p>
+
+      <p>Currently pursuing my MS in Computer Science with a 3.9+ GPA, I've completed 6+ internships and built 10+
+        projects ranging from medical AI research to interactive web applications.</p>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+      <h2>Technical Skills</h2>
+      <div class="skills-container">
+        <div class="skill-category">
+          <h3><i class="fas fa-code"></i> Programming Languages</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">R</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">HTML/CSS</span>
+            <span class="skill-tag">PHP</span>
           </div>
         </div>
-        <div class="exp-content">
-          <p class="exp-summary">Led daily operations for food service and event functions, ensuring compliance with quality standards and smooth delivery.</p>
-          <ul class="exp-achievements">
-            <li>Led daily operations for food service and event functions, ensuring compliance with quality standards and smooth delivery</li>
-            <li>Improved inventory tracking and stock management, minimizing shortages and keeping events fully equipped</li>
-            <li>Guided and coordinated a team of 8+ members, fostering collaboration and efficiency across shifts</li>
-            <li>Supported execution of 60+ weekly campus events, contributing to higher guest satisfaction and seamless operations</li>
-            <li>Recognized by management for being a reliable point of coordination, strengthening communication and overall team performance</li>
-          </ul>
-          <div class="exp-skills">
-            <span class="skill-badge">Operations Management</span>
-            <span class="skill-badge">Team Leadership</span>
-            <span class="skill-badge">Inventory Management</span>
-            <span class="skill-badge">Event Coordination</span>
-            <span class="skill-badge">Quality Assurance</span>
+        <div class="skill-category">
+          <h3><i class="fas fa-brain"></i> AI & Machine Learning</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">TensorFlow</span>
+            <span class="skill-tag">PyTorch</span>
+            <span class="skill-tag">Keras</span>
+            <span class="skill-tag">Scikit-learn</span>
+            <span class="skill-tag">OpenCV</span>
+            <span class="skill-tag">Computer Vision</span>
+            <span class="skill-tag">Neural Networks</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3><i class="fas fa-network-wired"></i> Deep Learning & Models</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">CNNs</span>
+            <span class="skill-tag">GANs</span>
+            <span class="skill-tag">U-Net</span>
+            <span class="skill-tag">DenseNet</span>
+            <span class="skill-tag">Transfer Learning</span>
+            <span class="skill-tag">Knowledge Distillation</span>
+            <span class="skill-tag">Image Segmentation</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3><i class="fas fa-chart-line"></i> Data Science & Visualization</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Pandas</span>
+            <span class="skill-tag">NumPy</span>
+            <span class="skill-tag">Matplotlib</span>
+            <span class="skill-tag">Tableau</span>
+            <span class="skill-tag">Power BI</span>
+            <span class="skill-tag">Data Preprocessing</span>
+            <span class="skill-tag">Statistical Analysis</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3><i class="fas fa-cube"></i> Web Graphics & 3D</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">WebGL</span>
+            <span class="skill-tag">WebGPU</span>
+            <span class="skill-tag">Three.js</span>
+            <span class="skill-tag">XTK</span>
+            <span class="skill-tag">Computer Graphics</span>
+            <span class="skill-tag">3D Visualization</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3><i class="fas fa-hospital"></i> Medical AI & Healthcare</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Medical Imaging</span>
+            <span class="skill-tag">DICOM Processing</span>
+            <span class="skill-tag">DeepSight</span>
+            <span class="skill-tag">Breast Cancer Detection</span>
+            <span class="skill-tag">Alzheimer's Prediction</span>
+            <span class="skill-tag">Diagnostic AI</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3><i class="fas fa-laptop-code"></i> Web Development</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Frontend Development</span>
+            <span class="skill-tag">UI/UX Design</span>
+            <span class="skill-tag">Bootstrap</span>
+            <span class="skill-tag">Responsive Design</span>
+            <span class="skill-tag">API Integration</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3><i class="fas fa-tools"></i> Tools & Platforms</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Jupyter</span>
+            <span class="skill-tag">VS Code</span>
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">Asset Panda</span>
+            <span class="skill-tag">ServiceNow</span>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="experience-card featured">
-        <div class="exp-header">
-          <div class="exp-logo">
-            <img src="images/logos/umass_boston_logo.jpeg" alt="UMass Boston" loading="lazy">
-          </div>
-          <div class="exp-info">
-            <h3>AV Support Specialist</h3>
-            <h4>University of Massachusetts Boston</h4>
-            <span class="exp-duration current">Jan 2025 – Present</span>
-          </div>
-        </div>
-        <div class="exp-content">
-          <p class="exp-summary">Providing real-time technical assistance for classroom setups and instructional technology at UMass Boston's Classroom Technology Services.</p>
-          <ul class="exp-achievements">
-            <li>Support Extron and Crestron AV systems, projectors, microphones, and hybrid tools</li>
-            <li>Manage equipment loans through Asset Panda and document incidents using ServiceNow</li>
-            <li>Ensure smooth operation of instructional technology for faculty and staff</li>
-            <li>Provide effective issue resolution and service tracking</li>
-          </ul>
-          <div class="exp-skills">
-            <span class="skill-badge">AV Systems</span>
-            <span class="skill-badge">Technical Support</span>
-            <span class="skill-badge">Asset Panda</span>
-            <span class="skill-badge">ServiceNow</span>
-            <span class="skill-badge">Extron</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="experience-card featured">
-        <div class="exp-header">
-          <div class="exp-logo">
-            <img src="images/logos/ai fantastic.jpeg" alt="The AI Fantastic Team" loading="lazy">
-          </div>
-          <div class="exp-info">
-            <h3>Co-founder & Researcher</h3>
-            <h4>The AI Fantastic Team</h4>
-            <span class="exp-duration current">May 2025 – Present</span>
-          </div>
-        </div>
-        <div class="exp-content">
-          <p class="exp-summary">Co-founded and lead research initiatives in an AI-focused team at UMass Boston, contributing to community-building and knowledge sharing.</p>
-          <ul class="exp-achievements">
-            <li>Founded team with Rami Huu Nguyen, Ila Lama, and Lakshmi Pranathi Vutla</li>
-            <li>Contribute to research initiatives and share knowledge in AI and Computer Science</li>
-            <li>Participate in events and community engagement through Instagram @theaifantasticteam</li>
-            <li>Focus on continuous learning and building presence in the AI space</li>
-        </ul>
-          <div class="exp-photo">
-            <img src="images/aifcore.jpeg" alt="The AI Fantastic Team Core Members" loading="lazy">
-            <p class="photo-caption">The AI Fantastic Team core members - Rami Huu Nguyen, Ila Lama, Lakshmi Pranathi Vutla, and myself</p>
-          </div>
-          <div class="exp-skills">
-            <span class="skill-badge">Leadership</span>
-            <span class="skill-badge">Research</span>
-            <span class="skill-badge">Community Building</span>
-            <span class="skill-badge">AI</span>
-            <span class="skill-badge">Teamwork</span>
-          </div>
-          <div class="presentation-preview">
-            <h4>Community Spotlight</h4>
-            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7343291907122364416" width="100%" height="400" frameborder="0" allowfullscreen title="AI Fantastic Team Member Spotlight"></iframe>
-          </div>
-      </div>
-    </div>
-
-      <div class="experience-card featured">
-        <div class="exp-header">
-          <div class="exp-logo">
-            <img src="images/logos/mpsych_logo.jpeg" alt="UMass Boston" loading="lazy">
-          </div>
-          <div class="exp-info">
-            <h3>Machine Psychology Fellow</h3>
-            <h4>University of Massachusetts Boston</h4>
-            <span class="exp-duration current">Jan 2025 – Present</span>
-          </div>
-        </div>
-        <div class="exp-content">
-          <p class="exp-summary">Leading AI research in medical imaging and cancer detection using advanced deep learning techniques.</p>
-          <ul class="exp-achievements">
-            <li>Improved diagnostic consistency in breast cancer scoring by automating DeepSight inference pipeline</li>
-            <li>Built CNN and U-Net models for segmentation and classification of multi-view DICOM inputs</li>
-            <li>Enabled reproducible research by modularizing pipelines and standardizing scoring formats</li>
-            
-        </ul>
-          <div class="exp-skills">
-            <span class="skill-badge">Python</span>
-            <span class="skill-badge">PyTorch</span>
-            <span class="skill-badge">TensorFlow</span>
-            <span class="skill-badge">Medical Imaging</span>
-            <span class="skill-badge">Research</span>
-          </div>
-      </div>
-    </div>
-
-      <div class="experience-card">
-        <div class="exp-header">
-          <div class="exp-logo">
-            <img src="images/logos/vivops_logo.jpeg" alt="VIVO Professional Services" loading="lazy">
-          </div>
-          <div class="exp-info">
-            <h3>Software Engineering Intern</h3>
-            <h4>VIVO Professional Services</h4>
-            <span class="exp-duration">Jun 2023 – Jun 2024</span>
-          </div>
-        </div>
-        <div class="exp-content">
-          <p class="exp-summary">Full-stack development with focus on frontend architecture and user experience.</p>
-          <ul class="exp-achievements">
-            <li>Enhanced Geo Attendance UI with modern HTML/CSS, improving user engagement by 40%</li>
-            <li>Delivered 5+ frontend modules across ongoing projects ahead of schedule</li>
-            <li>Built scalable components earning high trust from development team</li>
-        </ul>
-          <div class="exp-skills">
-            <span class="skill-badge">HTML/CSS</span>
-            <span class="skill-badge">JavaScript</span>
-            <span class="skill-badge">Frontend</span>
-            <span class="skill-badge">UI/UX</span>
-          </div>
-      </div>
-    </div>
-
-      <div class="experience-card">
-        <div class="exp-header">
-          <div class="exp-logo">
-            <img src="images/logos/coders cave logo.jpeg" alt="CodersCave" loading="lazy">
-          </div>
-          <div class="exp-info">
-            <h3>Python Development Intern</h3>
-            <h4>CodersCave</h4>
-            <span class="exp-duration">Aug 2023 – Jan 2024</span>
-          </div>
-        </div>
-        <div class="exp-content">
-          <p class="exp-summary">Developed interactive Python applications and strengthened programming fundamentals.</p>
-          <ul class="exp-achievements">
-            <li>Built 10+ Python projects including Password Generator, Calculator, Typing Speed Test</li>
-            <li>Strengthened logic-building and user input handling skills</li>
-            <li>Gained confidence in building interactive applications</li>
-        </ul>
-          <div class="exp-skills">
-            <span class="skill-badge">Python</span>
-            <span class="skill-badge">GUI Development</span>
-            <span class="skill-badge">Algorithms</span>
-            <span class="skill-badge">Problem Solving</span>
-          </div>
-      </div>
-    </div>
-
-      <div class="experience-card">
-        <div class="exp-header">
-          <div class="exp-logo">
-            <img src="images/logos/codeclause_logo.jpeg" alt="CodeClause" loading="lazy">
-          </div>
-          <div class="exp-info">
-            <h3>Data Science Intern</h3>
-            <h4>CodeClause</h4>
-            <span class="exp-duration">Jul 2023 – Aug 2023</span>
-          </div>
-        </div>
-        <div class="exp-content">
-          <p class="exp-summary">Applied machine learning techniques to solve real-world computer vision problems.</p>
-          <ul class="exp-achievements">
-            <li>Developed Gender and Age Detection system using ML techniques</li>
-            <li>Applied data preprocessing, feature extraction, and model development</li>
-            <li>Strengthened real-world data science and problem-solving skills</li>
-        </ul>
-          <div class="exp-skills">
-            <span class="skill-badge">Machine Learning</span>
-            <span class="skill-badge">Computer Vision</span>
-            <span class="skill-badge">Data Preprocessing</span>
-            <span class="skill-badge">OpenCV</span>
-          </div>
-      </div>
-    </div>
-
-      <div class="experience-card">
-        <div class="exp-header">
-          <div class="exp-logo">
-            <img src="images/logos/internshala_logo.jpeg" alt="Internshala" loading="lazy">
-          </div>
-          <div class="exp-info">
-            <h3>Web Development Intern</h3>
-            <h4>Internshala</h4>
-            <span class="exp-duration">Oct 2022 – Nov 2022</span>
-          </div>
-        </div>
-        <div class="exp-content">
-          <p class="exp-summary">Mastered full-stack web development with perfect score completion.</p>
-          <ul class="exp-achievements">
-            <li>Scored 100% in training covering HTML, CSS, JS, Bootstrap, and PHP</li>
-            <li>Built responsive web pages and interactive components</li>
-            <li>Demonstrated exceptional frontend development skills</li>
-        </ul>
-          <div class="exp-skills">
-            <span class="skill-badge">HTML/CSS</span>
-            <span class="skill-badge">JavaScript</span>
-            <span class="skill-badge">Bootstrap</span>
-            <span class="skill-badge">PHP</span>
-          </div>
-      </div>
-    </div>
-
-      <div class="experience-card">
-        <div class="exp-header">
-          <div class="exp-logo">
-            <img src="images/logos/eduvercity logo.jpeg" alt="Eduversity & SYNC Interns" loading="lazy">
-          </div>
-          <div class="exp-info">
-            <h3>AI Intern</h3>
-            <h4>Eduversity & SYNC Interns</h4>
-            <span class="exp-duration">May 2022 – Aug 2022</span>
-          </div>
-        </div>
-        <div class="exp-content">
-          <p class="exp-summary">Early career exploration in artificial intelligence and machine learning.</p>
-          <ul class="exp-achievements">
-            <li>Completed AI projects using Python, TensorFlow, and PyTorch</li>
-            <li>Developed CNN-based COVID-19 detection models</li>
-            <li>Gained hands-on experience in supervised learning and neural networks</li>
-        </ul>
-          <div class="exp-skills">
-            <span class="skill-badge">TensorFlow</span>
-            <span class="skill-badge">PyTorch</span>
-            <span class="skill-badge">Neural Networks</span>
-            <span class="skill-badge">COVID-19 Detection</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Professional Achievements Section -->
-    <div class="achievements-section">
-      <h3>Key Achievements</h3>
-      <div class="achievements-grid">
-        <div class="achievement-item">
-          <i class="fas fa-microscope"></i>
-          <div>
-            <h4>Medical AI Research</h4>
-            <p>Machine Psychology Fellow working on breast cancer detection using CNN and U-Net models with automated DeepSight pipelines</p>
-          </div>
-        </div>
-        <div class="achievement-item">
-          <i class="fas fa-book"></i>
-          <div>
-            <h4>Research Publications</h4>
-            <p>Published 2 IEEE papers in InCACCT 2024 and ICRISST 2024 conferences on breast cancer classification and diagnosis</p>
-          </div>
-        </div>
-        <div class="achievement-item">
-          <i class="fas fa-chalkboard-teacher"></i>
-          <div>
-            <h4>Teaching Excellence</h4>
-            <p>Teaching Assistant for CS460 Computer Graphics, delivering WebGPU lectures and creating instructional materials</p>
-          </div>
-        </div>
-        <div class="achievement-item">
-          <i class="fas fa-users"></i>
-          <div>
-            <h4>Leadership & Entrepreneurship</h4>
-            <p>Co-founded The AI Fantastic Team at UMass Boston and led operations for 60+ weekly events at Sodexo</p>
-          </div>
-        </div>
-        <div class="achievement-item">
-          <i class="fas fa-code"></i>
-          <div>
-            <h4>Technical Projects</h4>
-            <p>Built 10+ projects including Social Media Data Analysis & Website, Knowledge Distillation, Image Colorization with GANs, and Alzheimer's Prediction models</p>
-          </div>
-        </div>
-        <div class="achievement-item">
-          <i class="fas fa-chart-line"></i>
-          <div>
-            <h4>Professional Impact</h4>
-            <p>Enhanced UI engagement by 40% at VIVO, coordinated 8+ member teams, and achieved 100% training scores</p>
-          </div>
-        </div>
-      </div>
-  </div>
-  </section>
-
-  <!-- Certifications Section -->
-  <section class="section" id="certifications">
-    <h2>Certifications & Achievements</h2>
-    <div class="certifications-container">
-      <div class="cert-grid">
-        <!-- AICTE Internship Certificate -->
-        <div class="cert-item" onclick="openCertificate('images/Certificates/Avanith   Kanamarlapudi AICTE INTERNSHIP COMPLETION CERTIFICATE.pdf')">
-          <div class="cert-icon">
-            <i class="fas fa-certificate"></i>
-          </div>
-          <h3>AICTE Internship</h3>
-          <p>Completion Certificate</p>
-          <span class="cert-type">PDF</span>
-        </div>
-
-        <!-- IEEE Conference -->
-        <div class="cert-item" onclick="openCertificate('images/Certificates/Avanith IEEE conferance.pdf')">
-          <div class="cert-icon">
-            <i class="fas fa-award"></i>
-          </div>
-          <h3>IEEE Conference</h3>
-          <p>Research Publication</p>
-          <span class="cert-type">PDF</span>
-        </div>
-
-        <!-- Image Processing OnRamp -->
-        <div class="cert-item" onclick="openCertificate('images/Certificates/Avanith.K Image processing onramp.pdf')">
-          <div class="cert-icon">
-            <i class="fas fa-brain"></i>
-          </div>
-          <h3>Image Processing</h3>
-          <p>MATLAB OnRamp</p>
-          <span class="cert-type">PDF</span>
-        </div>
-
-        <!-- AWS Cloud Foundations -->
-        <div class="cert-item">
-          <img src="images/Certificates/aws-academy-graduate-aws-academy-cloud-foundations.png" alt="AWS Cloud Foundations Certificate" loading="lazy">
-          <h3>AWS Cloud Foundations</h3>
-          <p>AWS Academy Graduate</p>
-        </div>
-
-        <!-- AWS Cloud Security -->
-        <div class="cert-item" onclick="openCertificate('images/Certificates/AWS_Academy_Graduate___AWS_Academy_Cloud_Security_Foundations_Badge20221113-46-uj00t7.pdf')">
-          <div class="cert-icon">
-            <i class="fab fa-aws"></i>
-          </div>
-          <h3>AWS Cloud Security</h3>
-          <p>Security Foundations</p>
-          <span class="cert-type">PDF</span>
-        </div>
-
-        <!-- Deep Learning OnRamp -->
-        <div class="cert-item" onclick="openCertificate('images/Certificates/certificate deep learning onramp.pdf')">
-          <div class="cert-icon">
-            <i class="fas fa-robot"></i>
-          </div>
-          <h3>Deep Learning</h3>
-          <p>MATLAB OnRamp</p>
-          <span class="cert-type">PDF</span>
-        </div>
-
-        <!-- Certificate Landing Page -->
-        <div class="cert-item" onclick="openCertificate('images/Certificates/CERTIFICATE_LANDING_PAGE~TZF4Q32ZU7JM.jpeg')">
-          <img src="images/Certificates/CERTIFICATE_LANDING_PAGE~TZF4Q32ZU7JM.jpeg" alt="Certificate Landing Page" loading="lazy">
-          <h3>Web Development</h3>
-          <p>Landing Page Project</p>
-          <span class="cert-type">JPG</span>
-        </div>
-
-        <!-- AIML Eduvercity -->
-        <div class="cert-item" onclick="openCertificate('images/Certificates/Completion Certificate (62) aiml eduverciry.pdf')">
-          <div class="cert-icon">
-            <i class="fas fa-graduation-cap"></i>
-          </div>
-          <h3>AIML Course</h3>
-          <p>Eduvercity Completion</p>
-          <span class="cert-type">PDF</span>
-        </div>
-
-        <!-- Coursera Certificates -->
-        <div class="cert-item" onclick="openCertificate('images/Certificates/Coursera 5KC3RXJB65PK.pdf')">
-          <div class="cert-icon">
-            <i class="fab fa-leanpub"></i>
-          </div>
-          <h3>Coursera Course</h3>
-          <p>Professional Development</p>
-          <span class="cert-type">PDF</span>
-        </div>
-
-        <div class="cert-item" onclick="openCertificate('images/Certificates/Coursera 9MZD63J3PNV2.pdf')">
-          <div class="cert-icon">
-            <i class="fab fa-leanpub"></i>
-          </div>
-          <h3>Coursera Course</h3>
-          <p>Professional Development</p>
-          <span class="cert-type">PDF</span>
-        </div>
-
-        <div class="cert-item" onclick="openCertificate('images/Certificates/Coursera BMFXEPXGBVXW.pdf')">
-          <div class="cert-icon">
-            <i class="fab fa-leanpub"></i>
-          </div>
-          <h3>Coursera Course</h3>
-          <p>Professional Development</p>
-          <span class="cert-type">PDF</span>
-        </div>
-
-        <div class="cert-item" onclick="openCertificate('images/Certificates/Coursera Z3CUJ3ZJVG8A.pdf')">
-          <div class="cert-icon">
-            <i class="fab fa-leanpub"></i>
-          </div>
-          <h3>Coursera Course</h3>
-          <p>Professional Development</p>
-          <span class="cert-type">PDF</span>
-        </div>
-
-        <!-- Download Certificates -->
-        <div class="cert-item" onclick="openCertificate('images/Certificates/download.png')">
-          <img src="images/Certificates/download.png" alt="Download Certificate 1" loading="lazy">
-          <h3>Professional Certificate</h3>
-          <p>Technical Achievement</p>
-          <span class="cert-type">PNG</span>
-        </div>
-
-        <div class="cert-item" onclick="openCertificate('images/Certificates/download (1).png')">
-          <img src="images/Certificates/download (1).png" alt="Download Certificate 2" loading="lazy">
-          <h3>Professional Certificate</h3>
-          <p>Technical Achievement</p>
-          <span class="cert-type">PNG</span>
-        </div>
-
-        <!-- Math Lab Course -->
-        <div class="cert-item" onclick="openCertificate('images/Certificates/RA2011026010073 Avanith math lab course certificate.pdf')">
-          <div class="cert-icon">
-            <i class="fas fa-calculator"></i>
-          </div>
-          <h3>Math Lab Course</h3>
-          <p>Academic Achievement</p>
-          <span class="cert-type">PDF</span>
-        </div>
-
-        <!-- Ruby on Rails Workshop -->
-        <div class="cert-item" onclick="openCertificate('images/Certificates/RA2011026010073-Workshop on ruby on rails.pdf')">
-          <div class="cert-icon">
-            <i class="fas fa-gem"></i>
-          </div>
-          <h3>Ruby on Rails</h3>
-          <p>Workshop Completion</p>
-          <span class="cert-type">PDF</span>
-        </div>
-
-        <!-- Web Development Training -->
-        <div class="cert-item" onclick="openCertificate('images/Certificates/Web Development Training - Certificate of Completion.pdf')">
-          <div class="cert-icon">
-            <i class="fas fa-code"></i>
-          </div>
-          <h3>Web Development</h3>
-          <p>Training Completion</p>
-          <span class="cert-type">PDF</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Education Section -->
-  <section class="section" id="education">
-  <h2>Education</h2>
-  <div class="education-container">
-    <div class="edu-card">
-      <h3>M.S. in Computer Science</h3>
-      <p>University of Massachusetts Boston</p>
-      <p><strong>GPA:</strong> 3.9 / 4.0</p>
-      <span class="edu-date">2024 – 2026</span>
-    </div>
-    <div class="edu-card">
-      <h3>B.Tech in CSE (AI/ML Specialization)</h3>
-      <p>SRM Institute of Science and Technology</p>
-      <p><strong>GPA:</strong> 3.46 / 4.0</p>
-      <span class="edu-date">2019 – 2023</span>
-    </div>
-  </div>
-</section>
-
-  <!-- Contact Section -->
-  <section class="section" id="contact">
-    <h2>Get In Touch</h2>
-    <p class="contact-intro">I'm always open to discussing new opportunities, collaborations, or research projects. Feel free to reach out!</p>
-    
-    <div class="contact-container">
-      <div class="contact-info">
-        <div class="contact-item">
-          <i class="fas fa-envelope"></i>
-          <div>
-            <h4>Email</h4>
-            <a href="mailto:kanamarlapudi.avanith@gmail.com">kanamarlapudi.avanith@gmail.com</a>
-          </div>
-        </div>
-        <div class="contact-item">
-          <i class="fab fa-linkedin"></i>
-          <div>
-            <h4>LinkedIn</h4>
-            <a href="https://www.linkedin.com/in/avanith-kanamarlapudi-8aa081204/" target="_blank" rel="noopener noreferrer">Connect with me</a>
-          </div>
-        </div>
-        <div class="contact-item">
-          <i class="fab fa-github"></i>
-          <div>
-            <h4>GitHub</h4>
-            <a href="https://github.com/Avanith12" target="_blank" rel="noopener noreferrer">View my repositories</a>
-          </div>
-        </div>
-        <div class="contact-item">
-          <i class="fab fa-medium"></i>
-          <div>
-            <h4>Medium</h4>
-            <a href="https://medium.com/@kanamarlapudi-avanith" target="_blank" rel="noopener noreferrer">Read my blogs</a>
-          </div>
-        </div>
-      </div>
-
-      <form class="contact-form" id="contactForm">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required placeholder="Your Name">
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required placeholder="your.email@example.com">
-        </div>
-        <div class="form-group">
-          <label for="subject">Subject</label>
-          <input type="text" id="subject" name="subject" required placeholder="What's this about?">
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" required placeholder="Your message here..."></textarea>
-        </div>
-        <button type="submit" class="submit-btn">
-          <i class="fas fa-paper-plane"></i> Send Message
+    <!-- Journey Section -->
+    <section class="section" id="journey">
+      <h2>My Journey</h2>
+      <div class="journey-container">
+        <button class="slider-btn prev" aria-label="Previous slide">
+          <i class="fas fa-chevron-left"></i>
         </button>
-      </form>
-    </div>
-  </section>
+        <div class="journey-slider">
+          <div class="slide active">
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7331283611490385922?collapsed=1"
+              frameborder="0" allowfullscreen title="LinkedIn Post 1" loading="lazy"></iframe>
+          </div>
+          <div class="slide">
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7329292079501635585?collapsed=1"
+              frameborder="0" allowfullscreen title="LinkedIn Post 2" loading="lazy"></iframe>
+          </div>
+          <div class="slide">
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7328845340663599104?collapsed=1"
+              frameborder="0" allowfullscreen title="LinkedIn Post 3" loading="lazy"></iframe>
+          </div>
+          <div class="slide">
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7303106480893739009?collapsed=1"
+              frameborder="0" allowfullscreen title="LinkedIn Post 4" loading="lazy"></iframe>
+          </div>
+          <div class="slide">
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7113397747096948736?collapsed=1"
+              frameborder="0" allowfullscreen title="LinkedIn Post 5" loading="lazy"></iframe>
+          </div>
+          <div class="slide">
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7109566409382260736?collapsed=1"
+              frameborder="0" allowfullscreen title="LinkedIn Post 6" loading="lazy"></iframe>
+          </div>
+          <div class="slide">
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7105939925518188544?collapsed=1"
+              frameborder="0" allowfullscreen title="LinkedIn Post 7" loading="lazy"></iframe>
+          </div>
+          <div class="slide">
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7363298095830319104?collapsed=1"
+              height="670" width="504" frameborder="0" allowfullscreen title="LinkedIn Post 8" loading="lazy"></iframe>
+          </div>
+          <div class="slide">
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7354560802072207360?collapsed=1"
+              height="916" width="504" frameborder="0" allowfullscreen title="LinkedIn Post 9" loading="lazy"></iframe>
+          </div>
+        </div>
+        <button class="slider-btn next" aria-label="Next slide">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+      <div class="slider-dots"></div>
+    </section>
+
+    <!-- Fun Section -->
+    <section class="section" id="fun">
+      <h2>Just for Fun</h2>
+      <p>When I'm not building AI models, I love writing casual blogs about games and random thoughts. It's my way of
+        winding down and having fun with words.</p>
+      <p>📖 <a href="https://medium.com/@kanamarlapudi-avanith" target="_blank">Read my fun blogs on Medium</a></p>
+    </section>
+
+    <!-- Writing & Articles Section -->
+    <section class="section" id="articles">
+      <h2>Writing & Articles</h2>
+      <div class="article-container">
+        <div class="article-card">
+          <h3>How I Turned Social Media Data into a Website with ChatGPT and VS Code</h3>
+          <p class="article-meta">
+            <i class="fas fa-calendar"></i> Published Sep 4, 2025 &nbsp;&nbsp;
+            <i class="fas fa-users"></i> 23 likes, 6 comments &nbsp;&nbsp;
+            <i class="fab fa-linkedin"></i> LinkedIn Article
+          </p>
+          <p class="article-description">
+            A detailed walkthrough of my first workshop where I demonstrated how to build a fully functional, stylish
+            website from social media data analysis using ChatGPT and VS Code. This article covers the complete workflow
+            from raw data to interactive website deployment.
+          </p>
+          <div class="article-preview">
+            <div class="article-highlights">
+              <h4>Key Highlights from the Article:</h4>
+              <ul>
+                <li><strong>Workshop Achievement:</strong> First workshop delivery with The AI Fantastic Team</li>
+                <li><strong>Technical Stack:</strong> Python (Pandas + Seaborn) → HTML/CSS/JavaScript → GitHub Pages
+                </li>
+                <li><strong>Interactive Features:</strong> Typing effects, scroll animations, lightbox zoom, progress
+                  bars</li>
+                <li><strong>Community Impact:</strong> 23 likes, 6 positive comments from attendees</li>
+                <li><strong>Educational Value:</strong> Step-by-step guide for beginners to build websites</li>
+                <li><strong>Team Collaboration:</strong> Worked with Rami Huu Nguyen, Lakshmi Pranathi Vutla, and Ila L.
+                </li>
+              </ul>
+            </div>
+            <div class="article-testimonials">
+              <h4>What Attendees Said:</h4>
+              <div class="testimonial-grid">
+                <div class="testimonial-item">
+                  <blockquote>
+                    "You explained everything so clearly that after your workshop, anyone could go and build a website.
+                    Honestly, it's not AI that's threatening frontend jobs, it's your workshop. That's how informative
+                    it was."
+                  </blockquote>
+                  <cite>- Sireesha Kuchimanchi, Aspiring Full-Stack Developer</cite>
+                </div>
+                <div class="testimonial-item">
+                  <blockquote>
+                    "This workshop was incredibly insightful! The way you broke down the process from data analysis to
+                    website creation was amazing. Thank you for sharing your knowledge!"
+                  </blockquote>
+                  <cite>- Rami Huu Nguyen, AI Fantastic Team Co-founder</cite>
+                </div>
+                <div class="testimonial-item">
+                  <blockquote>
+                    "Great presentation! The step-by-step approach made complex concepts so accessible. Looking forward
+                    to more workshops like this!"
+                  </blockquote>
+                  <cite>- Workshop Attendee</cite>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="article-resources">
+            <h4>Complete Workshop Resources:</h4>
+            <div class="resource-grid">
+              <a href="https://www.linkedin.com/pulse/how-i-turned-social-media-data-website-chatgpt-vs-kanamarlapudi-8pydc/"
+                target="_blank" rel="noopener noreferrer" class="resource-link">
+                <i class="fab fa-linkedin"></i>
+                <div>
+                  <strong>LinkedIn Article</strong>
+                  <span>Complete workshop walkthrough</span>
+                </div>
+              </a>
+              <a href="https://www.canva.com/design/DAGwwfPICJA/OOSpVC6XkZu4ehRuDhB2dA/edit" target="_blank"
+                rel="noopener noreferrer" class="resource-link">
+                <i class="fas fa-chart-bar"></i>
+                <div>
+                  <strong>Workshop Slides</strong>
+                  <span>Canva presentation deck</span>
+                </div>
+              </a>
+              <a href="https://docs.google.com/document/d/1cbr9Fu7RnrzoNC9h3VsN7okle6Do8fbPx9pBV5ZTnJE/edit?tab=t.0"
+                target="_blank" rel="noopener noreferrer" class="resource-link">
+                <i class="fas fa-file-alt"></i>
+                <div>
+                  <strong>Step-by-Step Guide</strong>
+                  <span>Detailed instructions document</span>
+                </div>
+              </a>
+              <a href="https://avanith12.github.io/Data-Analysis-Social_media_engagement/" target="_blank"
+                rel="noopener noreferrer" class="resource-link">
+                <i class="fas fa-globe"></i>
+                <div>
+                  <strong>Live Website</strong>
+                  <span>Final interactive result</span>
+                </div>
+              </a>
+              <a href="https://drive.google.com/file/d/1EUq_wxYhnF4aNquUaR3yZwL9rlTY-gvB/view" target="_blank"
+                rel="noopener noreferrer" class="resource-link">
+                <i class="fas fa-video"></i>
+                <div>
+                  <strong>Workshop Recording</strong>
+                  <span>Full presentation video</span>
+                </div>
+              </a>
+              <a href="https://github.com/Avanith12/Data-Analysis-Social_media_engagement" target="_blank"
+                rel="noopener noreferrer" class="resource-link">
+                <i class="fab fa-github"></i>
+                <div>
+                  <strong>GitHub Repository</strong>
+                  <span>Source code & files</span>
+                </div>
+              </a>
+              <a href="https://github.com/Avanith12/Data-Analysis-Social_media_engagement/blob/main/data_analysis.ipynb"
+                target="_blank" rel="noopener noreferrer" class="resource-link">
+                <i class="fab fa-python"></i>
+                <div>
+                  <strong>Jupyter Notebook</strong>
+                  <span>Complete data analysis</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="article-links">
+            <a href="https://www.linkedin.com/pulse/how-i-turned-social-media-data-website-chatgpt-vs-kanamarlapudi-8pydc/"
+              target="_blank" rel="noopener noreferrer" class="article-link primary">
+              <i class="fab fa-linkedin"></i> Read Full Article
+            </a>
+            <a href="https://avanith12.github.io/Data-Analysis-Social_media_engagement/" target="_blank"
+              rel="noopener noreferrer" class="article-link secondary">
+              <i class="fas fa-external-link-alt"></i> View Live Website
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+      <h2>Academic Projects</h2>
+      <div class="grid">
+        <div class="card">
+          <img src="images/Projects/space mission dashboard.jpeg" alt="Space Mission Dashboard Project" loading="lazy">
+          <h3>Space Mission Dashboard</h3>
+          <p class="card-desc">Interactive data visualization dashboard exploring space mission data</p>
+          <a href="https://www.linkedin.com/in/avanith-kanamarlapudi-8aa081204/details/projects/1635533235893/single-media-viewer/?profileId=ACoAADP608IBtBQi5QuG0LyhhhdjTpL4oSMNUfY"
+            target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> View Project</a>
+        </div>
+        <div class="card">
+          <img src="images/Projects/NETFLIX DASHBOARD.jpeg" alt="Netflix Dashboard Project" loading="lazy">
+          <h3>Netflix Dashboard</h3>
+          <p class="card-desc">Analytics dashboard for Netflix content analysis and insights</p>
+          <a href="https://www.linkedin.com/in/avanith-kanamarlapudi-8aa081204/details/projects/19562981/multiple-media-viewer/?profileId=ACoAADP608IBtBQi5QuG0LyhhhdjTpL4oSMNUfY&treasuryMediaId=1635531151085"
+            target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> View Project</a>
+        </div>
+        <div class="card">
+          <img src="images/Projects/C-19 INTERNATION DASHBOARD.jpeg" alt="COVID-19 International Dashboard"
+            loading="lazy">
+          <h3>COVID-19 Dashboard</h3>
+          <p class="card-desc">Real-time international COVID-19 data tracking and visualization</p>
+          <a href="https://www.linkedin.com/in/avanith-kanamarlapudi-8aa081204/details/projects/2099681136/multiple-media-viewer/?profileId=ACoAADP608IBtBQi5QuG0LyhhhdjTpL4oSMNUfY&treasuryMediaId=1635531308562"
+            target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> View Project</a>
+        </div>
+        <div class="card">
+          <img src="images/Projects/Airline Data DASHBOARD.jpeg" alt="Airline Data Dashboard" loading="lazy">
+          <h3>Airline Data Dashboard</h3>
+          <p class="card-desc">Comprehensive airline industry data analysis platform</p>
+          <a href="https://www.linkedin.com/in/avanith-kanamarlapudi-8aa081204/details/projects/446912851/multiple-media-viewer/?profileId=ACoAADP608IBtBQi5QuG0LyhhhdjTpL4oSMNUfY&treasuryMediaId=1635531728652"
+            target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> View Project</a>
+        </div>
+        <div class="card">
+          <img src="images/Projects/kd.png" alt="Knowledge Distillation Project" loading="lazy">
+          <h3>Knowledge Distillation</h3>
+          <p class="card-desc">AI model compression for cybersecurity applications</p>
+          <a href="https://github.com/Avanith12/Avanith_AI_For_All" target="_blank" rel="noopener noreferrer"><i
+              class="fab fa-github"></i> GitHub</a>
+          <a href="https://avanith12.github.io/Avanith_AI_For_All/AI%20CyberSecurity%20UI/" target="_blank"
+            rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Demo</a>
+        </div>
+        <div class="card">
+          <img src="images/Projects/image colorization.png" alt="Image Colorization using GANs" loading="lazy">
+          <h3>Image Colorization using GANs</h3>
+          <p class="card-desc">Generative model for automatic image colorization</p>
+          <a href="https://github.com/Avanith12/Image-Colorization-Avanith" target="_blank" rel="noopener noreferrer"><i
+              class="fab fa-github"></i> GitHub</a>
+        </div>
+        <div class="card">
+          <img src="images/Projects/alzheimers prediction model.png" alt="Alzheimer's Prediction Model" loading="lazy">
+          <h3>Alzheimer's Prediction</h3>
+          <p class="card-desc">Deep learning model for early Alzheimer's disease detection</p>
+          <a href="https://github.com/Avanith12/AI-Final-Project" target="_blank" rel="noopener noreferrer"><i
+              class="fab fa-github"></i> GitHub</a>
+        </div>
+        <div class="card">
+          <img src="images/Projects/movie explorer.jpg" alt="Movie Verse Platform" loading="lazy">
+          <h3>Movie Verse Platform</h3>
+          <p class="card-desc">Full-stack movie exploration and recommendation platform</p>
+          <a href="https://github.com/Avanith12/CS637-MovieHub" target="_blank" rel="noopener noreferrer"><i
+              class="fab fa-github"></i> GitHub</a>
+        </div>
+        <div class="card">
+          <img src="images/Projects/news chatbot.png" alt="AI News Chatbot" loading="lazy">
+          <h3>AI News Chatbot</h3>
+          <p class="card-desc">Intelligent chatbot for real-time news queries and summaries</p>
+          <a href="https://github.com/Avanith12/AI-News-Chatbot" target="_blank" rel="noopener noreferrer"><i
+              class="fab fa-github"></i> GitHub</a>
+          <a href="https://avanith12.github.io/AI-News-Chatbot/" target="_blank" rel="noopener noreferrer"><i
+              class="fas fa-external-link-alt"></i> Demo</a>
+        </div>
+        <div class="card">
+          <img src="images/Projects/SocialMediaEngagementDatasetAnalysis.png"
+            alt="Social Media Data Analysis & Website Project" loading="lazy">
+          <h3>Social Media Data Analysis & Website</h3>
+          <p class="card-desc">End-to-end data analysis of social media engagement trends with interactive website
+            showcasing insights</p>
+          <a href="https://avanith12.github.io/Data-Analysis-Social_media_engagement/" target="_blank"
+            rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Live Website</a>
+          <a href="https://github.com/Avanith12/Data-Analysis-Social_media_engagement" target="_blank"
+            rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+        <div class="card">
+          <img src="images/Projects/autofolio.png" alt="Autofolio Project" loading="lazy">
+          <h3>Autofolio</h3>
+          <p class="card-desc">AI-powered portfolio website generator using Google's Gemini AI. Creates complete,
+            responsive portfolio websites with custom images and professional styling.</p>
+          <a href="https://github.com/Avanith12/Autofolio" target="_blank" rel="noopener noreferrer"><i
+              class="fab fa-github"></i> GitHub</a>
+        </div>
+        <div class="card">
+          <img src="images/Projects/nexusstrike.png" alt="Nexus Strike Game" loading="lazy">
+          <h3>Nexus Strike</h3>
+          <p class="card-desc">Professional-grade 3D space shooter game built with Three.js, featuring advanced
+            graphics, dynamic gameplay, multiple environments, and procedural audio.</p>
+          <a href="https://avanith12.github.io/nexus-strike-game/" target="_blank" rel="noopener noreferrer"><i
+              class="fas fa-external-link-alt"></i> Play Game</a>
+          <a href="https://github.com/Avanith12/nexus-strike-game" target="_blank" rel="noopener noreferrer"><i
+              class="fab fa-github"></i> GitHub</a>
+          <a href="https://slides.com/avanith/game" target="_blank" rel="noopener noreferrer"><i
+              class="fas fa-file-powerpoint"></i> Presentation</a>
+        </div>
+        <div class="card">
+          <img src="images/Projects/Digital_Pulse_Of_Boston.png" alt="The Digital Pulse of Boston" loading="lazy">
+          <h3>The Digital Pulse of Boston</h3>
+          <p class="card-desc">Interactive energy dashboard visualizing 100,000+ electricity readings from Boston City
+            Hall. Reveals seasonal shifts, weekly rhythms, and daily heartbeat patterns through data storytelling.</p>
+          <a href="https://avanith12.github.io/The-Digital-Pulse-of-Boston/" target="_blank"
+            rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Live Dashboard</a>
+          <a href="https://github.com/Avanith12/The-Digital-Pulse-of-Boston" target="_blank"
+            rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section class="section" id="publications">
+      <h2>Publications</h2>
+      <div class="grid publications">
+        <div class="pub-card">
+          <img src="images/Publications/RM Densenet.png" alt="RM-DenseNet Research Publication" class="pub-img"
+            loading="lazy">
+          <div class="pub-content">
+            <h3>RM-DenseNet: An Enhanced DenseNet Framework with Residual Model for Breast Cancer Classification Using
+              Mammographic Images</h3>
+            <p class="pub-venue"><i class="fas fa-book"></i> InCACCT 2024</p>
+            <a href="https://ieeexplore.ieee.org/abstract/document/10551125" target="_blank" rel="noopener noreferrer"
+              class="pub-link"><i class="fas fa-external-link-alt"></i> Read Paper</a>
+          </div>
+        </div>
+        <div class="pub-card">
+          <img src="images/Publications/Diagnosis and classification of bc.png"
+            alt="Breast Cancer Diagnosis Research Publication" class="pub-img" loading="lazy">
+          <div class="pub-content">
+            <h3>Diagnosis and Classification of Breast Cancer Using Data Visualization and Deep Learning Techniques</h3>
+            <p class="pub-venue"><i class="fas fa-book"></i> ICRISST 2024</p>
+            <a href="https://ieeexplore.ieee.org/abstract/document/10593055" target="_blank" rel="noopener noreferrer"
+              class="pub-link"><i class="fas fa-external-link-alt"></i> Read Paper</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section" id="experience">
+      <h2>Professional Experience</h2>
+
+      <div class="experience-timeline">
+        <div class="experience-card featured">
+          <div class="exp-header">
+            <div class="exp-logo">
+              <img src="images/logos/umass_boston_logo.jpeg" alt="UMass Boston" loading="lazy">
+            </div>
+            <div class="exp-info">
+              <h3>Teaching Assistant – CS460: Computer Graphics</h3>
+              <h4>University of Massachusetts Boston</h4>
+              <span class="exp-duration current">Sep 2025 – Present</span>
+            </div>
+          </div>
+          <div class="exp-content">
+            <p class="exp-summary">Lead the course staff and coordinate grading, communication, and assignment
+              management for CS460: Computer Graphics.</p>
+            <ul class="exp-achievements">
+              <li>Lead the course staff and coordinate grading, communication, and assignment management</li>
+              <li>Teach and support students in understanding computer graphics and web-based 3D visualization</li>
+              <li>Share expertise in WebGL, WebGPU, Three.js, and XTK for creating interactive graphics experiences</li>
+              <li>Delivered a lecture on WebGPU fundamentals, covering browser compatibility, shaders, and rendering
+                pipelines</li>
+              <li>Designed instructional materials and visual examples to enhance learning of modern web graphics
+                technologies</li>
+              <li>Course: <a href="https://cs460.org" target="_blank" rel="noopener noreferrer">CS460: Computer
+                  Graphics</a></li>
+              <li>Presentation: <a href="https://slides.com/avanith/webgpu" target="_blank"
+                  rel="noopener noreferrer">WebGPU Fundamentals</a></li>
+            </ul>
+            <div class="exp-photo">
+              <img src="images/meandprof.jpg" alt="Avanith with Professor" loading="lazy">
+              <p class="photo-caption">Working with my professor on CS460 Computer Graphics course</p>
+            </div>
+            <div class="presentation-preview">
+              <h4>WebGPU Presentation Preview</h4>
+              <iframe src="https://slides.com/avanith/webgpu/embed" width="100%" height="400" frameborder="0"
+                allowfullscreen title="WebGPU Fundamentals Presentation"></iframe>
+            </div>
+            <div class="exp-skills">
+              <span class="skill-badge">WebGL</span>
+              <span class="skill-badge">WebGPU</span>
+              <span class="skill-badge">Three.js</span>
+              <span class="skill-badge">XTK</span>
+              <span class="skill-badge">Teaching</span>
+              <span class="skill-badge">Presentations</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="experience-card featured">
+          <div class="exp-header">
+            <div class="exp-logo">
+              <img src="images/logos/sodexo_logo.jpeg" alt="Sodexo" loading="lazy">
+            </div>
+            <div class="exp-info">
+              <h3>Operations Associate</h3>
+              <h4>Sodexo</h4>
+              <span class="exp-duration">Apr 2025 – Sep 2025</span>
+            </div>
+          </div>
+          <div class="exp-content">
+            <p class="exp-summary">Led daily operations for food service and event functions, ensuring compliance with
+              quality standards and smooth delivery.</p>
+            <ul class="exp-achievements">
+              <li>Led daily operations for food service and event functions, ensuring compliance with quality standards
+                and smooth delivery</li>
+              <li>Improved inventory tracking and stock management, minimizing shortages and keeping events fully
+                equipped</li>
+              <li>Guided and coordinated a team of 8+ members, fostering collaboration and efficiency across shifts</li>
+              <li>Supported execution of 60+ weekly campus events, contributing to higher guest satisfaction and
+                seamless operations</li>
+              <li>Recognized by management for being a reliable point of coordination, strengthening communication and
+                overall team performance</li>
+            </ul>
+            <div class="exp-skills">
+              <span class="skill-badge">Operations Management</span>
+              <span class="skill-badge">Team Leadership</span>
+              <span class="skill-badge">Inventory Management</span>
+              <span class="skill-badge">Event Coordination</span>
+              <span class="skill-badge">Quality Assurance</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="experience-card featured">
+          <div class="exp-header">
+            <div class="exp-logo">
+              <img src="images/logos/umass_boston_logo.jpeg" alt="UMass Boston" loading="lazy">
+            </div>
+            <div class="exp-info">
+              <h3>AV Support Specialist</h3>
+              <h4>University of Massachusetts Boston</h4>
+              <span class="exp-duration current">Jan 2025 – Present</span>
+            </div>
+          </div>
+          <div class="exp-content">
+            <p class="exp-summary">Providing real-time technical assistance for classroom setups and instructional
+              technology at UMass Boston's Classroom Technology Services.</p>
+            <ul class="exp-achievements">
+              <li>Support Extron and Crestron AV systems, projectors, microphones, and hybrid tools</li>
+              <li>Manage equipment loans through Asset Panda and document incidents using ServiceNow</li>
+              <li>Ensure smooth operation of instructional technology for faculty and staff</li>
+              <li>Provide effective issue resolution and service tracking</li>
+            </ul>
+            <div class="exp-skills">
+              <span class="skill-badge">AV Systems</span>
+              <span class="skill-badge">Technical Support</span>
+              <span class="skill-badge">Asset Panda</span>
+              <span class="skill-badge">ServiceNow</span>
+              <span class="skill-badge">Extron</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="experience-card featured">
+          <div class="exp-header">
+            <div class="exp-logo">
+              <img src="images/logos/ai fantastic.jpeg" alt="The AI Fantastic Team" loading="lazy">
+            </div>
+            <div class="exp-info">
+              <h3>Co-founder & Researcher</h3>
+              <h4>The AI Fantastic Team</h4>
+              <span class="exp-duration current">May 2025 – Present</span>
+            </div>
+          </div>
+          <div class="exp-content">
+            <p class="exp-summary">Co-founded and lead research initiatives in an AI-focused team at UMass Boston,
+              contributing to community-building and knowledge sharing.</p>
+            <ul class="exp-achievements">
+              <li>Founded team with Rami Huu Nguyen, Ila Lama, and Lakshmi Pranathi Vutla</li>
+              <li>Contribute to research initiatives and share knowledge in AI and Computer Science</li>
+              <li>Participate in events and community engagement through Instagram @theaifantasticteam</li>
+              <li>Focus on continuous learning and building presence in the AI space</li>
+            </ul>
+            <div class="exp-photo">
+              <img src="images/aifcore.jpeg" alt="The AI Fantastic Team Core Members" loading="lazy">
+              <p class="photo-caption">The AI Fantastic Team core members - Rami Huu Nguyen, Ila Lama, Lakshmi Pranathi
+                Vutla, and myself</p>
+            </div>
+            <div class="exp-skills">
+              <span class="skill-badge">Leadership</span>
+              <span class="skill-badge">Research</span>
+              <span class="skill-badge">Community Building</span>
+              <span class="skill-badge">AI</span>
+              <span class="skill-badge">Teamwork</span>
+            </div>
+            <div class="presentation-preview">
+              <h4>Community Spotlight</h4>
+              <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7343291907122364416" width="100%"
+                height="400" frameborder="0" allowfullscreen title="AI Fantastic Team Member Spotlight"></iframe>
+            </div>
+          </div>
+        </div>
+
+        <div class="experience-card featured">
+          <div class="exp-header">
+            <div class="exp-logo">
+              <img src="images/logos/mpsych_logo.jpeg" alt="UMass Boston" loading="lazy">
+            </div>
+            <div class="exp-info">
+              <h3>Machine Psychology Fellow</h3>
+              <h4>University of Massachusetts Boston</h4>
+              <span class="exp-duration current">Jan 2025 – Present</span>
+            </div>
+          </div>
+          <div class="exp-content">
+            <p class="exp-summary">Leading AI research in medical imaging and cancer detection using advanced deep
+              learning techniques.</p>
+            <ul class="exp-achievements">
+              <li>Improved diagnostic consistency in breast cancer scoring by automating DeepSight inference pipeline
+              </li>
+              <li>Built CNN and U-Net models for segmentation and classification of multi-view DICOM inputs</li>
+              <li>Enabled reproducible research by modularizing pipelines and standardizing scoring formats</li>
+
+            </ul>
+            <div class="exp-skills">
+              <span class="skill-badge">Python</span>
+              <span class="skill-badge">PyTorch</span>
+              <span class="skill-badge">TensorFlow</span>
+              <span class="skill-badge">Medical Imaging</span>
+              <span class="skill-badge">Research</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="experience-card">
+          <div class="exp-header">
+            <div class="exp-logo">
+              <img src="images/logos/vivops_logo.jpeg" alt="VIVO Professional Services" loading="lazy">
+            </div>
+            <div class="exp-info">
+              <h3>Software Engineering Intern</h3>
+              <h4>VIVO Professional Services</h4>
+              <span class="exp-duration">Jun 2023 – Jun 2024</span>
+            </div>
+          </div>
+          <div class="exp-content">
+            <p class="exp-summary">Full-stack development with focus on frontend architecture and user experience.</p>
+            <ul class="exp-achievements">
+              <li>Enhanced Geo Attendance UI with modern HTML/CSS, improving user engagement by 40%</li>
+              <li>Delivered 5+ frontend modules across ongoing projects ahead of schedule</li>
+              <li>Built scalable components earning high trust from development team</li>
+            </ul>
+            <div class="exp-skills">
+              <span class="skill-badge">HTML/CSS</span>
+              <span class="skill-badge">JavaScript</span>
+              <span class="skill-badge">Frontend</span>
+              <span class="skill-badge">UI/UX</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="experience-card">
+          <div class="exp-header">
+            <div class="exp-logo">
+              <img src="images/logos/coders cave logo.jpeg" alt="CodersCave" loading="lazy">
+            </div>
+            <div class="exp-info">
+              <h3>Python Development Intern</h3>
+              <h4>CodersCave</h4>
+              <span class="exp-duration">Aug 2023 – Jan 2024</span>
+            </div>
+          </div>
+          <div class="exp-content">
+            <p class="exp-summary">Developed interactive Python applications and strengthened programming fundamentals.
+            </p>
+            <ul class="exp-achievements">
+              <li>Built 10+ Python projects including Password Generator, Calculator, Typing Speed Test</li>
+              <li>Strengthened logic-building and user input handling skills</li>
+              <li>Gained confidence in building interactive applications</li>
+            </ul>
+            <div class="exp-skills">
+              <span class="skill-badge">Python</span>
+              <span class="skill-badge">GUI Development</span>
+              <span class="skill-badge">Algorithms</span>
+              <span class="skill-badge">Problem Solving</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="experience-card">
+          <div class="exp-header">
+            <div class="exp-logo">
+              <img src="images/logos/codeclause_logo.jpeg" alt="CodeClause" loading="lazy">
+            </div>
+            <div class="exp-info">
+              <h3>Data Science Intern</h3>
+              <h4>CodeClause</h4>
+              <span class="exp-duration">Jul 2023 – Aug 2023</span>
+            </div>
+          </div>
+          <div class="exp-content">
+            <p class="exp-summary">Applied machine learning techniques to solve real-world computer vision problems.</p>
+            <ul class="exp-achievements">
+              <li>Developed Gender and Age Detection system using ML techniques</li>
+              <li>Applied data preprocessing, feature extraction, and model development</li>
+              <li>Strengthened real-world data science and problem-solving skills</li>
+            </ul>
+            <div class="exp-skills">
+              <span class="skill-badge">Machine Learning</span>
+              <span class="skill-badge">Computer Vision</span>
+              <span class="skill-badge">Data Preprocessing</span>
+              <span class="skill-badge">OpenCV</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="experience-card">
+          <div class="exp-header">
+            <div class="exp-logo">
+              <img src="images/logos/internshala_logo.jpeg" alt="Internshala" loading="lazy">
+            </div>
+            <div class="exp-info">
+              <h3>Web Development Intern</h3>
+              <h4>Internshala</h4>
+              <span class="exp-duration">Oct 2022 – Nov 2022</span>
+            </div>
+          </div>
+          <div class="exp-content">
+            <p class="exp-summary">Mastered full-stack web development with perfect score completion.</p>
+            <ul class="exp-achievements">
+              <li>Scored 100% in training covering HTML, CSS, JS, Bootstrap, and PHP</li>
+              <li>Built responsive web pages and interactive components</li>
+              <li>Demonstrated exceptional frontend development skills</li>
+            </ul>
+            <div class="exp-skills">
+              <span class="skill-badge">HTML/CSS</span>
+              <span class="skill-badge">JavaScript</span>
+              <span class="skill-badge">Bootstrap</span>
+              <span class="skill-badge">PHP</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="experience-card">
+          <div class="exp-header">
+            <div class="exp-logo">
+              <img src="images/logos/eduvercity logo.jpeg" alt="Eduversity & SYNC Interns" loading="lazy">
+            </div>
+            <div class="exp-info">
+              <h3>AI Intern</h3>
+              <h4>Eduversity & SYNC Interns</h4>
+              <span class="exp-duration">May 2022 – Aug 2022</span>
+            </div>
+          </div>
+          <div class="exp-content">
+            <p class="exp-summary">Early career exploration in artificial intelligence and machine learning.</p>
+            <ul class="exp-achievements">
+              <li>Completed AI projects using Python, TensorFlow, and PyTorch</li>
+              <li>Developed CNN-based COVID-19 detection models</li>
+              <li>Gained hands-on experience in supervised learning and neural networks</li>
+            </ul>
+            <div class="exp-skills">
+              <span class="skill-badge">TensorFlow</span>
+              <span class="skill-badge">PyTorch</span>
+              <span class="skill-badge">Neural Networks</span>
+              <span class="skill-badge">COVID-19 Detection</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Professional Achievements Section -->
+      <div class="achievements-section">
+        <h3>Key Achievements</h3>
+        <div class="achievements-grid">
+          <div class="achievement-item">
+            <i class="fas fa-microscope"></i>
+            <div>
+              <h4>Medical AI Research</h4>
+              <p>Machine Psychology Fellow working on breast cancer detection using CNN and U-Net models with automated
+                DeepSight pipelines</p>
+            </div>
+          </div>
+          <div class="achievement-item">
+            <i class="fas fa-book"></i>
+            <div>
+              <h4>Research Publications</h4>
+              <p>Published 2 IEEE papers in InCACCT 2024 and ICRISST 2024 conferences on breast cancer classification
+                and diagnosis</p>
+            </div>
+          </div>
+          <div class="achievement-item">
+            <i class="fas fa-chalkboard-teacher"></i>
+            <div>
+              <h4>Teaching Excellence</h4>
+              <p>Teaching Assistant for CS460 Computer Graphics, delivering WebGPU lectures and creating instructional
+                materials</p>
+            </div>
+          </div>
+          <div class="achievement-item">
+            <i class="fas fa-users"></i>
+            <div>
+              <h4>Leadership & Entrepreneurship</h4>
+              <p>Co-founded The AI Fantastic Team at UMass Boston and led operations for 60+ weekly events at Sodexo</p>
+            </div>
+          </div>
+          <div class="achievement-item">
+            <i class="fas fa-code"></i>
+            <div>
+              <h4>Technical Projects</h4>
+              <p>Built 10+ projects including Social Media Data Analysis & Website, Knowledge Distillation, Image
+                Colorization with GANs, and Alzheimer's Prediction models</p>
+            </div>
+          </div>
+          <div class="achievement-item">
+            <i class="fas fa-chart-line"></i>
+            <div>
+              <h4>Professional Impact</h4>
+              <p>Enhanced UI engagement by 40% at VIVO, coordinated 8+ member teams, and achieved 100% training scores
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="section" id="certifications">
+      <h2>Certifications & Achievements</h2>
+      <div class="certifications-container">
+        <div class="cert-grid">
+          <!-- AICTE Internship Certificate -->
+          <div class="cert-item"
+            onclick="openCertificate('images/Certificates/Avanith   Kanamarlapudi AICTE INTERNSHIP COMPLETION CERTIFICATE.pdf')">
+            <div class="cert-icon">
+              <i class="fas fa-certificate"></i>
+            </div>
+            <h3>AICTE Internship</h3>
+            <p>Completion Certificate</p>
+            <span class="cert-type">PDF</span>
+          </div>
+
+          <!-- IEEE Conference -->
+          <div class="cert-item" onclick="openCertificate('images/Certificates/Avanith IEEE conferance.pdf')">
+            <div class="cert-icon">
+              <i class="fas fa-award"></i>
+            </div>
+            <h3>IEEE Conference</h3>
+            <p>Research Publication</p>
+            <span class="cert-type">PDF</span>
+          </div>
+
+          <!-- Image Processing OnRamp -->
+          <div class="cert-item" onclick="openCertificate('images/Certificates/Avanith.K Image processing onramp.pdf')">
+            <div class="cert-icon">
+              <i class="fas fa-brain"></i>
+            </div>
+            <h3>Image Processing</h3>
+            <p>MATLAB OnRamp</p>
+            <span class="cert-type">PDF</span>
+          </div>
+
+          <!-- AWS Cloud Foundations -->
+          <div class="cert-item">
+            <img src="images/Certificates/aws-academy-graduate-aws-academy-cloud-foundations.png"
+              alt="AWS Cloud Foundations Certificate" loading="lazy">
+            <h3>AWS Cloud Foundations</h3>
+            <p>AWS Academy Graduate</p>
+          </div>
+
+          <!-- AWS Cloud Security -->
+          <div class="cert-item"
+            onclick="openCertificate('images/Certificates/AWS_Academy_Graduate___AWS_Academy_Cloud_Security_Foundations_Badge20221113-46-uj00t7.pdf')">
+            <div class="cert-icon">
+              <i class="fab fa-aws"></i>
+            </div>
+            <h3>AWS Cloud Security</h3>
+            <p>Security Foundations</p>
+            <span class="cert-type">PDF</span>
+          </div>
+
+          <!-- Deep Learning OnRamp -->
+          <div class="cert-item" onclick="openCertificate('images/Certificates/certificate deep learning onramp.pdf')">
+            <div class="cert-icon">
+              <i class="fas fa-robot"></i>
+            </div>
+            <h3>Deep Learning</h3>
+            <p>MATLAB OnRamp</p>
+            <span class="cert-type">PDF</span>
+          </div>
+
+          <!-- Certificate Landing Page -->
+          <div class="cert-item"
+            onclick="openCertificate('images/Certificates/CERTIFICATE_LANDING_PAGE~TZF4Q32ZU7JM.jpeg')">
+            <img src="images/Certificates/CERTIFICATE_LANDING_PAGE~TZF4Q32ZU7JM.jpeg" alt="Certificate Landing Page"
+              loading="lazy">
+            <h3>Web Development</h3>
+            <p>Landing Page Project</p>
+            <span class="cert-type">JPG</span>
+          </div>
+
+          <!-- AIML Eduvercity -->
+          <div class="cert-item"
+            onclick="openCertificate('images/Certificates/Completion Certificate (62) aiml eduverciry.pdf')">
+            <div class="cert-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h3>AIML Course</h3>
+            <p>Eduvercity Completion</p>
+            <span class="cert-type">PDF</span>
+          </div>
+
+          <!-- Coursera Certificates -->
+          <div class="cert-item" onclick="openCertificate('images/Certificates/Coursera 5KC3RXJB65PK.pdf')">
+            <div class="cert-icon">
+              <i class="fab fa-leanpub"></i>
+            </div>
+            <h3>Coursera Course</h3>
+            <p>Professional Development</p>
+            <span class="cert-type">PDF</span>
+          </div>
+
+          <div class="cert-item" onclick="openCertificate('images/Certificates/Coursera 9MZD63J3PNV2.pdf')">
+            <div class="cert-icon">
+              <i class="fab fa-leanpub"></i>
+            </div>
+            <h3>Coursera Course</h3>
+            <p>Professional Development</p>
+            <span class="cert-type">PDF</span>
+          </div>
+
+          <div class="cert-item" onclick="openCertificate('images/Certificates/Coursera BMFXEPXGBVXW.pdf')">
+            <div class="cert-icon">
+              <i class="fab fa-leanpub"></i>
+            </div>
+            <h3>Coursera Course</h3>
+            <p>Professional Development</p>
+            <span class="cert-type">PDF</span>
+          </div>
+
+          <div class="cert-item" onclick="openCertificate('images/Certificates/Coursera Z3CUJ3ZJVG8A.pdf')">
+            <div class="cert-icon">
+              <i class="fab fa-leanpub"></i>
+            </div>
+            <h3>Coursera Course</h3>
+            <p>Professional Development</p>
+            <span class="cert-type">PDF</span>
+          </div>
+
+          <!-- Download Certificates -->
+          <div class="cert-item" onclick="openCertificate('images/Certificates/download.png')">
+            <img src="images/Certificates/download.png" alt="Download Certificate 1" loading="lazy">
+            <h3>Professional Certificate</h3>
+            <p>Technical Achievement</p>
+            <span class="cert-type">PNG</span>
+          </div>
+
+          <div class="cert-item" onclick="openCertificate('images/Certificates/download (1).png')">
+            <img src="images/Certificates/download (1).png" alt="Download Certificate 2" loading="lazy">
+            <h3>Professional Certificate</h3>
+            <p>Technical Achievement</p>
+            <span class="cert-type">PNG</span>
+          </div>
+
+          <!-- Math Lab Course -->
+          <div class="cert-item"
+            onclick="openCertificate('images/Certificates/RA2011026010073 Avanith math lab course certificate.pdf')">
+            <div class="cert-icon">
+              <i class="fas fa-calculator"></i>
+            </div>
+            <h3>Math Lab Course</h3>
+            <p>Academic Achievement</p>
+            <span class="cert-type">PDF</span>
+          </div>
+
+          <!-- Ruby on Rails Workshop -->
+          <div class="cert-item"
+            onclick="openCertificate('images/Certificates/RA2011026010073-Workshop on ruby on rails.pdf')">
+            <div class="cert-icon">
+              <i class="fas fa-gem"></i>
+            </div>
+            <h3>Ruby on Rails</h3>
+            <p>Workshop Completion</p>
+            <span class="cert-type">PDF</span>
+          </div>
+
+          <!-- Web Development Training -->
+          <div class="cert-item"
+            onclick="openCertificate('images/Certificates/Web Development Training - Certificate of Completion.pdf')">
+            <div class="cert-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <h3>Web Development</h3>
+            <p>Training Completion</p>
+            <span class="cert-type">PDF</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section" id="education">
+      <h2>Education</h2>
+      <div class="education-container">
+        <div class="edu-card">
+          <h3>M.S. in Computer Science</h3>
+          <p>University of Massachusetts Boston</p>
+          <p><strong>GPA:</strong> 3.9 / 4.0</p>
+          <span class="edu-date">2024 – 2026</span>
+        </div>
+        <div class="edu-card">
+          <h3>B.Tech in CSE (AI/ML Specialization)</h3>
+          <p>SRM Institute of Science and Technology</p>
+          <p><strong>GPA:</strong> 3.46 / 4.0</p>
+          <span class="edu-date">2019 – 2023</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+      <h2>Get In Touch</h2>
+      <p class="contact-intro">I'm always open to discussing new opportunities, collaborations, or research projects.
+        Feel free to reach out!</p>
+
+      <div class="contact-container">
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <h4>Email</h4>
+              <a href="mailto:kanamarlapudi.avanith@gmail.com">kanamarlapudi.avanith@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fab fa-linkedin"></i>
+            <div>
+              <h4>LinkedIn</h4>
+              <a href="https://www.linkedin.com/in/avanith-kanamarlapudi-8aa081204/" target="_blank"
+                rel="noopener noreferrer">Connect with me</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fab fa-github"></i>
+            <div>
+              <h4>GitHub</h4>
+              <a href="https://github.com/Avanith12" target="_blank" rel="noopener noreferrer">View my repositories</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fab fa-medium"></i>
+            <div>
+              <h4>Medium</h4>
+              <a href="https://medium.com/@kanamarlapudi-avanith" target="_blank" rel="noopener noreferrer">Read my
+                blogs</a>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required placeholder="Your Name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" required placeholder="What's this about?">
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Your message here..."></textarea>
+          </div>
+          <button type="submit" class="submit-btn">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
+        </form>
+      </div>
+    </section>
   </main>
 
   <!-- Scroll to Top Button -->
@@ -1092,14 +1209,17 @@
     <div class="footer-content">
       <p>&copy; 2025 Avanith Kanamarlapudi. All rights reserved.</p>
       <div class="social-links">
-        <a href="https://www.linkedin.com/in/avanith-kanamarlapudi-8aa081204/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a>
-        <a href="https://github.com/Avanith12" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github fa-lg"></i></a>
+        <a href="https://www.linkedin.com/in/avanith-kanamarlapudi-8aa081204/" target="_blank" rel="noopener noreferrer"
+          aria-label="LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a>
+        <a href="https://github.com/Avanith12" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i
+            class="fab fa-github fa-lg"></i></a>
         <a href="mailto:kanamarlapudi.avanith@gmail.com" aria-label="Email"><i class="fas fa-envelope fa-lg"></i></a>
-        <a href="https://medium.com/@kanamarlapudi-avanith" target="_blank" rel="noopener noreferrer" aria-label="Medium"><i class="fab fa-medium fa-lg"></i></a>
+        <a href="https://medium.com/@kanamarlapudi-avanith" target="_blank" rel="noopener noreferrer"
+          aria-label="Medium"><i class="fab fa-medium fa-lg"></i></a>
       </div>
       <p class="footer-note">Designed & Built with <i class="fas fa-heart"></i> by Avanith</p>
     </div>
-</footer>
+  </footer>
 
   <!-- Scripts -->
   <!-- Cache-busting: Update version number when JS changes to force browser reload -->
@@ -1112,4 +1232,5 @@
     }
   </script>
 </body>
+
 </html>
