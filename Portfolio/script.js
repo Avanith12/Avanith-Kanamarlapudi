@@ -11,48 +11,63 @@
 */
 
 // ==================== SMOOTH SCROLL FOR NAVIGATION ====================
-document.querySelectorAll(".nav-links a[href^='#']").forEach(link => {
-  link.addEventListener("click", function (e) {
-    const href = this.getAttribute("href");
-    if (href && href.startsWith("#")) {
-      e.preventDefault();
-      const targetId = href.substring(1);
-      const targetSection = document.getElementById(targetId);
-      
-      if (targetSection) {
-        window.scrollTo({
-          top: targetSection.offsetTop - 70,
-          behavior: "smooth",
-        });
-      }
-      
-      // Close mobile menu if open
-      const navLinks = document.getElementById('nav-links');
-      if (navLinks && navLinks.classList.contains('active')) {
-        const hamburger = document.querySelector('.hamburger');
-        if (hamburger) {
-          hamburger.classList.remove('active');
-          hamburger.setAttribute('aria-expanded', 'false');
+function initSmoothScroll() {
+  document.querySelectorAll(".nav-links a[href^='#']").forEach(link => {
+    link.addEventListener("click", function (e) {
+      const href = this.getAttribute("href");
+      if (href && href.startsWith("#")) {
+        e.preventDefault();
+        const targetId = href.substring(1);
+        const targetSection = document.getElementById(targetId);
+        
+        if (targetSection) {
+          window.scrollTo({
+            top: targetSection.offsetTop - 70,
+            behavior: "smooth",
+          });
         }
-        navLinks.classList.remove('active');
-        const navOverlay = document.querySelector('.nav-overlay');
-        if (navOverlay) {
-          navOverlay.classList.remove('active');
+        
+        // Close mobile menu if open
+        const navLinks = document.getElementById('nav-links');
+        if (navLinks && navLinks.classList.contains('active')) {
+          const hamburger = document.querySelector('.hamburger');
+          if (hamburger) {
+            hamburger.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+          }
+          navLinks.classList.remove('active');
+          const navOverlay = document.querySelector('.nav-overlay');
+          if (navOverlay) {
+            navOverlay.classList.remove('active');
+          }
+          document.body.style.overflow = '';
         }
-        document.body.style.overflow = '';
       }
-    }
+    });
   });
-});
+}
+
+// Initialize smooth scroll when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initSmoothScroll);
+} else {
+  initSmoothScroll();
+}
 
 // ==================== MOBILE NAVIGATION ====================
-(function() {
+function initMobileNavigation() {
   'use strict';
   
   const hamburger = document.querySelector('.hamburger');
   const navLinks = document.getElementById('nav-links');
   const body = document.body;
   let navOverlay = document.querySelector('.nav-overlay');
+  
+  // Check if elements exist
+  if (!hamburger || !navLinks) {
+    console.warn('Mobile navigation elements not found');
+    return;
+  }
   
   // Create overlay if it doesn't exist
   if (!navOverlay) {
@@ -62,32 +77,44 @@ document.querySelectorAll(".nav-links a[href^='#']").forEach(link => {
   }
   
   function openMenu() {
-    navLinks.classList.add('active');
-    hamburger.classList.add('active');
-    hamburger.setAttribute('aria-expanded', 'true');
-    navOverlay.classList.add('active');
+    if (navLinks) navLinks.classList.add('active');
+    if (hamburger) {
+      hamburger.classList.add('active');
+      hamburger.setAttribute('aria-expanded', 'true');
+    }
+    if (navOverlay) navOverlay.classList.add('active');
     body.style.overflow = 'hidden';
   }
   
   function closeMenu() {
-    navLinks.classList.remove('active');
-    hamburger.classList.remove('active');
-    hamburger.setAttribute('aria-expanded', 'false');
-    navOverlay.classList.remove('active');
+    if (navLinks) navLinks.classList.remove('active');
+    if (hamburger) {
+      hamburger.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+    if (navOverlay) navOverlay.classList.remove('active');
     body.style.overflow = '';
   }
   
   function toggleMenu() {
-    if (navLinks.classList.contains('active')) {
+    if (navLinks && navLinks.classList.contains('active')) {
       closeMenu();
     } else {
       openMenu();
     }
   }
   
-  // Hamburger button click
+  // Hamburger button click - support both click and touch events
   if (hamburger) {
     hamburger.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleMenu();
+    });
+    
+    // Touch event for better mobile support
+    hamburger.addEventListener('touchend', function(e) {
+      e.preventDefault();
       e.stopPropagation();
       toggleMenu();
     });
@@ -96,6 +123,10 @@ document.querySelectorAll(".nav-links a[href^='#']").forEach(link => {
   // Close menu when clicking overlay
   if (navOverlay) {
     navOverlay.addEventListener('click', closeMenu);
+    navOverlay.addEventListener('touchend', function(e) {
+      e.preventDefault();
+      closeMenu();
+    });
   }
   
   // Close menu when clicking a nav link
@@ -105,22 +136,37 @@ document.querySelectorAll(".nav-links a[href^='#']").forEach(link => {
         setTimeout(closeMenu, 300);
       }
     });
+    
+    // Touch support for nav links
+    navLinks.addEventListener('touchend', function(e) {
+      if (e.target.tagName === 'A') {
+        setTimeout(closeMenu, 300);
+      }
+    });
   }
   
   // Close menu on escape key
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+    if (e.key === 'Escape' && navLinks && navLinks.classList.contains('active')) {
       closeMenu();
     }
   });
   
   // Close menu on window resize (if resizing to desktop)
   window.addEventListener('resize', function() {
-    if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+    if (window.innerWidth > 768 && navLinks && navLinks.classList.contains('active')) {
       closeMenu();
     }
   });
-})();
+}
+
+// Initialize mobile navigation when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initMobileNavigation);
+} else {
+  // DOM is already loaded
+  initMobileNavigation();
+}
 
 // ==================== FADE-IN ANIMATION ON SCROLL ====================
 const faders = document.querySelectorAll(".card, .pub-card, .edu-card, .skill-category");

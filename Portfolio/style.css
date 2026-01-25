@@ -1248,9 +1248,15 @@ html {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0.5rem;
+  padding: 0.75rem;
   z-index: 1001;
   position: relative;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  min-width: 44px;
+  min-height: 44px;
+  justify-content: center;
+  align-items: center;
 }
 
 .hamburger span {
@@ -1261,6 +1267,7 @@ html {
   transition: var(--transition);
   box-shadow: 0 2px 5px var(--box-shadow);
   pointer-events: none;
+  display: block;
 }
 
 /* ==================== HERO SECTION ==================== */
@@ -3415,6 +3422,10 @@ footer::before {
     display: flex !important;
     order: 2;
     z-index: 1001;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    min-width: 44px;
+    min-height: 44px;
   }
   
   .nav-links {
@@ -3628,7 +3639,11 @@ footer::before {
   }
   
   .hamburger {
-    padding: 0.4rem;
+    padding: 0.75rem;
+    min-width: 44px;
+    min-height: 44px;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
   
   .hamburger span {
