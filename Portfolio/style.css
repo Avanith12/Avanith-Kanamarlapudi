@@ -3421,11 +3421,12 @@ footer::before {
   .hamburger {
     display: flex !important;
     order: 2;
-    z-index: 1001;
+    z-index: 1003 !important;
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
     min-width: 44px;
     min-height: 44px;
+    position: relative;
   }
   
   .nav-links {
@@ -3437,6 +3438,7 @@ footer::before {
     height: 100vh !important;
     background: var(--bg-color) !important;
     backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: flex-start !important;
@@ -3445,17 +3447,23 @@ footer::before {
     gap: 0.5rem !important;
     box-shadow: -5px 0 30px rgba(0, 0, 0, 0.3) !important;
     transition: right 0.3s ease !important;
-    z-index: 1000 !important;
+    z-index: 1002 !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
     border-left: 1px solid var(--card-border) !important;
     margin-left: 0 !important;
     flex: none !important;
     min-width: 0 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
   
   .nav-links.active {
     right: 0 !important;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 1002 !important;
   }
   
   .nav-links a {
@@ -3503,14 +3511,16 @@ footer::before {
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(2px);
-    z-index: 999;
+    -webkit-backdrop-filter: blur(2px);
+    z-index: 1001;
     opacity: 0;
     transition: opacity 0.3s ease;
   }
   
   .nav-overlay.active {
-    display: block;
-    opacity: 1;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
   }
   
   /* Journey Section Mobile */

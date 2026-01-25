@@ -77,22 +77,42 @@ function initMobileNavigation() {
   }
   
   function openMenu() {
-    if (navLinks) navLinks.classList.add('active');
+    if (navLinks) {
+      navLinks.classList.add('active');
+      // Force visibility on mobile - ensure it's shown
+      navLinks.style.display = 'flex';
+      navLinks.style.visibility = 'visible';
+      navLinks.style.opacity = '1';
+      navLinks.style.right = '0';
+    }
     if (hamburger) {
       hamburger.classList.add('active');
       hamburger.setAttribute('aria-expanded', 'true');
     }
-    if (navOverlay) navOverlay.classList.add('active');
+    if (navOverlay) {
+      navOverlay.classList.add('active');
+      navOverlay.style.display = 'block';
+      navOverlay.style.opacity = '1';
+      navOverlay.style.visibility = 'visible';
+    }
     body.style.overflow = 'hidden';
   }
   
   function closeMenu() {
-    if (navLinks) navLinks.classList.remove('active');
+    if (navLinks) {
+      navLinks.classList.remove('active');
+      // Reset inline styles when closing
+      navLinks.style.right = '';
+    }
     if (hamburger) {
       hamburger.classList.remove('active');
       hamburger.setAttribute('aria-expanded', 'false');
     }
-    if (navOverlay) navOverlay.classList.remove('active');
+    if (navOverlay) {
+      navOverlay.classList.remove('active');
+      navOverlay.style.display = 'none';
+      navOverlay.style.opacity = '0';
+    }
     body.style.overflow = '';
   }
   
