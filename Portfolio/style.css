@@ -104,6 +104,8 @@ body {
   transition: opacity 0.5s ease;
   cursor: crosshair;
   pointer-events: all;
+  will-change: contents;
+  transform: translateZ(0);
 }
 
 /* Enhanced sections with 3D integration */
@@ -112,6 +114,8 @@ body {
   z-index: 10;
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
+  contain: layout style paint; /* Performance optimization */
+  transform: translateZ(0); /* GPU acceleration */
 }
 
 /* Hero section with enhanced 3D feel */
@@ -120,6 +124,8 @@ body {
   z-index: 10;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
+  contain: layout style paint; /* Performance optimization */
+  transform: translateZ(0); /* GPU acceleration */
 }
 
 /* Cards with enhanced depth */
@@ -128,12 +134,15 @@ body {
   z-index: 3;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+  contain: layout style paint; /* Performance optimization */
+  transform: translate3d(0, 0, 0); /* GPU acceleration */
 }
 
 /* Fun interactive effects */
 .card:hover, .experience-card:hover, .achievement-item:hover {
-  transform: translateY(-5px) scale(1.02);
+  transform: translate3d(0, -5px, 0) scale(1.02);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   filter: brightness(1.1);
 }
@@ -141,15 +150,19 @@ body {
 /* Floating animation for hero elements */
 .hero h1 {
   animation: float 3s ease-in-out infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0); /* GPU acceleration */
 }
 
 .hero .profile-img {
   animation: float 3s ease-in-out infinite reverse;
+  will-change: transform;
+  transform: translate3d(0, 0, 0); /* GPU acceleration */
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -10px, 0); }
 }
 
 /* Keep name straight but bouncing */
@@ -158,8 +171,8 @@ body {
 }
 
 @keyframes bounceVertical {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); }
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -15px, 0); }
 }
 
 /* Fun button effects */
@@ -3279,13 +3292,14 @@ footer::before {
 /* ==================== FADE-IN ANIMATION ==================== */
 .fade-in {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translate3d(0, 30px, 0);
   transition: opacity 0.8s ease, transform 0.8s ease;
+  will-change: opacity, transform;
 }
 
 .appear {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate3d(0, 0, 0);
 }
 
 /* ==================== RESPONSIVE DESIGN ==================== */

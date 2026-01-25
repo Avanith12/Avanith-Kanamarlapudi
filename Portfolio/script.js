@@ -404,13 +404,20 @@ document.addEventListener("DOMContentLoaded", function () {
 const scrollToTopBtn = document.querySelector('.scroll-to-top');
 
 if (scrollToTopBtn) {
+  let scrollTicking = false;
   window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 500) {
-      scrollToTopBtn.classList.add('visible');
-    } else {
-      scrollToTopBtn.classList.remove('visible');
+    if (!scrollTicking) {
+      window.requestAnimationFrame(() => {
+        if (window.pageYOffset > 500) {
+          scrollToTopBtn.classList.add('visible');
+        } else {
+          scrollToTopBtn.classList.remove('visible');
+        }
+        scrollTicking = false;
+      });
+      scrollTicking = true;
     }
-  });
+  }, { passive: true });
 
   scrollToTopBtn.addEventListener('click', () => {
     window.scrollTo({
@@ -424,25 +431,33 @@ if (scrollToTopBtn) {
 const sections = document.querySelectorAll('.section, .hero');
 const navLinksArray = document.querySelectorAll('.nav-links a[href^="#"]');
 
+let navHighlightTicking = false;
 window.addEventListener('scroll', () => {
-  let current = '';
-  
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
-    
-    if (window.pageYOffset >= sectionTop - 150) {
-      current = section.getAttribute('id');
-    }
-  });
+  if (!navHighlightTicking) {
+    window.requestAnimationFrame(() => {
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (window.pageYOffset >= sectionTop - 150) {
+          current = section.getAttribute('id');
+        }
+      });
 
-  navLinksArray.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === `#${current}`) {
-      link.classList.add('active');
-    }
-  });
-});
+      navLinksArray.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+      
+      navHighlightTicking = false;
+    });
+    navHighlightTicking = true;
+  }
+}, { passive: true });
 
 // ==================== CONTACT FORM HANDLING ====================
 function initContactForm() {
@@ -460,7 +475,6 @@ function initContactForm() {
     const messageInput = document.getElementById('message');
     
     if (!nameInput || !emailInput || !subjectInput || !messageInput) {
-      console.error('Contact form elements not found');
       return;
     }
     
@@ -513,13 +527,20 @@ if (document.readyState === 'loading') {
 const navbar = document.querySelector('.navbar');
 
 if (navbar) {
+  let ticking = false;
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) {
-      navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
-    } else {
-      navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.3)';
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        if (window.scrollY > 100) {
+          navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+        } else {
+          navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.3)';
+        }
+        ticking = false;
+      });
+      ticking = true;
     }
-  });
+  }, { passive: true });
 }
 
 // ==================== PERFORMANCE OPTIMIZATIONS ====================
@@ -578,32 +599,8 @@ document.addEventListener('visibilitychange', () => {
 });
 
 // ==================== DEVELOPER TOOLS EASTER EGGS ====================
-console.log('%c╔══════════════════════════════════════════════════════════════╗', 'font-size: 12px; color: #0092A2; text-shadow: 0 0 8px #0092A2;');
-console.log('%c║                    👋 Welcome, Developer! 👋                ║', 'font-size: 14px; font-weight: bold; color: #0092A2; text-shadow: 0 0 10px #0092A2;');
-console.log('%c║                                                              ║', 'font-size: 12px; color: #0092A2;');
-console.log('%c║              Avanith Kanamarlapudi\'s Portfolio              ║', 'font-size: 13px; font-weight: bold; color: #ffffff; text-shadow: 0 0 8px #ffffff;');
-console.log('%c║              AIML Researcher & Web Graphics Expert           ║', 'font-size: 12px; color: #b0b0b0;');
-console.log('%c╚══════════════════════════════════════════════════════════════╝', 'font-size: 12px; color: #0092A2; text-shadow: 0 0 8px #0092A2;');
-console.log('%c', 'font-size: 1px;');
-
-// ASCII Art Name in Console
-console.log('%c█████╗ ██╗   ██╗ █████╗ ███╗   ██╗██╗████████╗██╗  ██╗    ██╗  ██╗', 'font-size: 11px; color: #0092A2; text-shadow: 0 0 8px #0092A2;');
-console.log('%c██╔══██╗██║   ██║██╔══██╗████╗  ██║██║╚══██╔══╝██║  ██║    ██║ ██╔╝', 'font-size: 11px; color: #0092A2; text-shadow: 0 0 8px #0092A2;');
-console.log('%c███████║██║   ██║███████║██╔██╗ ██║██║   ██║   ███████║    █████╔╝', 'font-size: 11px; color: #0092A2; text-shadow: 0 0 8px #0092A2;');
-console.log('%c██╔══██║██║   ██║██╔══██║██║╚██╗██║██║   ██║   ██╔══██║    ██╔═██╗', 'font-size: 11px; color: #0092A2; text-shadow: 0 0 8px #0092A2;');
-console.log('%c██║  ██║╚██████╔╝██║  ██║██║ ╚████║██║   ██║   ██║  ██║    ██║  ██╗', 'font-size: 11px; color: #0092A2; text-shadow: 0 0 8px #0092A2;');
-console.log('%c╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝   ╚═╝   ╚═╝  ╚═╝    ╚═╝  ╚═╝', 'font-size: 11px; color: #0092A2; text-shadow: 0 0 8px #0092A2;');
-console.log('%c', 'font-size: 1px;');
-console.log('%c╔══════════════════════════════════════════════════════════════╗', 'font-size: 12px; color: #0092A2; text-shadow: 0 0 8px #0092A2;');
-console.log('%c║                    🛠️  Developer Commands  🛠️               ║', 'font-size: 13px; font-weight: bold; color: #0092A2; text-shadow: 0 0 10px #0092A2;');
-console.log('%c║                                                              ║', 'font-size: 12px; color: #0092A2;');
-console.log('%c║  Type "help()" for available commands                        ║', 'font-size: 11px; color: #b0b0b0;');
-console.log('%c║  Type "about()" to learn more about me                      ║', 'font-size: 11px; color: #b0b0b0;');
-console.log('%c║  Type "projects()" to see my work                            ║', 'font-size: 11px; color: #b0b0b0;');
-console.log('%c║  Type "contact()" to get in touch                           ║', 'font-size: 11px; color: #b0b0b0;');
-console.log('%c║  Type "skills()" for technical expertise                    ║', 'font-size: 11px; color: #b0b0b0;');
-console.log('%c╚══════════════════════════════════════════════════════════════╝', 'font-size: 12px; color: #0092A2; text-shadow: 0 0 8px #0092A2;');
-console.log('%c', 'font-size: 1px;');
+// Console logs removed for production performance
+// Developer commands still available via window functions
 
 // Professional developer console commands
 window.help = function() {

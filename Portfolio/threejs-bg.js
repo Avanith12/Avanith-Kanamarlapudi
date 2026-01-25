@@ -14,6 +14,12 @@ class InteractiveThreeJSBackground {
     this.mouse = new THREE.Vector2();
     this.intensity = 1.0; // 0 to 1 - Maximum intensity for professional look
     this.animationSpeed = 1.5; // 0 to 2 - Faster animations
+    this.isVisible = true; // Track if page is visible
+    this.lastFrameTime = 0; // For frame rate limiting
+    // Adaptive FPS: Lower on mobile for better performance
+    const isMobile = window.innerWidth < 768;
+    this.targetFPS = isMobile ? 30 : 60; // Target frames per second
+    this.frameInterval = 1000 / this.targetFPS; // Time between frames
     
     // Elements
     this.particles = null;
@@ -29,7 +35,6 @@ class InteractiveThreeJSBackground {
     this.instanceCount = window.innerWidth < 768 ? 500 : 800; // Reduced for mobile
     
     if (typeof THREE === 'undefined') {
-      console.error('Three.js is not loaded!');
       return;
     }
     
@@ -60,18 +65,22 @@ class InteractiveThreeJSBackground {
     // Create renderer
     const canvas = document.getElementById('bg-canvas');
     if (!canvas) {
-      console.error('Background canvas not found!');
       return;
     }
+    
+    // Performance optimization: reduce quality on mobile/low-end devices
+    const isMobile = window.innerWidth < 768;
+    const isLowEnd = navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4;
     
     this.renderer = new THREE.WebGLRenderer({ 
       canvas: canvas, 
       alpha: true,
-      antialias: true,
+      antialias: !isMobile && !isLowEnd, // Disable antialiasing on mobile/low-end
       powerPreference: "high-performance"
     });
     this.renderer.setSize(window.innerWidth, window.innerHeight);
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    // Limit pixel ratio for better performance
+    this.renderer.setPixelRatio(isMobile ? Math.min(window.devicePixelRatio, 1.5) : Math.min(window.devicePixelRatio, 2));
     
     // Enhanced lighting
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
@@ -362,23 +371,42 @@ class InteractiveThreeJSBackground {
   }
 
   setupEventListeners() {
-    // Mouse movement for interactive effects
+    // Mouse movement for interactive effects (throttled for performance)
+    let mouseTicking = false;
     window.addEventListener('mousemove', (event) => {
-      this.mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-      this.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-    });
+      if (!mouseTicking) {
+        window.requestAnimationFrame(() => {
+          this.mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+          this.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+          mouseTicking = false;
+        });
+        mouseTicking = true;
+      }
+    }, { passive: true });
     
     // Click for particle bursts
     window.addEventListener('click', (event) => {
       this.createParticleBurst(event.clientX, event.clientY);
+    }, { passive: true });
+    
+    // Pause animation when tab is not visible (performance optimization)
+    document.addEventListener('visibilitychange', () => {
+      this.isVisible = !document.hidden;
+      if (this.isVisible) {
+        this.lastFrameTime = performance.now(); // Reset timing when visible again
+      }
     });
     
-    // Window resize
+    // Throttle resize for better performance
+    let resizeTimeout;
     window.addEventListener('resize', () => {
-      this.camera.aspect = window.innerWidth / window.innerHeight;
-      this.camera.updateProjectionMatrix();
-      this.renderer.setSize(window.innerWidth, window.innerHeight);
-    });
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        this.camera.aspect = window.innerWidth / window.innerHeight;
+        this.camera.updateProjectionMatrix();
+        this.renderer.setSize(window.innerWidth, window.innerHeight);
+      }, 150); // Debounce resize events
+    }, { passive: true });
     
     // Theme change detection
     const observer = new MutationObserver(() => {
@@ -481,7 +509,22 @@ class InteractiveThreeJSBackground {
   animate() {
     if (!this.renderer) return;
     
-    requestAnimationFrame(() => this.animate());
+    this.animationFrameId = requestAnimationFrame(() => this.animate());
+    
+    // Pause animation when tab is not visible
+    if (!this.isVisible) {
+      return;
+    }
+    
+    // Frame rate limiting for smooth performance
+    const now = performance.now();
+    const elapsed = now - this.lastFrameTime;
+    
+    if (elapsed < this.frameInterval) {
+      return; // Skip frame to maintain target FPS
+    }
+    
+    this.lastFrameTime = now - (elapsed % this.frameInterval);
     
     this.time = this.clock.getElapsedTime() * this.animationSpeed;
     
@@ -672,14 +715,27 @@ class InteractiveThreeJSBackground {
   }
 
   destroy() {
+    // Cancel animation frame
+    if (this.animationFrameId) {
+      cancelAnimationFrame(this.animationFrameId);
+      this.animationFrameId = null;
+    }
+    
     if (this.renderer) {
       this.renderer.dispose();
+      this.renderer = null;
     }
     
     this.scene.traverse(object => {
       if (object.isMesh) {
-        object.geometry.dispose();
-        object.material.dispose();
+        if (object.geometry) object.geometry.dispose();
+        if (object.material) {
+          if (Array.isArray(object.material)) {
+            object.material.forEach(mat => mat.dispose());
+          } else {
+            object.material.dispose();
+          }
+        }
       }
     });
     
@@ -696,7 +752,6 @@ document.addEventListener('DOMContentLoaded', () => {
           window.interactiveThreeJSBackground = new InteractiveThreeJSBackground();
         }, 500);
       } catch (error) {
-        console.warn('Three.js background initialization failed:', error);
         // Fallback: hide canvas if Three.js fails
         const canvas = document.getElementById('bg-canvas');
         if (canvas) {
