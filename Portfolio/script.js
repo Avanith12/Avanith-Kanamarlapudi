@@ -239,26 +239,54 @@ function createThemeToggle() {
   // Append to body to keep it completely separate from navigation
   document.body.appendChild(toggleBtn);
 
-  // Check for saved theme preference
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'light') {
-    document.body.classList.add('light-theme');
-    toggleBtn.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
-  } else {
-    toggleBtn.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
-  }
+  // Check for saved theme preference - default to dark
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  applyTheme(savedTheme);
 
   toggleBtn.addEventListener("click", () => {
-    document.body.classList.toggle("light-theme");
-    
-    if (document.body.classList.contains("light-theme")) {
-      toggleBtn.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
-      localStorage.setItem('theme', 'light');
-    } else {
-      toggleBtn.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
-      localStorage.setItem('theme', 'dark');
-    }
+    const currentTheme = getCurrentTheme();
+    const nextTheme = getNextTheme(currentTheme);
+    applyTheme(nextTheme);
   });
+}
+
+function getCurrentTheme() {
+  if (document.body.classList.contains('monochrome-theme')) {
+    return 'monochrome';
+  } else if (document.body.classList.contains('light-theme')) {
+    return 'light';
+  }
+  return 'dark';
+}
+
+function getNextTheme(currentTheme) {
+  const themes = ['dark', 'light', 'monochrome'];
+  const currentIndex = themes.indexOf(currentTheme);
+  return themes[(currentIndex + 1) % themes.length];
+}
+
+function applyTheme(theme) {
+  // Remove all theme classes
+  document.body.classList.remove('light-theme', 'monochrome-theme');
+  
+  // Hide/show Three.js canvas based on theme
+  const bgCanvas = document.getElementById('bg-canvas');
+  
+  if (theme === 'monochrome') {
+    document.body.classList.add('monochrome-theme');
+    toggleBtn.innerHTML = '<i class="fas fa-palette"></i> Dark Mode';
+    if (bgCanvas) bgCanvas.style.display = 'none';
+  } else if (theme === 'light') {
+    document.body.classList.add('light-theme');
+    toggleBtn.innerHTML = '<i class="fas fa-moon"></i> Monochrome';
+    if (bgCanvas) bgCanvas.style.display = 'block';
+  } else {
+    // dark theme
+    toggleBtn.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+    if (bgCanvas) bgCanvas.style.display = 'block';
+  }
+  
+  localStorage.setItem('theme', theme);
 }
 
 // Initialize theme toggle after DOM is loaded

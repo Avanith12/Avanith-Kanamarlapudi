@@ -41,6 +41,21 @@
   --box-shadow: rgba(59, 130, 246, 0.15);  /* Blue shadow */
 }
 
+/* Monochrome Theme - Pure Black and White */
+.monochrome-theme {
+  --bg-color: #000000;                     /* Pure black background */
+  --bg-gradient: #000000;                  /* Solid black, no gradient */
+  --text-color: #ffffff;                   /* Pure white text */
+  --text-secondary: #cccccc;               /* Light gray for secondary text */
+  --accent-color: #ffffff;                 /* White accent */
+  --accent-secondary: #ffffff;            /* White secondary accent */
+  --accent-gradient: #ffffff;              /* Solid white, no gradient */
+  --accent-hover: #ffffff;
+  --card-bg: rgba(255, 255, 255, 0.05);    /* Very subtle white glass effect */
+  --card-border: rgba(255, 255, 255, 0.2); /* White border */
+  --box-shadow: rgba(255, 255, 255, 0.1);  /* White shadow */
+}
+
 /* ==================== BASE STYLES ==================== */
 * {
   margin: 0;
@@ -499,6 +514,618 @@ html {
 .light-theme .resume-btn:hover {
   background-image: linear-gradient(135deg, #1e40af 0%, #2563eb 100%) !important;
   box-shadow: 0 8px 25px rgba(30, 58, 138, 0.4) !important;
+}
+
+/* Monochrome Theme Styles */
+.monochrome-theme .navbar {
+  background: rgba(0, 0, 0, 0.95);
+  box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
+}
+
+.monochrome-theme .nav-links {
+  background: transparent;
+}
+
+.monochrome-theme .nav-links a:not(.resume-btn) {
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+}
+
+.monochrome-theme .nav-links a:not(.resume-btn)::before {
+  background: rgba(255, 255, 255, 0.1) !important;
+  background-image: none !important;
+}
+
+.monochrome-theme .nav-links a:not(.resume-btn):hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: none;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+}
+
+.monochrome-theme .nav-links a:not(.resume-btn).active {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+}
+
+.monochrome-theme .nav-links a:not(.resume-btn).active::after {
+  background: #ffffff !important;
+  width: 100% !important;
+}
+
+.monochrome-theme .resume-btn {
+  background: #ffffff !important;
+  color: #000000 !important;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2) !important;
+  border: 1px solid #ffffff !important;
+}
+
+.monochrome-theme .resume-btn:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Hide Three.js background in monochrome theme */
+.monochrome-theme #bg-canvas {
+  display: none !important;
+}
+
+/* Monochrome body background - solid black */
+.monochrome-theme body {
+  background: #000000 !important;
+  background-image: none !important;
+}
+
+/* Remove gradients in monochrome theme - use solid colors */
+.monochrome-theme .logo,
+.monochrome-theme h2,
+.monochrome-theme .hero h1,
+.monochrome-theme .skill-category h3,
+.monochrome-theme .exp-info h3,
+.monochrome-theme .achievements-section h3,
+.monochrome-theme .pub-venue,
+.monochrome-theme .edu-card h3,
+.monochrome-theme .edu-date,
+.monochrome-theme .contact-item h4,
+.monochrome-theme .form-group label,
+.monochrome-theme .article-card h3,
+.monochrome-theme .article-highlights h4,
+.monochrome-theme .article-resources h4,
+.monochrome-theme .article-testimonials h4,
+.monochrome-theme .expertise-category h4,
+.monochrome-theme .exp-info h4,
+.monochrome-theme .exp-summary,
+.monochrome-theme .exp-achievements li,
+.monochrome-theme .section p,
+.monochrome-theme .hero-subtitle,
+.monochrome-theme .card h3,
+.monochrome-theme .card-desc,
+.monochrome-theme .pub-content h3,
+.monochrome-theme .edu-card p,
+.monochrome-theme .contact-intro,
+.monochrome-theme .article-description,
+.monochrome-theme .article-meta,
+.monochrome-theme .testimonial-item blockquote,
+.monochrome-theme .testimonial-item cite,
+.monochrome-theme .photo-caption,
+.monochrome-theme .expertise-category p {
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: var(--text-color) !important;
+  background-clip: unset !important;
+  color: var(--text-color) !important;
+}
+
+.monochrome-theme .btn,
+.monochrome-theme .resume-btn,
+.monochrome-theme .article-link {
+  background: transparent !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border: none !important;
+  padding: 0.5rem 0 !important;
+  text-decoration: underline !important;
+  text-decoration-color: rgba(255, 255, 255, 0.5) !important;
+  text-decoration-thickness: 1px !important;
+  text-underline-offset: 4px !important;
+  box-shadow: none !important;
+}
+
+.monochrome-theme .article-link:hover {
+  background: transparent !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  text-decoration-color: #ffffff !important;
+  text-decoration-thickness: 1.5px !important;
+  box-shadow: none !important;
+}
+
+.monochrome-theme .submit-btn,
+.monochrome-theme .slider-btn,
+.monochrome-theme .theme-toggle {
+  background: #ffffff !important;
+  background-image: none !important;
+  color: #000000 !important;
+}
+
+.monochrome-theme .btn:hover,
+.monochrome-theme .submit-btn:hover,
+.monochrome-theme .slider-btn:hover,
+.monochrome-theme .theme-toggle:hover {
+  background: #ffffff !important;
+  background-image: none !important;
+  color: #000000 !important;
+}
+
+.monochrome-theme .skill-tag {
+  background: #ffffff !important;
+  background-image: none !important;
+  color: #000000 !important;
+}
+
+.monochrome-theme .skill-tag:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+.monochrome-theme .skill-badge {
+  background: transparent !important;
+  border: 1px solid #ffffff !important;
+  color: #ffffff !important;
+}
+
+.monochrome-theme .skill-badge:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Fix duration badge visibility in monochrome */
+.monochrome-theme .exp-duration {
+  background: transparent !important;
+  border: 1px solid #ffffff !important;
+  color: #ffffff !important;
+}
+
+.monochrome-theme .exp-duration.current {
+  background: #ffffff !important;
+  background-image: none !important;
+  color: #000000 !important;
+  border-color: #ffffff !important;
+  box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Fix all text colors in monochrome */
+.monochrome-theme .card p,
+.monochrome-theme .pub-content p,
+.monochrome-theme .contact-item a,
+.monochrome-theme .contact-item p,
+.monochrome-theme .achievement-item p,
+.monochrome-theme .achievement-item h4,
+.monochrome-theme .resource-link strong,
+.monochrome-theme .resource-link span,
+.monochrome-theme .article-highlights li,
+.monochrome-theme .article-quote blockquote,
+.monochrome-theme .article-quote cite {
+  color: var(--text-color) !important;
+}
+
+/* Fix links in monochrome */
+.monochrome-theme a:not(.resume-btn):not(.btn):not(.pub-link):not(.article-link):not(.submit-btn):not(.slider-btn):not(#fun a) {
+  color: var(--text-color) !important;
+}
+
+.monochrome-theme a:not(.resume-btn):not(.btn):not(.pub-link):not(.article-link):not(.submit-btn):not(.slider-btn):not(#fun a):hover {
+  color: #ffffff !important;
+}
+
+/* Fix hamburger menu in monochrome */
+.monochrome-theme .hamburger span {
+  background: #ffffff !important;
+  background-image: none !important;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Fix section h2 underline in monochrome */
+.monochrome-theme .section h2::after {
+  background: #ffffff !important;
+  background-image: none !important;
+  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Fix nav link underline in monochrome */
+.monochrome-theme .nav-links a:not(.resume-btn)::after {
+  background: #ffffff !important;
+}
+
+/* Fix expertise category icon background */
+.monochrome-theme .expertise-category h4 i {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Fix achievement item icon */
+.monochrome-theme .achievement-item i {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Fix presentation preview text */
+.monochrome-theme .presentation-preview h4 {
+  color: #ffffff !important;
+}
+
+/* Fix pub link visibility - make them invisible/blended with visible underlines */
+.monochrome-theme .pub-link {
+  background: transparent !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border: none !important;
+  padding: 0.5rem 0 !important;
+  text-decoration: underline !important;
+  text-decoration-color: rgba(255, 255, 255, 0.5) !important;
+  text-decoration-thickness: 1px !important;
+  text-underline-offset: 4px !important;
+  box-shadow: none !important;
+}
+
+.monochrome-theme .pub-link:hover {
+  background: transparent !important;
+  color: #ffffff !important;
+  text-decoration-color: #ffffff !important;
+  text-decoration-thickness: 1.5px !important;
+  box-shadow: none !important;
+}
+
+/* Fix cert item text - ensure all text is visible */
+.monochrome-theme .cert-item {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.1) !important;
+}
+
+.monochrome-theme .cert-item h3 {
+  color: #ffffff !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background-clip: unset !important;
+}
+
+.monochrome-theme .cert-item p {
+  color: #cccccc !important;
+}
+
+/* Fix cert icon background and color */
+.monochrome-theme .cert-icon {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.monochrome-theme .cert-icon i {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+.monochrome-theme .cert-item:hover .cert-icon {
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+
+.monochrome-theme .cert-item:hover .cert-icon i {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* Fix cert type badge */
+.monochrome-theme .cert-type {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Fix cert item images */
+.monochrome-theme .cert-item img {
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+/* Fix footer in monochrome */
+.monochrome-theme footer {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-top: 2px solid #ffffff !important;
+  border-image: none !important;
+}
+
+.monochrome-theme footer::before {
+  background: #ffffff !important;
+  background-image: none !important;
+}
+
+.monochrome-theme .footer-content p {
+  color: #ffffff !important;
+}
+
+.monochrome-theme .footer-note {
+  color: #cccccc !important;
+}
+
+/* Fix social links in monochrome */
+.monochrome-theme .social-links a {
+  background: transparent !important;
+  border: 2px solid #ffffff !important;
+  color: #ffffff !important;
+  position: relative;
+  z-index: 1;
+}
+
+.monochrome-theme .social-links a i {
+  color: #ffffff !important;
+  z-index: 2;
+  position: relative;
+  display: block;
+}
+
+.monochrome-theme .social-links a::before {
+  background: transparent !important;
+  background-image: none !important;
+  z-index: 0;
+}
+
+.monochrome-theme .social-links a:hover {
+  background: #ffffff !important;
+  border-color: #ffffff !important;
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.5) !important;
+  transform: translateY(-8px) rotate(360deg);
+  z-index: 3;
+}
+
+.monochrome-theme .social-links a:hover i {
+  color: #000000 !important;
+  z-index: 4;
+}
+
+.monochrome-theme .social-links a:hover::before {
+  background: #ffffff !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 1;
+}
+
+/* Ensure all Font Awesome icons are visible */
+.monochrome-theme .social-links a .fab,
+.monochrome-theme .social-links a .fas {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Fix all paragraph text */
+.monochrome-theme p {
+  color: var(--text-color) !important;
+}
+
+/* Fix list items */
+.monochrome-theme li {
+  color: var(--text-color) !important;
+}
+
+/* Fix form inputs */
+.monochrome-theme .form-group input,
+.monochrome-theme .form-group textarea {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.monochrome-theme .form-group input:focus,
+.monochrome-theme .form-group textarea:focus {
+  border-color: #ffffff !important;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Fix "Just for Fun" section link */
+.monochrome-theme #fun {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.monochrome-theme #fun h2 {
+  color: #ffffff !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background-clip: unset !important;
+}
+
+.monochrome-theme #fun h2::after {
+  background: #ffffff !important;
+  background-image: none !important;
+}
+
+.monochrome-theme #fun p {
+  color: #ffffff !important;
+}
+
+.monochrome-theme #fun a {
+  background: #ffffff !important;
+  background-image: none !important;
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+  box-shadow: 0 5px 20px rgba(255, 255, 255, 0.2) !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  padding: 0.8rem 1.8rem !important;
+  border-radius: 50px !important;
+  font-weight: 600 !important;
+  position: relative !important;
+  z-index: 1 !important;
+  border: none !important;
+  font-size: 1rem !important;
+}
+
+/* Force all text content inside the link to be black */
+.monochrome-theme #fun a,
+.monochrome-theme #fun a span,
+.monochrome-theme #fun a::text {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+}
+
+/* Force emoji and all child elements to be visible */
+.monochrome-theme #fun p a *,
+.monochrome-theme #fun a *:not(i):not(.fas):not(.fab) {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.monochrome-theme #fun a i,
+.monochrome-theme #fun a .fas,
+.monochrome-theme #fun a .fab {
+  color: #000000 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 2 !important;
+  position: relative !important;
+}
+
+.monochrome-theme #fun a::before,
+.monochrome-theme #fun a::after {
+  background: transparent !important;
+  background-image: none !important;
+}
+
+.monochrome-theme #fun a:hover {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3) !important;
+}
+
+.monochrome-theme #fun a:hover,
+.monochrome-theme #fun a:hover *,
+.monochrome-theme #fun a:hover span {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+}
+
+.monochrome-theme #fun a:hover i,
+.monochrome-theme #fun a:hover .fas,
+.monochrome-theme #fun a:hover .fab {
+  color: #000000 !important;
+  opacity: 1 !important;
+}
+
+/* Fix all section links and buttons visibility - exclude #fun links */
+.monochrome-theme .section a:not(.resume-btn):not(.btn):not(.pub-link):not(.article-link):not(.submit-btn):not(.slider-btn):not(.card a):not(#fun a) {
+  color: #ffffff !important;
+  text-decoration: underline !important;
+  text-decoration-color: rgba(255, 255, 255, 0.5) !important;
+  text-decoration-thickness: 1px !important;
+  text-underline-offset: 4px !important;
+  border-bottom: none !important;
+}
+
+.monochrome-theme .section a:not(.resume-btn):not(.btn):not(.pub-link):not(.article-link):not(.submit-btn):not(.slider-btn):not(.card a):not(#fun a):hover {
+  color: #ffffff !important;
+  text-decoration-color: #ffffff !important;
+  text-decoration-thickness: 1.5px !important;
+  border-bottom: none !important;
+}
+
+/* Fix mobile menu visibility */
+.monochrome-theme .nav-links.active a {
+  color: #ffffff !important;
+  background: transparent !important;
+}
+
+.monochrome-theme .nav-links.active a:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+}
+
+/* Fix scroll to top button */
+.monochrome-theme .scroll-to-top {
+  background: #ffffff !important;
+  color: #000000 !important;
+  box-shadow: 0 8px 30px rgba(255, 255, 255, 0.2) !important;
+}
+
+.monochrome-theme .scroll-to-top:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+  box-shadow: 0 12px 40px rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Fix slider dots in monochrome */
+.monochrome-theme .dot {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.monochrome-theme .dot::before {
+  background: #ffffff !important;
+  background-image: none !important;
+}
+
+.monochrome-theme .dot.active,
+.monochrome-theme .dot:hover {
+  border-color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+.monochrome-theme .dot.active::before,
+.monochrome-theme .dot:hover::before {
+  background: #ffffff !important;
+}
+
+/* Fix typewriter cursor in monochrome */
+.monochrome-theme .typewrite::after {
+  color: #ffffff !important;
+}
+
+/* Fix all icon colors in monochrome */
+.monochrome-theme i,
+.monochrome-theme .fas,
+.monochrome-theme .fab,
+.monochrome-theme .far {
+  color: inherit !important;
+}
+
+/* Ensure card images are visible */
+.monochrome-theme .card img,
+.monochrome-theme .pub-img {
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+/* Fix card links - make them invisible/blended like text with visible underlines */
+.monochrome-theme .card a {
+  color: #ffffff !important;
+  border: none !important;
+  background: transparent !important;
+  padding: 0.5rem 0 !important;
+  border-radius: 0 !important;
+  text-decoration: underline !important;
+  text-decoration-color: rgba(255, 255, 255, 0.5) !important;
+  text-decoration-thickness: 1px !important;
+  text-underline-offset: 4px !important;
+  box-shadow: none !important;
+}
+
+.monochrome-theme .card a:hover {
+  background: transparent !important;
+  color: #ffffff !important;
+  text-decoration-color: #ffffff !important;
+  text-decoration-thickness: 1.5px !important;
+  transform: translateY(-2px);
+}
+
+/* Remove background gradients and particles in monochrome */
+.monochrome-theme body::before {
+  display: none !important;
 }
 
 .nav-wrapper {
