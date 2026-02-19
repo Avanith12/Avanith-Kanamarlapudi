@@ -516,6 +516,16 @@ html {
   color: var(--accent-color);
 }
 
+.light-theme .nav-links a:not(.resume-btn).active {
+  color: var(--accent-color) !important;
+  background: rgba(30, 58, 138, 0.1);
+}
+
+.light-theme .nav-links a:not(.resume-btn).active::after {
+  background: var(--accent-color) !important;
+  width: 100% !important;
+}
+
 .light-theme .resume-btn {
   background: var(--accent-gradient) !important;
   background-image: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%) !important;
@@ -1216,6 +1226,16 @@ html {
 
 .nav-links a:not(.resume-btn):hover::after {
   width: 100%;
+}
+
+/* Active nav link styling for dark mode (default) */
+.nav-links a:not(.resume-btn).active {
+  color: var(--accent-color);
+}
+
+.nav-links a:not(.resume-btn).active::after {
+  width: 100%;
+  background: var(--accent-color);
 }
 
 .resume-btn {
