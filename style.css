@@ -3242,7 +3242,7 @@ footer::before {
 }
 
 .footer-note i {
-  color: #ff6b9d;
+  color: #ffffff;
   animation: heartbeat 1.5s ease-in-out infinite;
   display: inline-block;
 }
