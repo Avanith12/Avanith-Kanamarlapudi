@@ -706,7 +706,7 @@ window.skills = function() {
 window.resume = function() {
   console.log('%c📄 Resume Download:', 'font-size: 16px; font-weight: bold; color: #00bfa6;');
   console.log('%cClick the "Resume" button in the navigation to download my PDF!', 'font-size: 12px; color: #333;');
-  console.log('%cOr visit: files/Avanith_Kanamarlapudi_February_2026.pdf', 'font-size: 12px; color: #333;');
+  console.log('%cOr visit: files/AVANITH_KANAMARLAPUDI_V1.pdf', 'font-size: 12px; color: #333;');
   console.log('%c', 'font-size: 1px;');
   console.log('%c💡 Pro tip: The resume button is in the top navigation!', 'font-size: 12px; color: #ff6b6b;');
 };
