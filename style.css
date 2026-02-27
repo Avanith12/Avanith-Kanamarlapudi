@@ -3467,10 +3467,11 @@ footer::before {
     position: fixed !important;
     top: 0 !important;
     right: -100% !important;
-    width: 280px !important;
-    max-width: 85vw !important;
+    width: 260px !important;
+    max-width: 78vw !important;
     height: 100vh !important;
     min-height: 100vh !important;
+    max-height: 100vh !important;
     background: #0f0f0f !important;
     backdrop-filter: blur(20px) !important;
     -webkit-backdrop-filter: blur(20px) !important;
@@ -3478,13 +3479,15 @@ footer::before {
     flex-direction: column !important;
     align-items: flex-start !important;
     justify-content: flex-start !important;
-    padding: 5rem 1.5rem 2rem !important;
+    padding: 5rem 1rem 2rem !important;
     gap: 0.5rem !important;
     box-shadow: -5px 0 30px rgba(0, 0, 0, 0.5) !important;
     transition: right 0.3s ease !important;
     z-index: 1002 !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior: contain !important;
     border-left: 1px solid var(--card-border) !important;
     margin-left: 0 !important;
     flex: none !important;
@@ -3622,6 +3625,39 @@ footer::before {
 
   .contact-container {
     grid-template-columns: 1fr;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  #contact .section,
+  #contact .contact-intro,
+  #contact .contact-info {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .contact-item {
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    padding: 1.2rem 1rem;
+  }
+
+  .contact-item a,
+  .contact-item p {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+  }
+
+  #contact {
+    overflow-x: hidden;
+  }
+
+  .contact-form {
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
   }
 
   .grid {
@@ -3643,6 +3679,8 @@ footer::before {
     left: 15px;
     padding: 0.6rem 0.8rem;
     font-size: 0.8rem;
+    max-width: calc(100vw - 30px);
+    box-sizing: border-box;
   }
 
   .theme-toggle:hover {
