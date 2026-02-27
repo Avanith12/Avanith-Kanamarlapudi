@@ -129,31 +129,26 @@ function initMobileNavigation() {
     }
   }
   
-  // Hamburger button click - support both click and touch events
+  // Hamburger button click - use a flag to prevent double-firing
   if (hamburger) {
-    // Use both mousedown and click for better mobile support
-    hamburger.addEventListener('mousedown', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      toggleMenu();
-    });
-    
-    hamburger.addEventListener('click', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      toggleMenu();
-    });
-    
-    // Touch events for mobile
-    hamburger.addEventListener('touchstart', function(e) {
-      e.stopPropagation();
-    });
-    
+    let touchHandled = false;
+
     hamburger.addEventListener('touchend', function(e) {
       e.preventDefault();
       e.stopPropagation();
+      touchHandled = true;
       toggleMenu();
     }, { passive: false });
+
+    hamburger.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (touchHandled) {
+        touchHandled = false;
+        return;
+      }
+      toggleMenu();
+    });
   }
   
   // Close menu when clicking overlay
