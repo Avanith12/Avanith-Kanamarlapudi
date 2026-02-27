@@ -57,17 +57,17 @@ if (document.readyState === 'loading') {
 // ==================== MOBILE NAVIGATION ====================
 function initMobileNavigation() {
   'use strict';
-  
+
   const hamburger = document.querySelector('.hamburger');
   const navLinks = document.getElementById('nav-links');
   const body = document.body;
   let navOverlay = document.querySelector('.nav-overlay');
   
-  // Check if elements exist
   if (!hamburger || !navLinks) {
-    // Silently return if elements don't exist (may not be on mobile)
     return;
   }
+
+  var navLinksParent = navLinks.parentNode;
   
   // Create overlay if it doesn't exist
   if (!navOverlay) {
@@ -75,17 +75,22 @@ function initMobileNavigation() {
     navOverlay.className = 'nav-overlay';
     document.body.appendChild(navOverlay);
   }
+
+  let menuJustOpened = false;
   
   function openMenu() {
-    if (navLinks) {
+    menuJustOpened = true;
+    setTimeout(function() { menuJustOpened = false; }, 350);
+    body.classList.add('mobile-menu-open');
+    if (navLinks && navLinksParent) {
+      document.body.appendChild(navLinks);
       navLinks.classList.add('active');
-      // Force visibility on mobile using setProperty with important flag
       navLinks.style.setProperty('display', 'flex', 'important');
       navLinks.style.setProperty('visibility', 'visible', 'important');
       navLinks.style.setProperty('opacity', '1', 'important');
       navLinks.style.setProperty('right', '0', 'important');
       navLinks.style.setProperty('transform', 'translateX(0)', 'important');
-      navLinks.style.setProperty('z-index', '1002', 'important');
+      navLinks.style.setProperty('z-index', '1003', 'important');
     }
     if (hamburger) {
       hamburger.classList.add('active');
@@ -96,18 +101,19 @@ function initMobileNavigation() {
       navOverlay.style.setProperty('display', 'block', 'important');
       navOverlay.style.setProperty('opacity', '1', 'important');
       navOverlay.style.setProperty('visibility', 'visible', 'important');
-      navOverlay.style.setProperty('z-index', '1001', 'important');
+      navOverlay.style.setProperty('z-index', '1002', 'important');
     }
     body.style.overflow = 'hidden';
   }
   
   function closeMenu() {
-    if (navLinks) {
+    body.classList.remove('mobile-menu-open');
+    if (navLinks && navLinksParent) {
       navLinks.classList.remove('active');
-      // Reset inline styles when closing
       navLinks.style.removeProperty('right');
       navLinks.style.removeProperty('display');
       navLinks.style.removeProperty('transform');
+      navLinksParent.appendChild(navLinks);
     }
     if (hamburger) {
       hamburger.classList.remove('active');
@@ -153,9 +159,13 @@ function initMobileNavigation() {
   
   // Close menu when clicking overlay
   if (navOverlay) {
-    navOverlay.addEventListener('click', closeMenu);
+    navOverlay.addEventListener('click', function() {
+      if (menuJustOpened) return;
+      closeMenu();
+    });
     navOverlay.addEventListener('touchend', function(e) {
       e.preventDefault();
+      if (menuJustOpened) return;
       closeMenu();
     });
   }
