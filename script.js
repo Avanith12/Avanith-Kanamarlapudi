@@ -91,6 +91,8 @@ function initMobileNavigation() {
       navLinks.style.setProperty('right', '0', 'important');
       navLinks.style.setProperty('transform', 'translateX(0)', 'important');
       navLinks.style.setProperty('z-index', '1003', 'important');
+      navLinks.style.setProperty('overflow-y', 'scroll', 'important');
+      navLinks.style.setProperty('-webkit-overflow-scrolling', 'touch', 'important');
     }
     if (hamburger) {
       hamburger.classList.add('active');
@@ -113,6 +115,8 @@ function initMobileNavigation() {
       navLinks.style.removeProperty('right');
       navLinks.style.removeProperty('display');
       navLinks.style.removeProperty('transform');
+      navLinks.style.removeProperty('overflow-y');
+      navLinks.style.removeProperty('-webkit-overflow-scrolling');
       navLinksParent.appendChild(navLinks);
     }
     if (hamburger) {
