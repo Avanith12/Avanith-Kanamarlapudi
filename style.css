@@ -1832,7 +1832,14 @@ html {
 
 /* ==================== PUBLICATIONS ==================== */
 .publications {
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: 1fr;
+}
+
+#publications .pub-content p,
+#publications .pub-content .pub-meta {
+  text-align: left !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
 }
 
 .pub-card {
@@ -1846,6 +1853,7 @@ html {
   transition: var(--transition);
   overflow: hidden;
   position: relative;
+  text-align: left;
 }
 
 .pub-card::before {
@@ -1871,26 +1879,39 @@ html {
 }
 
 .pub-img {
+  display: block;
   width: 100%;
-  height: 250px;
+  height: 100px;
   object-fit: cover;
-  transition: var(--transition);
+  object-position: top center;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid var(--card-border);
 }
 
 .pub-card:hover .pub-img {
-  transform: scale(1.08);
+  transform: none;
 }
 
 .pub-content {
-  padding: 1.8rem;
+  padding: 0.75rem 1.5rem 1rem;
+  text-align: left;
 }
 
 .pub-content h3 {
   color: var(--text-color);
-  font-size: 1.15rem;
-  margin-bottom: 1.2rem;
-  line-height: 1.6;
+  font-size: 1.05rem;
+  margin-bottom: 0.6rem;
+  line-height: 1.5;
   font-weight: 600;
+}
+
+.pub-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  margin-top: 0.5rem;
 }
 
 .pub-venue {
@@ -1899,11 +1920,12 @@ html {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-weight: 700;
-  margin: 1rem 0;
+  margin: 0;
   display: flex;
   align-items: center;
   gap: 0.6rem;
   font-size: 1.05rem;
+  text-align: left;
 }
 
 .pub-venue i {
