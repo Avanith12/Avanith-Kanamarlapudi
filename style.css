@@ -618,6 +618,7 @@ html {
 .monochrome-theme .article-highlights h4,
 .monochrome-theme .article-resources h4,
 .monochrome-theme .article-testimonials h4,
+.monochrome-theme .about-expertise-heading,
 .monochrome-theme .expertise-category h4,
 .monochrome-theme .exp-info h4,
 .monochrome-theme .exp-summary,
@@ -1513,6 +1514,79 @@ html {
   text-align: center;
   max-width: 900px;
   margin: 0 auto;
+}
+
+/* ==================== ABOUT SECTION ==================== */
+#about .about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+#about .about-intro {
+  padding: 1.5rem 1.5rem 1.5rem 1.75rem;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid var(--accent-color);
+  background: rgba(0, 146, 162, 0.06);
+  border-radius: 0 12px 12px 0;
+}
+
+#about .about-intro p {
+  text-align: left;
+  margin: 0;
+  max-width: none;
+  font-size: 1.1rem;
+  line-height: 1.85;
+  color: var(--text-color);
+}
+
+#about .about-intro p.about-love {
+  margin-top: 1rem;
+  font-style: italic;
+  color: var(--accent-color);
+  font-size: 1.05rem;
+}
+
+#about .about-lead {
+  text-align: left;
+  margin: 0 0 2rem;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  max-width: none;
+}
+
+#about .about-expertise-heading {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0 0 1.25rem;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.3px;
+}
+
+#about .expertise-highlights {
+  margin: 0 0 2.5rem;
+  padding: 0;
+}
+
+#about .about-outro {
+  margin-top: 0.5rem;
+}
+
+#about .about-outro p {
+  text-align: left;
+  margin: 0 0 1rem;
+  max-width: none;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+#about .about-outro p:last-child {
+  margin-bottom: 0;
 }
 
 /* ==================== SKILLS SECTION ==================== */
@@ -3829,6 +3903,20 @@ footer::before {
   .expertise-category p {
     font-size: 0.95rem;
     line-height: 1.6;
+  }
+
+  #about .about-content {
+    max-width: 100%;
+  }
+
+  #about .about-intro {
+    padding: 1.25rem 1.25rem 1.25rem 1.5rem;
+  }
+
+  #about .about-intro p,
+  #about .about-lead,
+  #about .about-outro p {
+    font-size: 1rem;
   }
 
   .hero {
