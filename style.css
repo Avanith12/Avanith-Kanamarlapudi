@@ -2004,6 +2004,13 @@ html {
   margin-top: 0.5rem;
 }
 
+.pub-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.35rem;
+}
+
 .pub-venue {
   background: var(--accent-gradient);
   -webkit-background-clip: text;
