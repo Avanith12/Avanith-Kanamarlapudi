@@ -2613,6 +2613,17 @@ html {
   border-radius: 8px;
 }
 
+.exp-logo-icon {
+  background: var(--accent-gradient);
+  color: white;
+  font-size: 1.5rem;
+}
+
+.monochrome-theme .exp-logo-icon {
+  background: #ffffff;
+  color: #000000;
+}
+
 .exp-info {
   flex: 1;
 }
