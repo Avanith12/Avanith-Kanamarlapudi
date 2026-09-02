@@ -1589,13 +1589,6 @@ html {
   margin-bottom: 0;
 }
 
-#about .about-aside {
-  margin-top: 1.25rem;
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  font-style: italic;
-}
-
 /* ==================== SKILLS SECTION ==================== */
 /* Skills table layout */
 .skills-table-wrapper {
